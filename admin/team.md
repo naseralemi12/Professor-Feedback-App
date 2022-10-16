@@ -16,4 +16,5 @@ Our Team Consists of:
 - Thomas Rexin              tjrexin@ucsd.edu  
 - Meihui Liu                mel013@ucsd.edu  
 
-~ Humor / Team Culture Stuff.
+## Team Mascot (Kangaroo):
+![](branding/mascot.png)
