@@ -8,7 +8,7 @@
 <li>Ricardo Aguilar is the team leader. He likes to.......</li>
 <li>Holden Adamec</li> 
 <li>Jacwa Lei</li>  
-<li>Harrison Kung</li>  
+<li>Harrison Kung is a team lead. He likes to bike and enjoys playing the piano.</li>  
 <li>Christian Velasquez</li>  
 <li>Thomas Rexin</li>  
 <li>Adam Alemi is one of the team members. When He gets stressed, he goes to the pool and swims all the stress out of his body. He is foody so if there is an event on campus that has food involved, then you will most likely see him there. Adam's personal page:<a href="https://chipper-kitsune-d5866b.netlify.app/"> Adam Alemi</a>. </li>
