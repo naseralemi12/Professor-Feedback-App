@@ -22,7 +22,7 @@
 </details>
 <h3>Team Manager: Ananya De</h3> 
 <table> <!-- The raster table for the team members containing two columns of name and page links -->
-<caption><strong>TEAM MEMBERS</strong></caption><tbody><tr><th>Name</th><td>Github Page</td></tr>
+<caption><strong>TEAM MEMBERS</strong></caption><tbody><tr><th><b>Name</b></th><td><b>Github Page</b></td></tr>
 <tr><th>Ricardo Aguilar</th><td>Github Page</td></tr>
 <tr><th>Holden Adamec</th><td>hackerlife.tech</td></tr>
 <tr><th>Jacwa Lei</th><td>Github Page</td></tr>
