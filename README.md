@@ -30,7 +30,7 @@
 <tr><th>Christian Velasquez</th><td>Github Page</td></tr>
 <tr><th>Thomas Rexin</th><td>Github Page</td></tr>
  <tr><th>Adam Alemi</th><td><a href="https://github.com/naseralemi12">Adam's Github</a></td></tr>
-<tr><th>Meihui Liu</th><td>Github Page</td></tr>
+ <tr><th>Meihui Liu</th><td><a href="https://github.com/number000000">Github Page</a></td></tr>
 <tr><th>Chris Chen</th><td>Github Page</td></tr>
 <tr><th>Kenny Fong</th><td>Github Page</td></tr>
 </tbody></table>
