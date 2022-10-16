@@ -1,5 +1,5 @@
 # Team 31
-![Brand](\branding\logo.png)
+![Brand](branding\logo.png)
 
 ** We are Team 31, group 31 for CSE 110! Our team believes in the value of cooperation and quality.
 We strive to drive everyone to be the best versions of themselves, whatever from mistakes or failure.** 
