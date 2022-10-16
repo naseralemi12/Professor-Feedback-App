@@ -26,7 +26,7 @@
 <tr><th>Ricardo Aguilar</th><td>Github Page</td></tr>
 <tr><th>Holden Adamec</th><td>hackerlife.tech</td></tr>
 <tr><th>Jacwa Lei</th><td>Github Page</td></tr>
-<tr><th>Harrison Kung</th><td>Github Page</td></tr>
+<tr><th>Harrison Kung</th><td><a href="https://github.com/kungharrison">Harrison's Git Page<a></td></tr>
 <tr><th>Christian Velasquez</th><td>Github Page</td></tr>
 <tr><th>Thomas Rexin</th><td>Github Page</td></tr>
 <tr><th>Adam Alemi</th><td>https://github.com/naseralemi12</td></tr>
