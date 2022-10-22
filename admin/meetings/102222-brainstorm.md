@@ -6,7 +6,7 @@
 - Meeting Location: Zoom
 
 ## Attendance:
-  - **Missing: Christian Velasquez, Jacwa Liu**
+  - **Missing: Christian Velasquez**
   - Ricardo Aguilar
   - Harrison Kung
   - Chirs Chen
@@ -15,6 +15,7 @@
   - Meihui Liu
   - Thomas Rexin
   - Adam Alemi
+  - Jacwa Lei
 
 ## Agenda:
 - Brainstorming activity
