@@ -1,0 +1,20 @@
+{
+  "name": "team-31-project",
+  "version": "1.0.0",
+  "description": "This app helps professors manage student feedback",
+  "main": "script.js",
+  "scripts": {
+    "test": "node testing/tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse110-fa22-group31/cse110-fa22-group31.git"
+  },
+  "author": "Team 31",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse110-fa22-group31/cse110-fa22-group31/issues"
+  },
+  "homepage": "https://github.com/cse110-fa22-group31/cse110-fa22-group31#readme",
+  "devDependencies": {}
+}
