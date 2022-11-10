@@ -54,13 +54,11 @@ function init() {
             let cell3 = newRow.insertCell(2);
             cell3.innerHTML = dialogInput.feedBack;
             let cell4 = newRow.insertCell(3);
-<<<<<<< HEAD
 
             let viewPage = document.createElement("button");
             viewPage.innerHTML = "View Feedback";
             //when the deleteButton is clicked, the row should be deleted
             viewPage.onclick = function(){
-=======
                 if (typeof viewTable.showModal === "function") { // check if the dialog is already open or not
                     viewTableDialog.showModal(); // open the dialog box
                 }
