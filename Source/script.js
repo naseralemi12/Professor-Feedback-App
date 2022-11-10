@@ -57,9 +57,9 @@ function init() {
             cell4.innerHTML = '<button type="button" class="deleteButton">Delete Feedback</button>';
             let cell5 = newRow.insertCell(4);
             cell5.innerHTML = '<button type="button" class="viewPage">View Feedback</button>';
-
+            
+            //when the view is clicked, the feedback window should pop up
             let viewPage = document.querySelector('.viewPage');
-            //when the deleteButton is clicked, the row should be deleted
             viewPage.addEventListener('click', () => {
                 if (typeof viewTable.showModal === "function") { // check if the dialog is already open or not
                     viewTableDialog.showModal(); // open the dialog box
