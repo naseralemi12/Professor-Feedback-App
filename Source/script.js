@@ -54,26 +54,28 @@ function init() {
             let cell3 = newRow.insertCell(2);
             cell3.innerHTML = dialogInput.feedBack;
             let cell4 = newRow.insertCell(3);
-            cell4.innerHTML = '<button type="button" class="deleteButton">Delete Feedback</button>';
-            let cell5 = newRow.insertCell(4);
-            cell5.innerHTML = '<button type="button" class="viewPage">View Feedback</button>';
 
-            let viewPage = document.querySelector('.viewPage');
+            let viewPage = document.createElement("button");
+            viewPage.innerHTML = "View Feedback";
             //when the deleteButton is clicked, the row should be deleted
-            viewPage.addEventListener('click', () => {
+            viewPage.onclick = function(){
                 if (typeof viewTable.showModal === "function") { // check if the dialog is already open or not
                     viewTableDialog.showModal(); // open the dialog box
                 }
                 let rowIdx = viewPage.parentNode.parentNode.rowIndex;
                 viewcell1.innerHTML = table.rows[rowIdx-1].cells[0].innerHTML;
                 viewcell2.innerHTML = table.rows[rowIdx-1].cells[2].innerHTML;;
-            });
+            };
+            cell4.appendChild(viewPage);
 
-            let deleteButton = document.querySelector('.deleteButton');
+            let cell5 = newRow.insertCell(4);
+            let deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete Feedback"
             //when the deleteButton is clicked, the row should be deleted
-            deleteButton.addEventListener('click', () => {
+            deleteButton.onclick = function(){
                 deleteButton.parentNode.parentNode.remove();
-            });
+            };
+            cell5.appendChild(deleteButton);
 
         } else {
             currentRow.cells[0].innerHTML = dialogInput.className;;
