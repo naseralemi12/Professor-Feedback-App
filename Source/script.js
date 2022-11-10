@@ -14,6 +14,7 @@ function init() {
     let closeFeedbackDialog = document.getElementById('closeButton'); // close the feedbacks dialog box
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
 
+
     //when the newFeedbackButton is clicked, th dialog box should open
     newFeedbackButton.addEventListener('click', () => {
         if (typeof dialog.showModal === "function") { // check if the dialog is already open or not
@@ -42,6 +43,16 @@ function init() {
             cell2.innerHTML = dialogInput.date;
             let cell3 = newRow.insertCell(2);
             cell3.innerHTML = dialogInput.feedBack;
+            let cell4 = newRow.insertCell(3);
+            cell4.innerHTML = '<button type="button" id="deleteFeedback">Delete Feedback</button>';
+
+            let deleteButton = document.getElementById('deleteFeedback');
+            //when the deleteButton is clicked, the row should be deleted
+            deleteButton.addEventListener('click', () => {
+                table.deleteRow(deleteButton.parentNode.parentNode.rowIndex - 1);
+            });
+
+
         } else {
             currentRow.cells[0].innerHTML = dialogInput.className;;
             currentRow.cells[1].innerHTML = dialogInput.date;
