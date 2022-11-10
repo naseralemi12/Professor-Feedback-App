@@ -16,6 +16,15 @@ function init() {
     let viewTableDialog = document.getElementById('viewTable'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let viewTableCloseButton = document.getElementById('viewCloseB');
 
+    
+    // create view table
+    var table = document.getElementById("feedbackList").getElementsByTagName('tbody')[0];
+    var viewFeedbackTable = document.getElementById("viewList").getElementsByTagName('tbody')[0];
+    let newViewRow = viewFeedbackTable.insertRow(-1);
+    let viewcell1 = newViewRow.insertCell(0);
+    let newViewRow2 = viewFeedbackTable.insertRow(-1);
+    let viewcell2 = newViewRow2.insertCell(0);
+
     //when the newFeedbackButton is clicked, th dialog box should open
     newFeedbackButton.addEventListener('click', () => {
         if (typeof dialog.showModal === "function") { // check if the dialog is already open or not
@@ -37,7 +46,6 @@ function init() {
         dialogInput.feedBack = document.querySelector("textarea").value;
 
         if (firstRow == null) {
-            let table = document.getElementById("feedbackList").getElementsByTagName('tbody')[0];
             let newRow = table.insertRow(-1);
             let cell1 = newRow.insertCell(0);
             cell1.innerHTML = dialogInput.className;
@@ -50,23 +58,15 @@ function init() {
             let cell5 = newRow.insertCell(4);
             cell5.innerHTML = '<button type="button" class="viewPage">View Feedback</button>';
 
-            // view part
-            var viewFeedbackTable = document.getElementById("viewList").getElementsByTagName('tbody')[0];
-                let newViewRow = viewFeedbackTable.insertRow(-1);
-                let viewcell1 = newViewRow.insertCell(0);
-                viewcell1.innerHTML = "Title";
-                let newViewRow2 = viewFeedbackTable.insertRow(-1);
-                let viewcell2 = newViewRow2.insertCell(0);
-                viewcell2.innerHTML = "Feedback";
-
             let viewPage = document.querySelector('.viewPage');
             //when the deleteButton is clicked, the row should be deleted
             viewPage.addEventListener('click', () => {
                 if (typeof viewTable.showModal === "function") { // check if the dialog is already open or not
                     viewTableDialog.showModal(); // open the dialog box
                 }
-                viewcell1.innerHTML = "Title";
-                viewcell2.innerHTML = "Feedback";
+                let rowIdx = viewPage.parentNode.parentNode.rowIndex;
+                viewcell1.innerHTML = table.rows[rowIdx-1].cells[0].innerHTML;
+                viewcell2.innerHTML = table.rows[rowIdx-1].cells[2].innerHTML;;
             });
 
             let deleteButton = document.querySelector('.deleteButton');
