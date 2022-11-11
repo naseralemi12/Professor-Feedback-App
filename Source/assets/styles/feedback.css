@@ -1,0 +1,59 @@
+/* General setup*/
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+html {
+    font-size: 20px;
+    background-color: #d8d4dd;
+}
+  
+body {
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+header {
+    display: inline;
+    text-align: center ;
+}
+
+h3 { 
+    display: block;
+    text-align: center;
+    font-size: x-large;
+}
+
+/* STYLING FOR <A> AS BUTTON */
+
+#addComment:link, #addComment:visited{
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px 20px;
+
+    background-color: rgb(207, 207, 207);
+    color:black;
+
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+}
+
+#addComment:hover, #addComment:active{
+    background-color: rgb(187, 187, 187);
+}
+
+/* END <A> STYLING */
+
+.commentLinks {
+    display: block;
+}
+
+.commentLinks a {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}

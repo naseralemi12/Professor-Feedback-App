@@ -1,13 +1,11 @@
-/* || General setup */
-
 html, body {
     margin: 0;
     padding: 0;
   }
   
   html {
-    font-size: 10px;
-    background-color: #a9a9a9;
+    font-size: 20px;
+    background-color: white;
   }
   
   body {
@@ -15,46 +13,27 @@ html, body {
     margin: 0 auto;
   }
 
-  /* ~~ Rest of page styling */
-  img {
-    width: 50%;
-    /*Css is confusing*/
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+form {
+    display:inline;
+    border: none;
+}
 
-  header {
-    display: inline;
-    text-align: center ;
-  }
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
-  h3 {
-    display: block;
-    text-align: center;
-    font-size: x-large;
-  }
-  /* Nav Styling */
-  nav {
-    background-color: white;
-    padding: 1%;
 
-    height: 50px;
+button {
     background-color: grey;
-    display: flex;
-    margin-bottom: 10px;
-  }
-
-  nav ul {
-    padding: 0;
-    list-style-type: none;
-    flex: 2;
-    display: flex;
-  }
-
-  nav li {
-    display: inline;
-    text-align: center;
-    font-size: x-large;
-    flex: 1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
   }
