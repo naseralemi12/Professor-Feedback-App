@@ -14,7 +14,7 @@ body {
     margin: 0 auto;
 }
 
-h1 { 
+h3 { 
     display: block;
     text-align: left;
     font-size: medium;
@@ -27,7 +27,7 @@ small {
 }
 
 
-h3 { 
+h1 { 
     display: block;
     text-align: center;
     font-size: xx-large;
@@ -35,7 +35,7 @@ h3 {
 
 /* STYLING FOR <A> AS BUTTON */
 
-#addStudentComment:link, #addStudentComment:visited{
+#addProfComment:link, #addProfComment:visited{
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
@@ -49,7 +49,7 @@ h3 {
     display:inline-block;
 }
 
-#addStudentComment:hover, #addStudentComment:active{
+#addProfComment:hover, #addProfComment:active{
     background-color: rgb(187, 187, 187);
 }
 

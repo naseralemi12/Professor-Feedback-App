@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-  <title>Student's Feedback Information</title>
+  <title>Student's Add Comment</title>
 
-  <link rel="stylesheet" href="../assets/styles/feedbackstudent.css">
+  <link rel="stylesheet" href="../assets/styles/studentcomment.css">
 </head>
 
 <body>
@@ -16,16 +16,19 @@
   <h2>Feedback Title</h2>
 
   <!-- Textbox -->
-  <textarea id="w3review" name="w3review" rows="4" cols="50">
+  <textarea id="stucommenttxt" name="stucommenttxt" rows="4" cols="50">
     Insert Comment Content
     </textarea>
 
   <h3>Post Anonymously</h3>
 
-  <input type="checkbox" id="yesAnon" name="checkbox1">
-  <label for="yesCheck"> Yes</label><br>
-  <input type="checkbox" id="noAnon" name="checkbox2">
-  <label for="noCheck"> No</label><br>
+  <!-- Anonymous Checkbox -->
+  <div class="inline">
+    <input type="checkbox" id="yesAnon" name="checkbox1" value="test">
+    <label for="yesCheck"> Yes</label><br>
+    <input type="checkbox" id="noAnon" name="checkbox2" value="test">
+    <label for="noCheck"> No</label><br>
+  </div>
 
   <a> 
     <Button>Submit</Button>
