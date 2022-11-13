@@ -55,7 +55,6 @@ function init() {
             let cell3 = newRow.insertCell(2);
             cell3.innerHTML = dialogInput.category;
             let cell4 = newRow.insertCell(3);
-            cell4.innerHTML = dialogInput.feedBack;
 
             let viewPage = document.createElement("button");
             viewPage.innerHTML = "View Feedback";
@@ -65,8 +64,8 @@ function init() {
                     viewTableDialog.showModal(); // open the dialog box
                 }
                 let rowIdx = viewPage.parentNode.parentNode.rowIndex;
-                viewcell1.innerHTML = table.rows[rowIdx-1].cells[0].innerHTML;
-                viewcell2.innerHTML = table.rows[rowIdx-1].cells[2].innerHTML;;
+                viewcell1.innerHTML = dialogInput.feedBack;
+                viewcell2.innerHTML = table.rows[rowIdx-1].cells[3].innerHTML;;
             };
             cell4.appendChild(viewPage);
 
