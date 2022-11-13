@@ -11,14 +11,14 @@
 
 <body>
     <!--The buttons for the professor interface-->
-    <button type="button" id="newFeedback">New FeedBack</button>
+    <button type="button" id="newFeedback">New Feedback</button>
     <!--This button will open a dialog box which will allow the user for new feedback-->
     <dialog id="dialogBox">
         <form method="dialog" autocomplete="off">
             <p><label for="title">Class Name :
             <input type="text" id="title" name="title" width="16ch">
           </label></p>
-            <p><label for="date">Blog Date : <input type="date" id="date" name="date" width="20ch"></label></p>
+            <p><label for="date">Date : <input type="date" id="date" name="date" width="20ch"></label></p>
             <p><label style="float:left" for="summary">FeedBack :&nbsp </label><textarea rows="3" cols="20" id="summary" name="summary"></textarea></p>
             <div>
                 <button id="saveButton" value="submit" type="submit">Save</button>
@@ -27,17 +27,17 @@
         </form>
     </dialog>
 
-    <button type="button" id="updateFeedback">Update Feedback</button>
-    <button type="button" id="deleteFeedback">Delete Feedback</button>
+    <!-- <button type="button" id="updateFeedback">Update Feedback</button> -->
+    <!-- <button type="button" id="deleteFeedback">Delete Feedback</button> -->
 
     <button type="button" id="viewFeedback">View Feedbacks</button>
     <dialog id="feedbackListTable">
         <table class="list" id="feedbackList">
             <thead>
                 <tr>
-                    <th class="headers">Class Name </th>
-                    <th class="headers"> Date</th>
-                    <th class="headers"> FeedBack</th>
+                    <th class="headers">Class </th>
+                    <th class="headers"> Date </th>
+                    <th class="headers"> Feedback</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +46,20 @@
         <button type="button" id="closeButton">Close</button>
     </dialog>
     <div id="confirmationMessage"></div>
+    
+    <dialog id="viewTable">
+        <table class="list" id="viewList">
+            <thead>
+                <tr>
+                    <th class="headers"></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button type="button" id="viewCloseB">Close</button>
+    </dialog>
+
 </body>
 <footer>
 
@@ -63,14 +77,14 @@
 
 <body>
     <!--The buttons for the professor interface-->
-    <button type="button" id="newFeedback">New FeedBack</button>
+    <button type="button" id="newFeedback">New Feedback</button>
     <!--This button will open a dialog box which will allow the user for new feedback-->
     <dialog id="dialogBox">
         <form method="dialog" autocomplete="off">
             <p><label for="title">Class Name :
             <input type="text" id="title" name="title" width="16ch">
           </label></p>
-            <p><label for="date">Blog Date : <input type="date" id="date" name="date" width="20ch"></label></p>
+            <p><label for="date">Date : <input type="date" id="date" name="date" width="20ch"></label></p>
             <p><label style="float:left" for="summary">FeedBack :&nbsp </label><textarea rows="3" cols="20" id="summary" name="summary"></textarea></p>
             <div>
                 <button id="saveButton" value="submit" type="submit">Save</button>
@@ -79,17 +93,17 @@
         </form>
     </dialog>
 
-    <button type="button" id="updateFeedback">Update Feedback</button>
-    <button type="button" id="deleteFeedback">Delete Feedback</button>
+    <!-- <button type="button" id="updateFeedback">Update Feedback</button> -->
+    <!-- <button type="button" id="deleteFeedback">Delete Feedback</button> -->
 
     <button type="button" id="viewFeedback">View Feedbacks</button>
     <dialog id="feedbackListTable">
         <table class="list" id="feedbackList">
             <thead>
                 <tr>
-                    <th class="headers">Class Name </th>
-                    <th class="headers"> Date</th>
-                    <th class="headers"> FeedBack</th>
+                    <th class="headers">Class </th>
+                    <th class="headers"> Date </th>
+                    <th class="headers"> Feedback</th>
                 </tr>
             </thead>
             <tbody>
@@ -98,6 +112,20 @@
         <button type="button" id="closeButton">Close</button>
     </dialog>
     <div id="confirmationMessage"></div>
+    
+    <dialog id="viewTable">
+        <table class="list" id="viewList">
+            <thead>
+                <tr>
+                    <th class="headers"></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button type="button" id="viewCloseB">Close</button>
+    </dialog>
+
 </body>
 <footer>
 
