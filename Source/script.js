@@ -43,6 +43,7 @@ function init() {
         let dialogInput = {};
         dialogInput.className = document.getElementById("title").value;
         dialogInput.date = document.getElementById("date").value;
+        dialogInput.category = document.getElementById("category").name;
         dialogInput.feedBack = document.querySelector("textarea").value;
 
         if (firstRow == null) {
@@ -52,8 +53,9 @@ function init() {
             let cell2 = newRow.insertCell(1);
             cell2.innerHTML = dialogInput.date;
             let cell3 = newRow.insertCell(2);
-            cell3.innerHTML = dialogInput.feedBack;
+            cell3.innerHTML = dialogInput.category;
             let cell4 = newRow.insertCell(3);
+            cell4.innerHTML = dialogInput.feedBack;
 
             let viewPage = document.createElement("button");
             viewPage.innerHTML = "View Feedback";
@@ -80,7 +82,8 @@ function init() {
         } else {
             currentRow.cells[0].innerHTML = dialogInput.className;;
             currentRow.cells[1].innerHTML = dialogInput.date;
-            currentRow.cells[2].innerHTML = dialogInput.feedBack;;
+            currentRow.cells[2].innerHTML = dialogInput.category;
+            currentRow.cells[3].innerHTML = dialogInput.feedBack;
         }
         resetForm();
         console.log("saved");
@@ -91,6 +94,7 @@ function init() {
     let resetForm = () => {
         document.getElementById("title").value = "";
         document.getElementById("date").value = "";
+        document.getElementById("category").value = "";
         document.querySelector("textarea").value = "";
         currentRow = null;
     }

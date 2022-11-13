@@ -16,7 +16,11 @@
     <dialog id="dialogBox">
         <form method="dialog" autocomplete="off">
             <p><label for="title">Class Name :<input type="text" id="title" name="title" width="16ch"></label></p>
-            <p><label for="category">Category :<input type="radio" id="category" name="category" width="16ch"></label></p>
+            <p><label for="category">Category :
+                <input type="radio" id="category" name="exams" width="16ch">Exams
+                <input type="radio" id="category" name="lectures" width="16ch">Lectures
+                <input type="radio" id="category" name="discussions" width="16ch">Discussions
+            </label></p>
             <p><label for="date">Blog Date : <input type="date" id="date" name="date" width="20ch"></label></p>
             <p><label style="float:left" for="summary">FeedBack :&nbsp </label><textarea rows="3" cols="20" id="summary" name="summary"></textarea></p>
             <div>
@@ -35,8 +39,9 @@
             <thead>
                 <tr>
                     <th class="headers">Class </th>
-                    <th class="headers"> Date </th>
-                    <th class="headers"> Feedback</th>
+                    <th class="headers">Date </th>
+                    <th class="headers">Category </th>
+                    <th class="headers">Feedback</th>
                 </tr>
             </thead>
             <tbody>
