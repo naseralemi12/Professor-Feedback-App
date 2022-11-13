@@ -12,6 +12,7 @@ html {
 body {
     width: 70%;
     margin: 0 auto;
+    text-align: center;
 }
 
 
@@ -29,6 +30,7 @@ h3 {
 /* STYLING FOR <A> AS BUTTON */
 
 #addComment:link, #addComment:visited{
+    margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
@@ -46,14 +48,77 @@ h3 {
     background-color: rgb(187, 187, 187);
 }
 
-/* END <A> STYLING */
+#nextPageButton:link, #nextPageButton:visited{
+    margin-top: 7px;
+    margin-left: 62%;
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px 20px;
+
+    background-color: rgb(115, 115, 115);
+    color:black;
+    
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+}
+
+#nextPageButton:hover, #nextPageButton:active{
+    background-color: rgb(187, 187, 187);
+}
+
+#logOutButton:link, #logOutButton:visited{
+    margin-top: 10%;
+    margin-left: 63%;
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px 20px;
+
+    background-color: rgb(115, 115, 115);
+    color:black;
+
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+}
+
+#logOutButton:hover, #logOutButton:active{
+    background-color: rgb(187, 187, 187);
+}
 
 .commentLinks {
     display: block;
 }
 
-.commentLinks a {
+
+.ALinks:link, .ALinks:visited{
     display: flex;
     justify-content: center;
-    font-size: x-large;
+    background-color: aliceblue;
+    color:black;
+
+    border: 2px solid black;
+
+    /* Center boxes inside div */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;  
+
+    padding: 5px;
+    width: 70%;
+
+    text-align: center;
+    text-decoration: none;
 }
+
+.Alinks:hover, .Alinks:active{
+    background-color: rgb(250, 118, 118);
+}
+
+
+
+
+/* logOutButton */
+/* END <A> STYLING */

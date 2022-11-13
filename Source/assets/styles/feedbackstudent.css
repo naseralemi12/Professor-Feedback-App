@@ -12,6 +12,7 @@ html {
 body {
     width: 70%;
     margin: 0 auto;
+    text-align: center;
 }
 
 h1 { 
@@ -20,12 +21,35 @@ h1 {
     font-size: medium;
 }
 
-small { 
-    display: block;
-    text-align: center;
-    font-size: medium;
+.textbox {  
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgb(78, 94, 119);
+    width: 70%;
+    height: 200px;
+    background-color: rgb(233, 233, 233);
+    font-size: x-large;
 }
 
+
+.commentBox {  
+    display: block;
+    justify-content: center;
+    background-color: aliceblue;
+    color:black;
+    height: fit-content;
+    border: 2px solid black;
+
+    /* Center boxes inside div */
+    margin-top: 10px;  
+}
+
+.commentBox p{  
+    text-align: left;
+    padding-left: 1%;
+    font-size: medium;
+}
 
 h3 { 
     display: block;
@@ -35,7 +59,9 @@ h3 {
 
 /* STYLING FOR <A> AS BUTTON */
 
-#addStudentComment:link, #addStudentComment:visited{
+#addStudentComment {
+    margin-top: 10px;
+    margin-right: 86%;
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
@@ -43,24 +69,49 @@ h3 {
     
     background-color: rgb(207, 207, 207);
     color:black;
-
     text-align: center;
     text-decoration: none;
     display:inline-block;
 }
 
 #addStudentComment:hover, #addStudentComment:active{
+    margin-top: 10px;
+    margin-right: 86%;
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px 20px;
+    
+    color:black;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
     background-color: rgb(187, 187, 187);
 }
 
 /* END <A> STYLING */
 
 .commentLinks {
-    display: block;
+    display: inline-block;
+    width: 100%;
 }
 
 .commentLinks a {
-    display: flex;
     justify-content: center;
-    font-size: x-large;
+    font-size: large;
+}
+
+#goback {
+    margin-top: 5%;
+    margin-left: 91%;
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px 20px;
+    
+    background-color: rgb(207, 207, 207);
+    color:black;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
 }

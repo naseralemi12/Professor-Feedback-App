@@ -58,3 +58,8 @@ html, body {
     font-size: x-large;
     flex: 1;
   }
+
+.button {
+  text-decoration: none;
+  color: black;
+}
