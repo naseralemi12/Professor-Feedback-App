@@ -13,6 +13,7 @@ const it = (desc, fn) => {
     console.log('\n');
     console.log('\x1b[31m%s\x1b[0m', `\u2718 ${desc}`);
     console.error(error);
+    core.setFailed(error.message);
   }
 };
 
