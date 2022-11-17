@@ -32,9 +32,6 @@ jobs:
         working-directory: ./Source
       - run: npm test
 
-    steps:
-      - name: 
-
   run-linters:
     name: Run linters
     runs-on: ubuntu-latest
