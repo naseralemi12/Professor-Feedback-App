@@ -31,23 +31,24 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: cd Source && npm test
 
-  run-linters:
-    name: Run linters
-    runs-on: ubuntu-latest
+  # commenting out this linter because it's too strict, will add a new one soon
+  # run-linters:
+  #   name: Run linters
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          # Full git history is needed to get a proper
-          # list of changed files within `super-linter`
-          fetch-depth: 0
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v3
+  #       with:
+  #         # Full git history is needed to get a proper
+  #         # list of changed files within `super-linter`
+  #         fetch-depth: 0
 
-      ################################
-      # Run Linter against code base #
-      ################################
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
+  #     ################################
+  #     # Run Linter against code base #
+  #     ################################
+  #     - name: Lint Code Base
+  #       uses: github/super-linter@v4
+  #       env:
+  #         VALIDATE_ALL_CODEBASE: false
+  #         DEFAULT_BRANCH: main
