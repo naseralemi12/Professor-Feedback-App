@@ -41,10 +41,21 @@ function init() {
     //when save button is clicked, the class name, date and feedback needs to be saved and ready to be shown
     saveButton.addEventListener('click', () => {
         let dialogInput = {};
-        dialogInput.className = document.getElementById("title").value;
-        dialogInput.date = document.getElementById("date").value;
-        dialogInput.category = document.getElementById("category").name;
-        dialogInput.feedBack = document.querySelector("textarea").value;
+        dialogInput.className = document.getElementById("title")?.value;
+        dialogInput.date = document.getElementById("date")?.value;
+        dialogInput.category = document.getElementById("category")?.name;
+        dialogInput.feedBack = document.querySelector("textarea")?.value;
+
+        // check if class exists in local storage
+        if(localStorage.classList==undefined){localStorage.setItem("classList",JSON.stringify([]));} 
+        // maybe move this somewhere where it doesnt need to be run repeatedly
+        let classList = JSON.parse(localStorage.getItem("classList"));
+        // add class if doesnt exist
+        if (!classList?.includes(dialogInput.className)){
+            classList?.push(dialogInput.className);
+            localStorage.setItem("classList", JSON.stringify(classList));
+        }
+        
 
         if (firstRow == null) {
             let newRow = table.insertRow(-1);
