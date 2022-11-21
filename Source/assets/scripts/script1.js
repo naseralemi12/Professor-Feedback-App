@@ -7,7 +7,7 @@ function init(){
     const submitButton = document.getElementById("submitB");
     submitButton?.addEventListener('click', () => {
         const commentObject=new Object();
-        commentObject["title"] = document.getElementById("FeedbackTitle");
+        commentObject["title"] = document.getElementById("FeedbackTitle").value;
         commentObject["classname"] = classname?.innerHTML;
         commentObject["category"] = document.querySelector('.categoryCheckbox:checked').value;
         commentObject["feedBack"] = document.querySelector("textarea").value;
