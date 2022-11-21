@@ -59,7 +59,7 @@ class SingleComment extends HTMLElement {
      *                        {
      *                          "title": "string",
      *                          "classname": "string",
-     *                          "date": "string",
+     *                          "category": "string",
      *                          "feedBack": "textarea",
      *                        }
      */
@@ -72,8 +72,8 @@ class SingleComment extends HTMLElement {
       addedArticle.innerHTML=`
         <p class="title">`+data.title+`</p>
         <p class="classname">`+data.classname+`</p>
-        <div class="date">
-          <span>(`+data.date+`)</span>
+        <div class="category">
+          <span>(`+data.category+`)</span>
         </div>
         <p class="feedback_content">`
           +data.feedBack+

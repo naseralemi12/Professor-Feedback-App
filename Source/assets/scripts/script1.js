@@ -1,13 +1,14 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
 function init(){
-    const classname = document.getElementById("Classname");
+    var classname = document.getElementById("Classname");
     const passingvalue = window.location.search;
     classname.innerHTML="CSE110";
     const submitButton = document.getElementById("submitB");
     submitButton?.addEventListener('click', () => {
         const commentObject=new Object();
-        commentObject["classname"] = classname;
+        commentObject["title"] = document.getElementById("FeedbackTitle");
+        commentObject["classname"] = classname?.innerHTML;
         commentObject["category"] = document.querySelector('.categoryCheckbox:checked').value;
         commentObject["feedBack"] = document.querySelector("textarea").value;
         const temp = document.createElement('the-element');
