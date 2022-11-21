@@ -15,13 +15,16 @@
     <!--This button will open a dialog box which will allow the user for new feedback-->
     <dialog id="dialogBox">
         <form method="dialog" autocomplete="off">
-            <p><label for="title">Class Name :
+            <p><label for="className">Class Name :
+                <input type="text" id="className" name="className" width="16ch"></label></p>
+            <p><label for="title">Title :
                 <input type="text" id="title" name="title" width="16ch"></label></p>
-            <p><label for="category">Category :
-                <input type="radio" id="category" name="exams" width="16ch">Exams
-                <input type="radio" id="category" name="lectures" width="16ch">Lectures
-                <input type="radio" id="category" name="discussions" width="16ch">Discussions    
-            </label></p>
+            <p>
+                <legend>Category:</legend>
+                <input type="radio" id="categoryChoice1" name="category" width="16ch" value="exams"><label for="categoryChoice1">Exams</label>
+                <input type="radio" id="categoryChoice2" name="category" width="16ch" value="lectures"><label for="categoryChoice2">Lectures</label>
+                <input type="radio" id="categoryChoice3" name="category" width="16ch" value="discussions"><label for="categoryChoice3">Discussions</label>
+            </p>
             <p><label for="date">Blog Date : <input type="date" id="date" name="date" width="20ch"></label></p>
             <p><label style="float:left" for="summary">FeedBack :&nbsp </label><textarea rows="3" cols="20" id="summary" name="summary"></textarea></p>
             <div>
