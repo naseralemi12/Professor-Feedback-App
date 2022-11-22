@@ -37,45 +37,6 @@ function init() {
         const curcomments = getCommentsFromStorage();
         curcomments.push(dialogObj);
         saveCommentToStorage(curcomments);
-
-        // if (firstRow == null) {
-        //     let newRow = table.insertRow(-1);
-        //     let cell1 = newRow.insertCell(0);
-        //     cell1.innerHTML = dialogInput.className;
-        //     let cell2 = newRow.insertCell(1);
-        //     cell2.innerHTML = dialogInput.date;
-        //     let cell3 = newRow.insertCell(2);
-        //     cell3.innerHTML = dialogInput.category;
-        //     let cell4 = newRow.insertCell(3);
-
-        //     let viewPage = document.createElement("button");
-        //     viewPage.innerHTML = "View Feedback";
-        //     //when the deleteButton is clicked, the row should be deleted
-        //     viewPage.onclick = function(){
-        //         if (typeof viewTable.showModal === "function") { // check if the dialog is already open or not
-        //             viewTableDialog.showModal(); // open the dialog box
-        //         }
-        //         let rowIdx = viewPage.parentNode.parentNode.rowIndex;
-        //         viewcell1.innerHTML = dialogInput.feedBack;
-        //         viewcell2.innerHTML = table.rows[rowIdx-1].cells[3].innerHTML;;
-        //     };
-        //     cell4.appendChild(viewPage);
-
-        //     let cell5 = newRow.insertCell(4);
-        //     let deleteButton = document.createElement("button");
-        //     deleteButton.innerHTML = "Delete Feedback"
-        //     //when the deleteButton is clicked, the row should be deleted
-        //     deleteButton.onclick = function(){
-        //         deleteButton.parentNode.parentNode.remove();
-        //     };
-        //     cell5.appendChild(deleteButton);
-
-        // } else {
-        //     currentRow.cells[0].innerHTML = dialogInput.className;;
-        //     currentRow.cells[1].innerHTML = dialogInput.date;
-        //     currentRow.cells[2].innerHTML = dialogInput.category;
-        //     currentRow.cells[3].innerHTML = dialogInput.feedBack;
-        // }
         resetForm();
         console.log("saved");
         confirmationMessage.textContent = "Feedback saved!";
@@ -141,7 +102,7 @@ function init() {
     
     // this will trigger the dialog box that has all the feedbacks so the user can see them
     viewFeedbackButton.addEventListener('click', () => {
-        const currentComments = getCommentsFromStorage();
+        let currentComments = getCommentsFromStorage();
         const dropdownList = document.getElementById("classSelect");
         const classList = JSON.parse(localStorage.classList);
 
@@ -197,24 +158,14 @@ function init() {
                 // TODO: get comments from storage delete the item at the index
                 //       then save it back into storage and reload the view
                 console.log(currentComments[i].classname);
-                currentComments.slice(i);
+                //update localStorage by removing element
+                if(i-1 >=0 && i+1 < currentComments.length){
+                    let tempArr1 = currentComments.slice(0,i-1);
+                    let tempArr = currentComments.slice(i+1);
+                    currentComments = tempArr.concat(tempArr);
+                }
             });
         }
     });
-
-
-
-
-    // // this will close the dialog box that has the feedbacks list
-    // closeFeedbackDialog.addEventListener('click', () => {
-    //     viewFeedbackDialog.close();
-    // });
-
-    // // this will close the dialog box that has the view list
-    // viewTableCloseButton.addEventListener('click', () => {
-    //     viewTableDialog.close();
-    // });
-
-
 
 }
