@@ -7,15 +7,8 @@ function init() {
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
     let dialog = document.querySelector('dialog'); // this element is the dialog box itself
     let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
-
-    // remove these
-    // let firstRow = null; // this is the first row of the table
-    // let currentRow = null; // this is the row that is currently selected and is under work 
-
-
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
     let viewFeedbackDialog = document.getElementById('feedbackListTable'); //this dialog box will be triggered by view feedbacks button and
-    //let closeFeedbackDialog = document.getElementById('closeButton'); // close the feedbacks dialog box
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
 
     //when the newFeedbackButton is clicked, th dialog box should open
