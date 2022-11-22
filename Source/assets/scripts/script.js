@@ -61,13 +61,30 @@ function init() {
     /* 
      *This Part is for student_add_comment
      */
+    const checkboxlist = document.getElementById("ctgrlist");
+    const currentCategoryList = JSON.parse(localStorage.getItem(currentClass));
+    for(let i=0;i<currentCategoryList.length;i++){
+        var ctgr = document.createElement("INPUT");
+        var ctgrname = document.createTextNode(currentCategoryList[i]);
+        ctgr.setAttribute("type", "checkbox");
+        ctgr.setAttribute("value",currentCategoryList[i]);
+        ctgr.setAttribute("name","Categories_of_Class");
+        ctgr.innerHTML=currentCategoryList[i];
+        checkboxlist?.appendChild(ctgrname);
+        checkboxlist?.appendChild(ctgr);
+    }
     document.getElementById("Classname").innerHTML=currentClass;
     const submitButton = document.getElementById("submitB");
     submitButton?.addEventListener('click', () => {
         const commentObject=new Object();
         commentObject["title"] = document.getElementById("FeedbackTitle").value;
-        commentObject["classname"] = currentClass.innerHTML;
-        commentObject["category"] = document.querySelector('.categoryCheckbox:checked').value;
+        commentObject["classname"] = currentClass;
+        var categoryArray=[];
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        for (var i = 0; i < checkboxes.length; i++) {
+            categoryArray.push(checkboxes[i].value);
+        }
+        commentObject["category"]=JSON.stringify(categoryArray);
         commentObject["feedBack"] = document.querySelector("textarea").value;
         commentObject["Anon"] = document.getElementById("yes").checked;
         const temp = document.createElement('the-element');
