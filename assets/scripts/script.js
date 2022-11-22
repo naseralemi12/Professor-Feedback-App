@@ -124,7 +124,7 @@ function init() {
     * all of the comments found (parsed, not in string form). If
     * nothing is found in localStorage for 'comments', an empty array
     * is returned.
-    * @returns {Array<Object>} An array of recipes found in localStorage
+    * @returns {Array<Object>} An array of comments found in localStorage
     */
      function getCommentsFromStorage() {
         if (localStorage.getItem('comment') == null) {
@@ -145,6 +145,7 @@ function init() {
         const dropdownList = document.getElementById("classSelect");
         const classList = JSON.parse(localStorage.classList);
 
+        // generate the dropdown selection
         dropdownList.hidden = false;
         dropdownList.innerHTML='<option value = "">See All</option>';
         for (let i =0; i<classList.length;i++){
@@ -153,6 +154,32 @@ function init() {
             temp.innerHTML = classList[i];
             dropdownList?.append(temp);
         }
+
+        // probably redo the rendering stuff into a function
+
+        // add listener for when selected class changes
+        dropdownList?.addEventListener('change', () => {
+            const mainElement = document.querySelector("main");
+            mainElement.innerHTML='';
+            if(curcomments==null) return;
+            for(let i =0; i<curcomments.length;i++){
+                if (dropdownList.value == ""||dropdownList.value == curcomments[i].className){
+                    const temp = document.createElement('the-element');
+                    temp.data=curcomments[i];
+                    mainElement.appendChild(temp);
+                    temp.shadowRoot?.querySelector(".update")?.addEventListener('click', ()=>{
+                        // TODO: bring up feedback dialog with loaded values
+                        //       ready to be edited
+                        console.log(curcomments[i].title);
+                    });
+                    temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', ()=>{
+                        // TODO: get comments from storage delete the item at the index
+                        //       then save it back into storage and reload the view
+                        console.log(curcomments[i].className);
+                    });
+                }
+            }
+        });
 
         const mainElement = document.querySelector("main");
         mainElement.innerHTML='';
@@ -173,6 +200,9 @@ function init() {
             });
         }
     });
+
+
+
 
     // // this will close the dialog box that has the feedbacks list
     // closeFeedbackDialog.addEventListener('click', () => {
