@@ -13,4 +13,4 @@ The functioning of our CI/CD pipeline is based on GitHub Action. When developers
 4. If time allows, we can implement JSDocs to automate the generation of documentation for Javascript files. Otherwise, we can add documentation manually to GitHub Wiki and it wouldn't take too much time given the small size of our project.
 
 ## Diagram
-[pipeline workflow](../cipipeline/phase1.drawio.png)
+![pipeline workflow](../cipipeline/phase1.drawio.png)
