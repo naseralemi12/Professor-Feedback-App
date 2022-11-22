@@ -3,19 +3,6 @@ window.addEventListener('DOMContentLoaded', init);
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
 var currentClass = "CSE110";
 function init() {
-    let newFeedbackButton = document.getElementById('newFeedback'); // this button triggers the dialog box
-    let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
-    let dialog = document.querySelector('dialog'); // this element is the dialog box itself
-    let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
-    let firstRow = null; // this is the first row of the table
-    let currentRow = null; // this is the row that is currently selected and is under work 
-    let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
-    let viewFeedbackDialog = document.getElementById('feedbackListTable'); //this dialog box will be triggered by view feedbacks button and
-    let closeFeedbackDialog = document.getElementById('closeButton'); // close the feedbacks dialog box
-    let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
-    let viewTableDialog = document.getElementById('viewTable'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
-    let viewTableCloseButton = document.getElementById('viewCloseB');
-
     /*
     //This Part for initialization
         run = false;
@@ -62,6 +49,7 @@ function init() {
      *This Part is for student_add_comment
      */
     const checkboxlist = document.getElementById("ctgrlist");
+    //Add checkboxes based on the categories of class
     const currentCategoryList = JSON.parse(localStorage.getItem(currentClass));
     for(let i=0;i<currentCategoryList.length;i++){
         var ctgr = document.createElement("INPUT");
@@ -73,9 +61,11 @@ function init() {
         checkboxlist?.appendChild(ctgrname);
         checkboxlist?.appendChild(ctgr);
     }
+    //set the title of page 
     document.getElementById("Classname").innerHTML=currentClass;
     const submitButton = document.getElementById("submitB");
     submitButton?.addEventListener('click', () => {
+        //create a new single comment object.
         const commentObject=new Object();
         commentObject["title"] = document.getElementById("FeedbackTitle").value;
         commentObject["classname"] = currentClass;
@@ -92,15 +82,29 @@ function init() {
         const curcomments = getCommentsFromStorage();
         curcomments.push(commentObject);
         saveCommentToStorage(curcomments);
+        alert("Feedback submited");
     });
 }
 
-
+/**
+ * function NewclassCategory(classname)
+ * 
+ * Operation: This function is used to assign default categories
+ * @author Chris
+ * @param className
+ */
 function NewclassCategory(className){
     var category = ["Exam","Lecture","Discussion"];
     localStorage.setItem(className,JSON.stringify(category));
 }
 
+/**
+ * function deleteCategory(classname,category)
+ * 
+ * Operation: This function is used to assign default categories
+ * @author Chris
+ * @param classname, category
+ */
 function deleteCategory(classname,category){
     var currcategory = JSON.parse(localStorage.getItem(classname));
     currcategory = currcategory.filter(function(item) {
@@ -108,7 +112,13 @@ function deleteCategory(classname,category){
     })
     localStorage.setItem(classname,JSON.stringify(currcategory));
 }
-
+/**
+ * function deleteCategory(classname,category)
+ * 
+ * Operation: This function is used to assign default categories
+ * @author Chris
+ * @param classname, category
+ */
 function addCategory(classname, category){
     var currcategory = JSON.parse(localStorage.getItem(classname));
     currcategory.push(category);
@@ -121,12 +131,12 @@ function saveCommentToStorage(comment) {
 }
 
 /**
-    * Reads 'comments' from localStorage and returns an array of
-    * all of the comments found (parsed, not in string form). If
-    * nothing is found in localStorage for 'comments', an empty array
-    * is returned.
-    * @returns {Array<Object>} An array of recipes found in localStorage
-    */
+  * Reads 'comments' from localStorage and returns an array of
+  * all of the comments found (parsed, not in string form). If
+  * nothing is found in localStorage for 'comments', an empty array
+  * is returned.
+  * @returns {Array<Object>} An array of recipes found in localStorage
+  */
  function getCommentsFromStorage() {
     if (localStorage.getItem('comment') == null) {
         const emptyArray = [];
