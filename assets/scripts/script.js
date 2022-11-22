@@ -7,12 +7,12 @@ function init() {
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
     let dialog = document.querySelector('dialog'); // this element is the dialog box itself
     let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
-    
+
     // remove these
     // let firstRow = null; // this is the first row of the table
     // let currentRow = null; // this is the row that is currently selected and is under work 
-    
-    
+
+
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
     let viewFeedbackDialog = document.getElementById('feedbackListTable'); //this dialog box will be triggered by view feedbacks button and
     //let closeFeedbackDialog = document.getElementById('closeButton'); // close the feedbacks dialog box
@@ -29,11 +29,11 @@ function init() {
     cancelButton.addEventListener('click', () => {
         dialog.close();
     });
-   
+
     // when save button is clicked, the class name, date and feedback needs to be saved and ready to be shown
     saveButton.addEventListener('click', () => {
         let dialogObj = createFeedbackObject();
-        
+
         const curcomments = getCommentsFromStorage();
         curcomments.push(dialogObj);
         saveCommentToStorage(curcomments);
@@ -90,16 +90,16 @@ function init() {
         dialogInput.title = document.getElementById("title")?.value;
         dialogInput.className = document.getElementById("className")?.value;
         dialogInput.date = document.getElementById("date")?.value;
-        dialogInput.feedBack = document.querySelector("textarea")?.value;        
+        dialogInput.feedBack = document.querySelector("textarea")?.value;
         dialogInput.category = document.querySelector('input[name="category"]:checked')?.value;
-        
+
         // there might be a cleaner way to do this with just the comment storage
         // check if class exists in local storage
-        if(localStorage.classList==undefined){localStorage.setItem("classList",JSON.stringify([]));} 
+        if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
         // maybe move this somewhere where it doesnt need to be run repeatedly
         let classList = JSON.parse(localStorage.getItem("classList"));
         // add class if doesnt exist
-        if (!classList?.includes(dialogInput.className)){
+        if (!classList?.includes(dialogInput.className)) {
             classList?.push(dialogInput.className);
             localStorage.setItem("classList", JSON.stringify(classList));
         }
@@ -114,7 +114,7 @@ function init() {
         document.querySelector("textarea").value = "";
         // reset all radio buttons
         let radio = document.getElementsByName("category");
-        for (let i=0; i < radio.length; i++){
+        for (let i = 0; i < radio.length; i++) {
             radio[i].checked = false;
         }
     }
@@ -126,7 +126,7 @@ function init() {
     * is returned.
     * @returns {Array<Object>} An array of comments found in localStorage
     */
-     function getCommentsFromStorage() {
+    function getCommentsFromStorage() {
         if (localStorage.getItem('comment') == null) {
             const emptyArray = [];
             return emptyArray;
@@ -135,68 +135,69 @@ function init() {
         return JSON.parse(str);
     }
 
-    function saveCommentToStorage(comment) {    
-        localStorage.setItem("comment",JSON.stringify(comment));
+    function saveCommentToStorage(comment) {
+        localStorage.setItem("comment", JSON.stringify(comment));
     }
-
+    
     // this will trigger the dialog box that has all the feedbacks so the user can see them
     viewFeedbackButton.addEventListener('click', () => {
-        const curcomments = getCommentsFromStorage();
+        const currentComments = getCommentsFromStorage();
         const dropdownList = document.getElementById("classSelect");
         const classList = JSON.parse(localStorage.classList);
 
         // generate the dropdown selection
         dropdownList.hidden = false;
-        dropdownList.innerHTML='<option value = "">See All</option>';
-        for (let i =0; i<classList.length;i++){
+        dropdownList.innerHTML = '<option value = "">See All</option>';
+        for (let i = 0; i < classList.length; i++) {
             const temp = document.createElement('option');
             temp.value = classList[i];
             temp.innerHTML = classList[i];
             dropdownList?.append(temp);
         }
 
-        // probably redo the rendering stuff into a function
-
         // add listener for when selected class changes
         dropdownList?.addEventListener('change', () => {
             const mainElement = document.querySelector("main");
-            mainElement.innerHTML='';
-            if(curcomments==null) return;
-            for(let i =0; i<curcomments.length;i++){
-                if (dropdownList.value == ""||dropdownList.value == curcomments[i].className){
+            mainElement.innerHTML = '';
+            if (currentComments == null) return;
+            for (let i = 0; i < currentComments.length; i++) {
+                if (dropdownList.value == "" || dropdownList.value == currentComments[i].className) {
                     const temp = document.createElement('the-element');
-                    temp.data=curcomments[i];
+                    temp.data = currentComments[i];
                     mainElement.appendChild(temp);
-                    temp.shadowRoot?.querySelector(".update")?.addEventListener('click', ()=>{
+                    temp.shadowRoot?.querySelector(".update")?.addEventListener('click', () => {
                         // TODO: bring up feedback dialog with loaded values
                         //       ready to be edited
-                        console.log(curcomments[i].title);
+                        console.log(currentComments[i].title);
+
                     });
-                    temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', ()=>{
+                    temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', () => {
                         // TODO: get comments from storage delete the item at the index
                         //       then save it back into storage and reload the view
-                        console.log(curcomments[i].className);
+                        console.log(currentComments[i].className);
+                        currentComments.slice(i);
                     });
                 }
             }
         });
 
         const mainElement = document.querySelector("main");
-        mainElement.innerHTML='';
-        if(curcomments==null) return;
-        for(let i =0; i<curcomments.length;i++){
+        mainElement.innerHTML = '';
+        if (currentComments == null) return;
+        for (let i = 0; i < currentComments.length; i++) {
             const temp = document.createElement('the-element');
-            temp.data=curcomments[i];
+            temp.data = currentComments[i];
             mainElement.appendChild(temp);
-            temp.shadowRoot?.querySelector(".update")?.addEventListener('click', ()=>{
+            temp.shadowRoot?.querySelector(".update")?.addEventListener('click', () => {
                 // TODO: bring up feedback dialog with loaded values
                 //       ready to be edited
-                console.log(curcomments[i].title);
+                console.log(currentComments[i].title);
             });
-            temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', ()=>{
+            temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', () => {
                 // TODO: get comments from storage delete the item at the index
                 //       then save it back into storage and reload the view
-                console.log(curcomments[i].classname);
+                console.log(currentComments[i].classname);
+                currentComments.slice(i);
             });
         }
     });
@@ -214,6 +215,6 @@ function init() {
     //     viewTableDialog.close();
     // });
 
-    
-   
+
+
 }
