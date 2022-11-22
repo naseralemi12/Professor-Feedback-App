@@ -1,7 +1,7 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
-
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
+var currentClass = "CSE110";
 function init() {
     let newFeedbackButton = document.getElementById('newFeedback'); // this button triggers the dialog box
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
@@ -15,57 +15,67 @@ function init() {
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let viewTableDialog = document.getElementById('viewTable'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let viewTableCloseButton = document.getElementById('viewCloseB');
-    
 
-    let addCategoryButton = document.getElementById("addCategoryButton");
-    addCategoryButton?.addEventListener('click', () => {
-        event.preventDefault();
-        addCategory("CSE110",document.getElementById("addNewCategory").value);
-    });
-    let TestclassList = ["CSE110","CSE101"];
-    localStorage.setItem("ClassList",JSON.stringify(TestclassList));
-    //Initialize all exist classes' category !!THIS SHOULD BE CALLED ONLY ONCE
-    let classList = JSON.parse(localStorage.getItem("ClassList"));
-    for(let i=0;i<classList?.length;i++){
-        NewclassCategory(classList[i]);
-    }
-
-    //This part is for professor_modify_category
-    const categoryTable = document.getElementById("categorylist");
-    var list = JSON.parse(localStorage.getItem("CSE110"));
-    for(let i=0;i<list.length;i++){
-        var newRow = categoryTable.insertRow();
-        var newCell = newRow.insertCell();
-        var newCategory =document.createTextNode(list[i]);
-        newCell.appendChild(newCategory);
-        //category list for given class
-        let cell = newRow.insertCell(1);
-        let deleteButton = document.createElement("button");
-        deleteButton.innerHTML = "Delete Category";
-        //when the deleteButton is clicked, the row should be deleted
-        deleteButton.onclick = function(){
-            deleteButton.parentNode.parentNode.remove();
-            deleteCategory("CSE110",list[i]);
-        };
-        cell.appendChild(deleteButton);
-    }
-
-    /*TEST for professor_modify_category
-    const categoryTable = document.getElementById("categorylist");
-    for(let i=0;i<2;i++){
-        var newRow = categoryTable.insertRow();
-        var newCell = newRow.insertCell();
-        var newCategory = document.createTextNode('new row');
-        newCell.appendChild(newCategory);
-        //category list for given class
-        let cell = newRow.insertCell(1);
-        let deleteButton = document.createElement("button");
-        deleteButton.innerHTML = "Delete Category"
-        cell.appendChild(deleteButton);
-    }
+    /*
+    //This Part for initialization
+        run = false;
+        let TestclassList = ["CSE110","CSE101"];
+        localStorage.setItem("ClassList",JSON.stringify(TestclassList));
+        //Initialize all exist classes' category !!THIS SHOULD BE CALLED ONLY ONCE
+        let classList = JSON.parse(localStorage.getItem("ClassList"));
+        for(let i=0;i<classList?.length;i++){
+            NewclassCategory(classList[i]);
+        }
     */
 
+    /*
+     *This part is for professor_modify_category
+     */
+    const categoryTable = document.getElementById("categorylist");
+    var list = JSON.parse(localStorage.getItem(currentClass));
+    if(categoryTable){
+        for(let i=0;i<list.length;i++){
+            var newRow = categoryTable.insertRow();
+            var newCell = newRow.insertCell();
+            var newCategory =document.createTextNode(list[i]);
+            newCell.appendChild(newCategory);
+            //category list for given class
+            let cell = newRow.insertCell(1);
+            let deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete Category";
+            //when the deleteButton is clicked, the row should be deleted
+            deleteButton.onclick = function(){
+                deleteButton.parentNode.parentNode.remove();
+                deleteCategory(currentClass,list[i]);
+            };
+            cell.appendChild(deleteButton);
+        }
+        document.getElementById("CategoryClassName").innerHTML=currentClass;
+        let addCategoryButton = document.getElementById("addCategoryButton");
+        addCategoryButton?.addEventListener('click', () => {
+        addCategory(currentClass,document.getElementById("addNewCategory").value);
+    });
+    } 
     
+
+    /* 
+     *This Part is for student_add_comment
+     */
+    document.getElementById("Classname").innerHTML=currentClass;
+    const submitButton = document.getElementById("submitB");
+    submitButton?.addEventListener('click', () => {
+        const commentObject=new Object();
+        commentObject["title"] = document.getElementById("FeedbackTitle").value;
+        commentObject["classname"] = currentClass.innerHTML;
+        commentObject["category"] = document.querySelector('.categoryCheckbox:checked').value;
+        commentObject["feedBack"] = document.querySelector("textarea").value;
+        commentObject["Anon"] = document.getElementById("yes").checked;
+        const temp = document.createElement('the-element');
+        temp.data = commentObject;
+        const curcomments = getCommentsFromStorage();
+        curcomments.push(commentObject);
+        saveCommentToStorage(curcomments);
+    });
 }
 
 
@@ -76,19 +86,35 @@ function NewclassCategory(className){
 
 function deleteCategory(classname,category){
     var currcategory = JSON.parse(localStorage.getItem(classname));
-    console.log(currcategory);
     currcategory = currcategory.filter(function(item) {
         return item !== category
     })
     localStorage.setItem(classname,JSON.stringify(currcategory));
-    console.log(currcategory);
 }
 
 function addCategory(classname, category){
     var currcategory = JSON.parse(localStorage.getItem(classname));
-    console.log(currcategory);
-    console.log("!!!!!!!!!!!!!!!!!!!!");
     currcategory.push(category);
     localStorage.setItem(classname,JSON.stringify(currcategory));
-    console.log(currcategory);
+}
+
+function saveCommentToStorage(comment) {
+        
+    localStorage.setItem("comment",JSON.stringify(comment));
+}
+
+/**
+    * Reads 'comments' from localStorage and returns an array of
+    * all of the comments found (parsed, not in string form). If
+    * nothing is found in localStorage for 'comments', an empty array
+    * is returned.
+    * @returns {Array<Object>} An array of recipes found in localStorage
+    */
+ function getCommentsFromStorage() {
+    if (localStorage.getItem('comment') == null) {
+        const emptyArray = [];
+        return emptyArray;
+    }
+    const str = localStorage.getItem("comment");
+    return JSON.parse(str);
 }

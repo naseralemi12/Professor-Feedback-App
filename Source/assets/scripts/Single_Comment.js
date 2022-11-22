@@ -61,6 +61,7 @@ class SingleComment extends HTMLElement {
      *                          "classname": "string",
      *                          "category": "string",
      *                          "feedBack": "textarea",
+     *                          "Anon": "string"
      *                        }
      */
     set data(data) {

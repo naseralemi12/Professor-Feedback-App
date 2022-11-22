@@ -7,7 +7,7 @@
   <title>Student's Add Comment</title>
 
   <link rel="stylesheet" href="../assets/styles/studentcomment.css">
-  <script src="../assets/scripts/script1.js" type="module"></script>
+  <script src="../assets/scripts/script.js" type="module"></script>
   <script src="../assets/scripts/Single_Comment.js" type="module"></script>
 </head>
 
@@ -34,13 +34,10 @@
   <!-- Anonymous Checkbox -->
   <div class="inline">
     <h3>Post Anonymously?</h3>
-
-    <label class="containerYes" for="yesCheck"> Yes
-      <input type="checkbox" class="yesAnon" name="checkbox1" value="test">
-    </label>
-    <label class="containerNo" for="noCheck"> No
-      <input type="checkbox" class="noAnon" name="checkbox2" value="test">
-    </label>
+    Yes:
+    <input type="radio" name="Anon" id="yes" checked value="true"><br>
+    No:
+    <input type="radio" name="Anon" value="false">
   </div>
 
   <div id="aButtons">
