@@ -7,15 +7,7 @@ function init() {
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
     let dialog = document.querySelector('dialog'); // this element is the dialog box itself
     let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
-
-    // remove these
-    // let firstRow = null; // this is the first row of the table
-    // let currentRow = null; // this is the row that is currently selected and is under work 
-
-
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
-    let viewFeedbackDialog = document.getElementById('feedbackListTable'); //this dialog box will be triggered by view feedbacks button and
-    //let closeFeedbackDialog = document.getElementById('closeButton'); // close the feedbacks dialog box
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
 
     //when the newFeedbackButton is clicked, th dialog box should open
@@ -33,7 +25,6 @@ function init() {
     // when save button is clicked, the class name, date and feedback needs to be saved and ready to be shown
     saveButton.addEventListener('click', () => {
         let dialogObj = createFeedbackObject();
-
         const curcomments = getCommentsFromStorage();
         curcomments.push(dialogObj);
         saveCommentToStorage(curcomments);
@@ -41,8 +32,6 @@ function init() {
         console.log("saved");
         confirmationMessage.textContent = "Feedback saved!";
     });
-
-    /// maybe formalize? createFeedbackObject as actual function with header
 
     /// creates a comment/feedback object
     let createFeedbackObject = () => {
@@ -96,13 +85,17 @@ function init() {
         return JSON.parse(str);
     }
 
+    /**
+    * Saves an array of comments to 'comments' in localStorage.
+    * 
+    * @param {Array<Object>} comment An array of comments found in localStorage
+    */
     function saveCommentToStorage(comment) {
         localStorage.setItem("comment", JSON.stringify(comment));
     }
     
     // this will trigger the dialog box that has all the feedbacks so the user can see them
     viewFeedbackButton.addEventListener('click', () => {
-        let currentComments = getCommentsFromStorage();
         const dropdownList = document.getElementById("classSelect");
         const classList = JSON.parse(localStorage.classList);
 
@@ -118,54 +111,65 @@ function init() {
 
         // add listener for when selected class changes
         dropdownList?.addEventListener('change', () => {
-            const mainElement = document.querySelector("main");
-            mainElement.innerHTML = '';
-            if (currentComments == null) return;
-            for (let i = 0; i < currentComments.length; i++) {
-                if (dropdownList.value == "" || dropdownList.value == currentComments[i].className) {
-                    const temp = document.createElement('the-element');
-                    temp.data = currentComments[i];
-                    mainElement.appendChild(temp);
-                    temp.shadowRoot?.querySelector(".update")?.addEventListener('click', () => {
-                        // TODO: bring up feedback dialog with loaded values
-                        //       ready to be edited
-                        console.log(currentComments[i].title);
-
-                    });
-                    temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', () => {
-                        // TODO: get comments from storage delete the item at the index
-                        //       then save it back into storage and reload the view
-                        console.log(currentComments[i].className);
-                        currentComments.slice(i);
-                    });
-                }
-            }
+            let mainElement = document.querySelector("main");
+            renderToElement(mainElement, dropdownList);
         });
 
-        const mainElement = document.querySelector("main");
-        mainElement.innerHTML = '';
+        // initial render
+        let mainElement = document.querySelector("main");
+        renderToElement(mainElement, dropdownList);
+    });
+
+
+    /**
+    * Reads comments from localstorage and renders to the selected element.
+    * Also supports rendering a specific class's comments
+    * 
+    * @param {HTMLElement} renderElement The element to render to
+    * @param {HTMLElement} dropdown The element whose selection value we take
+    */
+    function renderToElement(renderElement, dropdown){
+        renderElement.innerHTML = '';
+        let currentComments = getCommentsFromStorage();
         if (currentComments == null) return;
         for (let i = 0; i < currentComments.length; i++) {
-            const temp = document.createElement('the-element');
-            temp.data = currentComments[i];
-            mainElement.appendChild(temp);
-            temp.shadowRoot?.querySelector(".update")?.addEventListener('click', () => {
-                // TODO: bring up feedback dialog with loaded values
-                //       ready to be edited
-                console.log(currentComments[i].title);
-            });
-            temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', () => {
-                // TODO: get comments from storage delete the item at the index
-                //       then save it back into storage and reload the view
-                console.log(currentComments[i].classname);
-                //update localStorage by removing element
-                if(i-1 >=0 && i+1 < currentComments.length){
-                    let tempArr1 = currentComments.slice(0,i-1);
-                    let tempArr = currentComments.slice(i+1);
-                    currentComments = tempArr.concat(tempArr);
-                }
-            });
+            if (dropdown.value == "" || dropdown.value == currentComments[i].className) {
+                const temp = document.createElement('the-element');
+                temp.data = currentComments[i];
+                renderElement.appendChild(temp);
+                temp.shadowRoot?.querySelector(".update")?.addEventListener('click', () => {
+                    // TODO: bring up feedback dialog with loaded values
+                    //       ready to be edited
+                    console.log(currentComments[i].title);
+
+                });
+                temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', () => {
+                    currentComments = currentComments.slice(0,i).concat(currentComments.slice(i+1));
+                    saveCommentToStorage(currentComments);
+                    renderToElement(renderElement, dropdown);
+                    // ---check if deleted comment was last one from class---
+                    // screw it we regenerate classList runtime be damned LMAO
+                    let classList = [];
+                    for (let i = 0; i < currentComments.length; i++) {
+                        if (!classList?.includes(currentComments[i].className)) {
+                            classList?.push(currentComments[i].className);
+                        }
+                    }
+                    localStorage.setItem("classList", JSON.stringify(classList));
+
+                    // reload the dropdown
+                    // this is kinda inefficient
+                    // ideally would go through the dropdown and delete the option or smthng
+                    dropdown.innerHTML = '<option value = "">See All</option>';
+                    for (let i = 0; i < classList.length; i++) {
+                        const temp = document.createElement('option');
+                        temp.value = classList[i];
+                        temp.innerHTML = classList[i];
+                        dropdown?.append(temp);
+                    }
+                });
+            }
         }
-    });
+    }
 
 }
