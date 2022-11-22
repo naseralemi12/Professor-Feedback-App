@@ -79,7 +79,7 @@ class SingleComment extends HTMLElement {
       console.log(data.classname);
       addedArticle.innerHTML=`
         <p class="title">`+data.title+`</p>
-        <p class="classname">`+data.classname+`</p>
+        <p class="classname">`+data.className+`</p>
         <div class="date">
           <span>(`+data.date+`)</span>
         </div>

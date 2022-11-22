@@ -17,8 +17,6 @@ function init() {
     let viewFeedbackDialog = document.getElementById('feedbackListTable'); //this dialog box will be triggered by view feedbacks button and
     //let closeFeedbackDialog = document.getElementById('closeButton'); // close the feedbacks dialog box
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
-    let viewTableDialog = document.getElementById('viewTable'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
-    let viewTableCloseButton = document.getElementById('viewCloseB');
 
     //when the newFeedbackButton is clicked, th dialog box should open
     newFeedbackButton.addEventListener('click', () => {
@@ -92,9 +90,9 @@ function init() {
         dialogInput.title = document.getElementById("title")?.value;
         dialogInput.className = document.getElementById("className")?.value;
         dialogInput.date = document.getElementById("date")?.value;
-        dialogInput.category = document.getElementById("category")?.name;
-        dialogInput.feedBack = document.querySelector("textarea")?.value;
-
+        dialogInput.feedBack = document.querySelector("textarea")?.value;        
+        dialogInput.category = document.querySelector('input[name="category"]:checked')?.value;
+        
         // there might be a cleaner way to do this with just the comment storage
         // check if class exists in local storage
         if(localStorage.classList==undefined){localStorage.setItem("classList",JSON.stringify([]));} 
@@ -143,10 +141,37 @@ function init() {
 
     // this will trigger the dialog box that has all the feedbacks so the user can see them
     viewFeedbackButton.addEventListener('click', () => {
-        // TODO: use Single_Comment.js to generate viewable comments
-        // if (typeof viewFeedbackDialog.showModal === "function") { // check if the dialog is already open or not
-        //     viewFeedbackDialog.showModal(); // open the dialog box
-        // }
+        const curcomments = getCommentsFromStorage();
+        const dropdownList = document.getElementById("classSelect");
+        const classList = JSON.parse(localStorage.classList);
+
+        dropdownList.hidden = false;
+        dropdownList.innerHTML='<option value = "">See All</option>';
+        for (let i =0; i<classList.length;i++){
+            const temp = document.createElement('option');
+            temp.value = classList[i];
+            temp.innerHTML = classList[i];
+            dropdownList?.append(temp);
+        }
+
+        const mainElement = document.querySelector("main");
+        mainElement.innerHTML='';
+        if(curcomments==null) return;
+        for(let i =0; i<curcomments.length;i++){
+            const temp = document.createElement('the-element');
+            temp.data=curcomments[i];
+            mainElement.appendChild(temp);
+            temp.shadowRoot?.querySelector(".update")?.addEventListener('click', ()=>{
+                // TODO: bring up feedback dialog with loaded values
+                //       ready to be edited
+                console.log(curcomments[i].title);
+            });
+            temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', ()=>{
+                // TODO: get comments from storage delete the item at the index
+                //       then save it back into storage and reload the view
+                console.log(curcomments[i].classname);
+            });
+        }
     });
 
     // // this will close the dialog box that has the feedbacks list
