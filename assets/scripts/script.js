@@ -8,10 +8,6 @@ function init() {
     let dialog = document.querySelector('dialog'); // this element is the dialog box itself
     let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
-<<<<<<< HEAD
-=======
-    let viewFeedbackDialog = document.getElementById('feedbackListTable'); //this dialog box will be triggered by view feedbacks button and
->>>>>>> 9bf3e77d65998e88bae7db3a2ad462a6c00d8d16
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
 
     //when the newFeedbackButton is clicked, th dialog box should open
