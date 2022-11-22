@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 4A ON MIRO-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student's Add Comment</title>
+
+  <link rel="stylesheet" href="../assets/styles/studentcomment.css">
+  <script src="../assets/scripts/script.js" type="module"></script>
+  <script src="../assets/scripts/Single_Comment.js" type="module"></script>
+</head>
+
+<body>
+  <h1 id="Classname"> {Class Name}
+  </h1>
+  <div class="FeedbackTitle">
+    <input type="text" id="FeedbackTitle" name="FeedbackTitle" placeholder="Insert Feedback Title..." >
+  </div>
+  <form id="comment_details">
+    <!-- category checkbox -->
+    <div id="ctgrlist">
+
+    </div>
+  <!-- Textbox -->
+  <textarea placeholder="Insert Comment Content..." id="stucommenttxt" name="stucommenttxt" rows="4" cols="50"></textarea>
+
+
+  <!-- Anonymous Checkbox -->
+  <div class="inline">
+    <h3>Post Anonymously?</h3>
+    Yes:
+    <input type="radio" name="Anon" id="yes" checked value="true"><br>
+    No:
+    <input type="radio" name="Anon" value="false">
+  </div>
+
+  <div id="aButtons">
+    <button type="submit" id="submitB"> Submit Reply</button>
+    <a href="#" id="goback"> Go Back </a>
+  </div>
+</form>
+</body>
+<footer>
+</footer>
+
+</html>

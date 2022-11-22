@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Lint
+name: Testing and Linting
 
 # Controls when the workflow will run
 on:
@@ -15,23 +15,40 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  run-linters:
-    name: Run linters
+  build:
+
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          # Full git history is needed to get a proper
-          # list of changed files within `super-linter`
-          fetch-depth: 0
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
 
-      ################################
-      # Run Linter against code base #
-      ################################
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: cd Source && npm test
+
+  # commenting out this linter because it's too strict, will add a new one soon
+  # run-linters:
+  #   name: Run linters
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v3
+  #       with:
+  #         # Full git history is needed to get a proper
+  #         # list of changed files within `super-linter`
+  #         fetch-depth: 0
+
+  #     ################################
+  #     # Run Linter against code base #
+  #     ################################
+  #     - name: Lint Code Base
+  #       uses: github/super-linter@v4
+  #       env:
+  #         VALIDATE_ALL_CODEBASE: false
+  #         DEFAULT_BRANCH: main
