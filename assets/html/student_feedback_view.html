@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- 3B ON MIRO-->
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student's Feedback</title>
-
+  <script src="../scripts/script.js" type="module"></script>
+  <script src="../scripts/Single_Comment.js" type="module"></script>
+  <script src="../scripts/studentFeedback.js" type="module"></script>
   <link rel="stylesheet" href="../styles/feedback.css">
 </head>
 
 <body>
-  <header> 
-  <!-- Edit welcome message with Professor or Student-->
-  <h1>Student Feedback View</h1>
+  <header>
+    <!-- Edit welcome message with Professor or Student-->
+    <h1>Student Feedback View</h1>
   </header>
 
-  <h3> Click on a comment title to read the full feedback comment! You can 
+  <h3> Click on a comment title to read the full feedback comment! You can
     also click the button below to add a new comment
   </h3>
-  
+
   <!-- Dropdown-->
-  <form action="/ACTIONFILEHERE">
+
+  <!-- <form action="/ACTIONFILEHERE">
     <label for="classes">Select which class to view: </label>
     <select id="classes" name="classList">
       <option value="1">Class 1</option>
@@ -29,33 +33,35 @@
       <option value="4">Class 4</option>
     </select>
     <input type="submit">
-  </form>
+  </form> -->
 
   <h3> Your Comments For This Class: </h3>
-
-  <div class="commentLinks"> 
-    <a class ="ALinks" href="../html/student_feedback_info.html"> 
-        Comment 1
+  <select id="classSelect" >
+    <option>See All</option>
+  </select>
+  <div class="commentLinks">
+    <a class="ALinks" href="../html/student_feedback_info.html">
+      Comment 1
     </a>
 
-    <a class ="ALinks" href="../html/student_feedback_info.html">  
-        Comment 2
+    <a class="ALinks" href="../html/student_feedback_info.html">
+      Comment 2
     </a>
 
   </div>
 
-  <a id="addComment" href="../html/feedback_page.html">Add New Comment</a>
 
   <!-- Will use script to add class buttons from storage-->
   <div class="commentLinks">
-    <a class ="ALinks" href="../html/student_feedback_info.html"> 
-        Comment 3
+    <a class="ALinks" href="../html/student_feedback_info.html">
+      Comment 3
     </a>
 
-    <a class ="ALinks" href="../html/student_feedback_info.html"> 
-        Comment 4
+    <a class="ALinks" href="../html/student_feedback_info.html">
+      Comment 4
     </a>
 
+    <a id="addComment" href="../html/feedback_page.html" style="display:block">Add New Comment</a>
 
     <a id="nextPageButton" href="#">Next Page</a>
   </div>
