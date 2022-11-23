@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--  2AB ON MIRO-->
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-  <title>login</title>
-  
-  <script src="myJS.js"></script>
-  
-  <link rel="stylesheet" href="../styles/login.css">
-  <script src="../scripts/authentication.js" type="module"></script>
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+    <script src="myJS.js"></script>
+
+    <link rel="stylesheet" href="../styles/login.css">
+    <script src="../scripts/authentication.js" type="module"></script>
+
 </head>
 
 <body>
-  <header> 
-  <!-- Edit welcome message with Professor or Student-->
-  <h1>Welcome [USER]</h1>
-  </header>
+    <header>
+        <!-- Edit welcome message with Professor or Student-->
 
-  <!-- FORM ELEMENT HERE-->
-  <form action="VERIFYLOGINFILE" target="_self">  
+        <h1>Welcome [USER]</h1>
+    </header>
 
-    <label for="umail"><b>UCSD Email</b></label>
-    <input type="text" placeholder="Please Enter UCSD Email" name="umail" required>
+    <!-- FORM ELEMENT HERE-->
+    <form action="VERIFYLOGINFILE" target="_self">
 
-    <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Please Enter Password" name="pwd" required>
+        <label for="umail"><b>UCSD Email</b></label>
+        <input type="text" placeholder="Please Enter UCSD Email" name="umail" required>
 
-    <input type="radio" id="student" name="usertype" value="student">
-    <label for="student">Student</label><br>
-    <input type="radio" id="professor" name="usertype" value="professor">
-    <label for="professor">Professor</label><br>
+        <label for="pwd"><b>Password</b></label>
+        <input type="password" placeholder="Please Enter Password" name="pwd" required>
 
-    <button type="button" class="logIN">Log In</button>
-  </form>
+        <input type="radio" id="student" name="usertype" value="student">
+        <label for="student">Student</label><br>
+        <input type="radio" id="professor" name="usertype" value="professor">
+        <label for="professor">Professor</label><br>
+        <button type="button" class="logIN">Log In</button>
+        <button onclick="history.back()">Cancel</button>
+    </form>
 </body>
 <footer>
 
