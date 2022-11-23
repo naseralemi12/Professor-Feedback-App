@@ -5,8 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
   <title>login</title>
-
+  
+  <script src="myJS.js"></script>
+  
   <link rel="stylesheet" href="../styles/login.css">
+  <script src="../scripts/authentication.js" type="module"></script>
+  
 </head>
 
 <body>
@@ -16,16 +20,18 @@
   </header>
 
   <!-- FORM ELEMENT HERE-->
-  <form action="VERIFYLOGINFILE" target="_self"> 
-
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Please Enter Name" name="uname" required> 
+  <form action="VERIFYLOGINFILE" target="_self">  
 
     <label for="umail"><b>UCSD Email</b></label>
     <input type="text" placeholder="Please Enter UCSD Email" name="umail" required>
 
     <label for="pwd"><b>Password</b></label>
     <input type="password" placeholder="Please Enter Password" name="pwd" required>
+
+    <input type="radio" id="student" name="usertype" value="student">
+    <label for="student">Student</label><br>
+    <input type="radio" id="professor" name="usertype" value="professor">
+    <label for="professor">Professor</label><br>
 
     <button type="button" class="logIN">Log In</button>
   </form>
