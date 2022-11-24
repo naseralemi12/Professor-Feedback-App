@@ -22,7 +22,7 @@
     </header>
 
     <!-- FORM ELEMENT HERE-->
-    <form action="VERIFYLOGINFILE" target="_self">
+    <form id="formID" method="post" action="VERIFYLOGINFILE" target="_self">
 
         <label for="umail"><b>UCSD Email</b></label>
         <input type="text" id="emailInput" placeholder="Please Enter UCSD Email" name="umail" required>
@@ -34,7 +34,7 @@
         <label for="student">I am a Student</label><br>
         <input type="radio" id="professor" name="usertype" value="professor">
         <label for="professor">I am a Professor</label><br>
-        <button id="logInButton" type="button" class="logIN">Log In</button>
+        <button id="logInButton" type="button" class="logIN" onclick="validate()">Log In</button>
         <button onclick="history.back()">Cancel</button>
     </form>
 </body>
