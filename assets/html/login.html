@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--  2AB ON MIRO-->
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-  <title>login</title>
 
-  <link rel="stylesheet" href="../styles/login.css">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+    <!--<script src="myJS.js"></script>-->
+
+    <link rel="stylesheet" href="../styles/login.css">
+    <script src="../scripts/authentication.js" type="module"></script>
+
 </head>
 
 <body>
-  <header> 
-  <!-- Edit welcome message with Professor or Student-->
-  <h1>Welcome [USER]</h1>
-  </header>
+    <div class="center">
+        <header>
+            <!-- Edit welcome message with Professor or Student-->
 
-  <!-- FORM ELEMENT HERE-->
-  <form action="VERIFYLOGINFILE" target="_self"> 
+            <h1>Login</h1>
+        </header>
 
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Please Enter Name" name="uname" required> 
+    <!-- FORM ELEMENT HERE-->
+    <form action="VERIFYLOGINFILE" target="_self">
 
-    <label for="umail"><b>UCSD Email</b></label>
-    <input type="text" placeholder="Please Enter UCSD Email" name="umail" required>
+            <label for="umail"><b>UCSD Email</b></label>
+            <input type="text" id="emailInput" placeholder="Please Enter UCSD Email" name="umail" required>
 
-    <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Please Enter Password" name="pwd" required>
-
-    <button type="button" class="logIN">Log In</button>
-  </form>
+        <label for="pwd"><b>Password</b></label>
+        <input type="password" id="passwordInput" placeholder="Please Enter Password" name="pwd" required>
+        <h4>Tell Us More About Yourself </h4>
+        <input type="radio" id="student" name="usertype" value="student">
+        <label for="student">I am a Student</label><br>
+        <input type="radio" id="professor" name="usertype" value="professor">
+        <label for="professor">I am a Professor</label><br>
+        <button id="logInButton" type="button" class="logIN">Log In</button>
+        <button onclick="history.back()">Cancel</button>
+    </form>
+    <p id="warningMessage" style="color: red"></p>
 </body>
 <footer>
 
