@@ -10,8 +10,9 @@ function init() {
     const radioProfessorElement = document.getElementById('professor');
     const warningMessage = document.getElementById('warningMessage');
     const loginButton = document.getElementById('logInButton');
-
-    var attempt = 3;
+    let atposition = (emailElement.value).indexOf("@");
+    let dotposition = (emailElement.value).indexOf(".");
+    let attempt = 3;
     // Variable to count number of attempts.
     // Below function Executes on click of login button.
     loginButton.addEventListener('click', () => {
@@ -25,6 +26,10 @@ function init() {
             return false;
         } else if (emailElement.value == "" || passwordElement.value == "" || !(radioStudentElement.checked || radioProfessorElement.checked)) {
             warningMessage.innerHTML = "All fields are required. Please try again.";
+            return false;
+        } else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= emailElement.value.length) {
+            warningMessage.innerHTML = "Invalid Email. Please Enter a valid email.";
+            return false;
         } else {
             attempt--; // Decrementing by one.
             warningMessage.innerHTML = "You have " + attempt + " attempt(s) left!";
@@ -37,7 +42,15 @@ function init() {
             }
         }
     });
-    /* let loginButton = document.querySelector('.logIN');
+    /* 
+var atposition=x.indexOf("@");  
+var dotposition=x.lastIndexOf(".");  
+if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+  alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+  return false;  
+  }  
+
+    let loginButton = document.querySelector('.logIN');
      let studentCheck = document.getElementById('student');
      let profCheck = document.getElementById('professor');
      let ifStudent = null;
