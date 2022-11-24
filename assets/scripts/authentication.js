@@ -23,10 +23,11 @@ function init() {
         } else if (emailElement.value == "powell@ucsd.edu" && passwordElement.value == "cse110" && radioProfessorElement.checked) {
             window.location = "professor_feedback_view.html"; // Redirecting to other page.
             return false;
+        } else if (emailElement.value == "" || passwordElement.value == "" || !(radioStudentElement.checked || radioProfessorElement.checked)) {
+            warningMessage.innerHTML = "All fields are required. Please try again.";
         } else {
             attempt--; // Decrementing by one.
-            warningMessage.innerHTML = "You have left " + attempt + " attempt left!";
-            //alert("You have left " + attempt + " attempt;");
+            warningMessage.innerHTML = "You have " + attempt + " attempt(s) left!";
             // Disabling fields after 3 attempts.
             if (attempt == 0) {
                 document.getElementById("emailElement").disabled = true;
