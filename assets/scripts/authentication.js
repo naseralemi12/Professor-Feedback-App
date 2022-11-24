@@ -18,7 +18,7 @@ function init() {
 
         if (emailElement.value == "cse110@ucsd.edu" && passwordElement.value == "group31" && radioStudentElement.checked) {
 
-            window.location = "index.html"; // Redirecting to other page.
+            window.location = "student_feedback_view.html"; // Redirecting to other page.
             return false;
         } else if (emailElement.value == "powell@ucsd.edu" && passwordElement.value == "cse110" && radioProfessorElement.checked) {
             window.location = "professor_feedback_view.html"; // Redirecting to other page.
