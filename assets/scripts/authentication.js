@@ -21,7 +21,7 @@ function init() {
             window.location = "index.html"; // Redirecting to other page.
             return false;
         } else if (emailElement.value == "powell@ucsd.edu" && passwordElement.value == "cse110" && radioProfessorElement.checked) {
-            window.location = "index.html"; // Redirecting to other page.
+            window.location = "professor_feedback_view.html"; // Redirecting to other page.
             return false;
         } else {
             attempt--; // Decrementing by one.
