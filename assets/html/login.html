@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
 
-    <script src="myJS.js"></script>
+    <!--<script src="myJS.js"></script>-->
 
     <link rel="stylesheet" href="../styles/login.css">
     <script src="../scripts/authentication.js" type="module"></script>
@@ -34,9 +34,10 @@
         <label for="student">I am a Student</label><br>
         <input type="radio" id="professor" name="usertype" value="professor">
         <label for="professor">I am a Professor</label><br>
-        <button id="logInButton" type="button" class="logIN" onclick="validate()">Log In</button>
+        <button id="logInButton" type="button" class="logIN">Log In</button>
         <button onclick="history.back()">Cancel</button>
     </form>
+    <p id="warningMessage" style="color: red"></p>
 </body>
 <footer>
 

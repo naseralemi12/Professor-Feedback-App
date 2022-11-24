@@ -1,36 +1,40 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
 //var csv = require('jquery-csv');
-const csv = require("../../node_modules/jquery-csv/src/jquery.csv");
+//const csv = require("../../node_modules/jquery-csv/src/jquery.csv");
 
 function init() {
     const emailElement = document.getElementById('emailInput');
     const passwordElement = document.getElementById('passwordInput');
     const radioStudentElement = document.getElementById('student');
     const radioProfessorElement = document.getElementById('professor');
-    var attempt = 3; // Variable to count number of attempts.
+    const warningMessage = document.getElementById('warningMessage');
+    const loginButton = document.getElementById('logInButton');
+
+    var attempt = 3;
+    // Variable to count number of attempts.
     // Below function Executes on click of login button.
-    function validate() {
+    loginButton.addEventListener('click', () => {
 
         if (emailElement.value == "cse110@ucsd.edu" && passwordElement.value == "group31" && radioStudentElement.checked) {
 
-            window.location = "assets\html\index.html"; // Redirecting to other page.
+            window.location = "index.html"; // Redirecting to other page.
             return false;
         } else if (emailElement.value == "powell@ucsd.edu" && passwordElement.value == "cse110" && radioProfessorElement.checked) {
-            window.location = "assets\html\index.html"; // Redirecting to other page.
+            window.location = "index.html"; // Redirecting to other page.
             return false;
         } else {
             attempt--; // Decrementing by one.
-            alert("You have left " + attempt + " attempt;");
+            //alert("You have left " + attempt + " attempt;");
             // Disabling fields after 3 attempts.
             if (attempt == 0) {
-                document.getElementById("username").disabled = true;
-                document.getElementById("password").disabled = true;
-                document.getElementById("submit").disabled = true;
+                document.getElementById("emailElement").disabled = true;
+                document.getElementById("passwordElement").disabled = true;
+                document.getElementById("logInButton").disabled = true;
                 return false;
             }
         }
-    }
+    });
     /* let loginButton = document.querySelector('.logIN');
      let studentCheck = document.getElementById('student');
      let profCheck = document.getElementById('professor');
