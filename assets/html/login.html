@@ -22,23 +22,23 @@
             <h1>Login</h1>
         </header>
 
-    <!-- FORM ELEMENT HERE-->
-    <form action="VERIFYLOGINFILE" target="_self">
+        <!-- FORM ELEMENT HERE-->
+        <form action="VERIFYLOGINFILE" target="_self">
 
-            <label for="umail"><b>UCSD Email</b></label>
+            <label for="umail" id="emailLabel"><b>UCSD Email</b></label>
             <input type="text" id="emailInput" placeholder="Please Enter UCSD Email" name="umail" required>
 
-        <label for="pwd"><b>Password</b></label>
-        <input type="password" id="passwordInput" placeholder="Please Enter Password" name="pwd" required>
-        <h4>Tell Us More About Yourself </h4>
-        <input type="radio" id="student" name="usertype" value="student">
-        <label for="student">I am a Student</label><br>
-        <input type="radio" id="professor" name="usertype" value="professor">
-        <label for="professor">I am a Professor</label><br>
-        <button id="logInButton" type="button" class="logIN">Log In</button>
-        <button onclick="history.back()">Cancel</button>
-    </form>
-    <p id="warningMessage" style="color: red"></p>
+            <label for="pwd"><b>Password</b></label>
+            <input type="password" id="passwordInput" placeholder="Please Enter Password" name="pwd" required>
+            <h4>Tell Us More About Yourself </h4>
+            <input type="radio" id="student" name="usertype" value="student">
+            <label for="student">I am a Student</label><br>
+            <input type="radio" id="professor" name="usertype" value="professor">
+            <label for="professor">I am a Professor</label><br>
+            <button id="logInButton" type="button" class="logIN">Log In</button>
+            <button id="cancelButton" onclick="history.back()">Cancel</button>
+        </form>
+        <p id="warningMessage" style="color: red"></p>
 </body>
 <footer>
 
