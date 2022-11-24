@@ -15,17 +15,18 @@
 </head>
 
 <body>
-    <header>
-        <!-- Edit welcome message with Professor or Student-->
+    <div class="center">
+        <header>
+            <!-- Edit welcome message with Professor or Student-->
 
-        <h1>Welcome [USER]</h1>
-    </header>
+            <h1>Login</h1>
+        </header>
 
     <!-- FORM ELEMENT HERE-->
-    <form id="formID" method="post" action="VERIFYLOGINFILE" target="_self">
+    <form action="VERIFYLOGINFILE" target="_self">
 
-        <label for="umail"><b>UCSD Email</b></label>
-        <input type="text" id="emailInput" placeholder="Please Enter UCSD Email" name="umail" required>
+            <label for="umail"><b>UCSD Email</b></label>
+            <input type="text" id="emailInput" placeholder="Please Enter UCSD Email" name="umail" required>
 
         <label for="pwd"><b>Password</b></label>
         <input type="password" id="passwordInput" placeholder="Please Enter Password" name="pwd" required>
