@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
   <title>Professor's Feedback</title>
 
-  <link rel="stylesheet" href="../styles/feedback.css">
+  <link rel="stylesheet" href="../assets/styles/feedback.css">
 </head>
 
 <body>
@@ -31,6 +31,19 @@
     <input type="submit">
   </form>
 
+  <h3> Current Categories for Class: </h3>
+  <!-- TODO: Use for loop to iterate through stored categories -->
+  <ul>
+    <li>Exams</li>
+    <li>Lectures</li>
+    <li>Discussions</li>
+  </ul>
+  <p> Add custom category: </p>
+  <form action="/ACTIONFILEHERE">
+    <input type="text" id="category" name="category">
+    <input type="submit">
+  </form>
+
   <h3> Your Comments For This Class: </h3>
 
   <div class="commentLinks"> 
@@ -44,7 +57,7 @@
 
   </div>
 
-  <a id="addComment" href="../html/professor_add_comment.html">Add New Comment</a>
+  <a id="addComment" href="professor_add_comment.html">Add New Comment</a>
 
   <!-- Will use script to add class buttons from storage-->
   <div class="commentLinks">
@@ -60,7 +73,7 @@
     <a id="nextPageButton" href="#">Next Page</a>
   </div>
 
-  <a id="logOutButton" href="../html/landing_page.html">Log Out</a>
+  <a id="logOutButton" href="landing_page.html">Log Out</a>
 </body>
 <footer>
 
