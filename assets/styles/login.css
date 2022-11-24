@@ -65,7 +65,7 @@ h4 {
     border-radius: 25px;
     border: 1px solid;
     text-align: center;
-    width: 80%;
+    width: 85%;
     height: 40px;
     margin: auto;
     display: block;
@@ -84,7 +84,7 @@ h4 {
     border-radius: 25px;
     border: 1px solid;
     text-align: center;
-    width: 80%;
+    width: 85%;
     height: 40px;
     margin: auto;
     display: block;
@@ -147,5 +147,7 @@ button {
 }
 
 #warningMessage {
-    padding-left: 1%;
+    padding-left: 20px;
+    margin-top: 35px;
+    color: red;
 }
