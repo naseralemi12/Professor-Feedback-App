@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- 3A ON MIRO-->
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Professor's Feedback</title>
   <script src="../scripts/script.js" type="module"></script>
   <script src="../scripts/Single_Comment.js" type="module"></script>
+  <script src="../scripts/professorFeedback.js" type="module"></script>
+
+
   <link rel="stylesheet" href="../styles/feedback.css">
 </head>
 
 <body>
-  <header> 
-  <!-- Edit welcome message with Professor or Student-->
-  <h1>Professor Feedback View</h1>
+  <header>
+    <!-- Edit welcome message with Professor or Student-->
+    <h1>Professor Feedback View</h1>
   </header>
 
-  <h3> Click on a comment title to read the full feedback comment! You can 
+  <h3> Click on a comment title to read the full feedback comment! You can
     also click the button below to add a new comment
   </h3>
-  
+
   <!-- Dropdown-->
-  <form action="/ACTIONFILEHERE">
-    <label for="classes">Select which class to view: </label>
-    <select id="classes" name="classList">
-      <option value="1">Class 1</option>
-      <option value="2">Class 2</option>
-      <option value="3">Class 3</option>
-      <option value="4">Class 4</option>
+  <div>
+    <span>Please select a class:</span>
+    <select id="classSelect">
+      <option>See All</option>
     </select>
-    <input type="submit">
-  </form>
+  </div>
+
 
   <h3> Your Comments For This Class: </h3>
 
-  <div class="commentLinks"> 
-    <a class ="ALinks" href="#"> 
-        Comment 1
+  <div class="commentLinks" id = "div1">
+    <a class="ALinks" href="#" id = "comnentsInClass">
+      Comment 1
     </a>
-
-    <a class ="ALinks" href="#">  
-        Comment 2
-    </a>
-
   </div>
 
   <!-- Will use script to add class buttons from storage-->
   <div class="commentLinks">
-    <a class ="ALinks" href="#"> 
-        Comment 3
+    <a class="ALinks" href="#">
+      Comment 3
     </a>
 
-    <a class ="ALinks" href="#"> 
-        Comment 4
+    <a class="ALinks" href="#">
+      Comment 4
     </a>
 
     <a id="addComment" href="../html/professor_add_comment.html">Add New Comment</a>
