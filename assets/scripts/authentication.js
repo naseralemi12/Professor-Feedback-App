@@ -10,12 +10,48 @@ function init() {
     const radioProfessorElement = document.getElementById('professor');
     const warningMessage = document.getElementById('warningMessage');
     const loginButton = document.getElementById('logInButton');
+    const url = '../scripts/loginData.json';
     let atposition = (emailElement.value).indexOf("@");
     let dotposition = (emailElement.value).indexOf(".");
     let attempt = 3;
+
     // Variable to count number of attempts.
     // Below function Executes on click of login button.
     loginButton.addEventListener('click', () => {
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log("inside the fetch" + data);
+                adder(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+
+        function adder(data) {
+            console.log("inside the function" + data);
+        }
+        /* var ip = JSON.parse()
+        
+            
+for(var obj in ip) {
+  for(var key in obj) {
+    console.info(key)
+    console.info(obj[key])
+  }
+}*/
+        /* let acc;
+
+         for (const account of loginData) {
+             if (username1 == account.email) {
+                 system.console(account.email);
+                 acc = account;
+             }
+         }*/
+        /* fetch('loginData.json')
+             .then((response) => response.json())
+             .then((json) => console.log(json));*/
 
         if (emailElement.value == "cse110@ucsd.edu" && passwordElement.value == "group31" && radioStudentElement.checked) {
 
