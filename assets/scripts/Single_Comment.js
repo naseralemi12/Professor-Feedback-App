@@ -1,5 +1,6 @@
 // Single_Comment.js
 
+<<<<<<< HEAD
 // This exists as a placeholder atm to render the comments/feedback
 class SingleComment extends HTMLElement {
     constructor() {
@@ -92,6 +93,11 @@ class SingleComment extends HTMLElement {
         <button type="button" class="update">Update Feedback</button>
         <button type="button" class="delete">Delete Feedback</button>
       `; // would eventually prefer to change to an icon button or something
+=======
+class SingleComment extends HTMLElement {
+    constructor() {
+      super(); // Inheret everything from HTMLElement
+>>>>>>> main
     }
   }
   
