@@ -14,7 +14,7 @@ function init() {
     let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
-
+    let addProfessorClassBtn = document.getElementById('addNewClassBtn');
     //when the newFeedbackButton is clicked, th dialog box should open
     newFeedbackButton.addEventListener('click', () => {
         if (typeof dialog.showModal === "function") { // check if the dialog is already open or not
@@ -36,6 +36,17 @@ function init() {
         resetForm();
         console.log("saved");
         confirmationMessage.textContent = "Feedback saved!";
+    });
+
+    //when addNewClass btn is clicked, add class to local storage for professor
+    //Please review this, not sure why it doesnt work when clicked, checked console and it works but not when button is clicked.
+    addProfessorClassBtn?.addEventListener('click', () => {
+        if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
+        let classList = JSON.parse(localStorage.getItem("classList"));
+        let classValue = document.getElementById('newClass')?.value;
+        classList?.push(classValue);
+        localStorage.setItem("classList", JSON.stringify(classList));
+        console.log('Succesfuly added new class');
     });
 
     /// creates a comment/feedback object
@@ -73,7 +84,6 @@ function init() {
             radio[i].checked = false;
         }
     }
-
     /**
     * Reads 'comments' from localStorage and returns an array of
     * all of the comments found (parsed, not in string form). If
@@ -103,7 +113,7 @@ function init() {
     * Populates drowdown lists with Classes in LocalStorage
     *
     */
-    function generateDropDown(){
+    function generateDropDown() {
         dropdownList.hidden = false;
         dropdownList.innerHTML = '<option value = "">See All</option>';
         for (let i = 0; i < classList.length; i++) {
@@ -117,15 +127,15 @@ function init() {
     * Populates the page with comments
     *
     */
-    function generateComments(){
+    function generateComments() {
         let currentComments = getCommentsFromStorage();
-        for(let i =0; i< classList.length;i++){
+        for (let i = 0; i < classList.length; i++) {
             let responses = currentComments[i].feedBack;
             let commBoxDiv = document.createElement('div');
             let newComment = document.createTextNode(responses);
             commBoxDiv.appendChild(newComment);
             const dummyDiv = document.getElementById("div1"); //should be adding new comment boxes above this div(serves as a refrecne point everything will add ontop of it)
-            document.body.insertBefore(commBoxDiv,dummyDiv);
+            document.body.insertBefore(commBoxDiv, dummyDiv);
         }
     }
 
@@ -163,7 +173,7 @@ function init() {
     * @param {HTMLElement} renderElement The element to render to
     * @param {HTMLElement} dropdown The element whose selection value we take
     */
-    function renderToElement(renderElement, dropdown){
+    function renderToElement(renderElement, dropdown) {
         renderElement.innerHTML = '';
         let currentComments = getCommentsFromStorage();
         if (currentComments == null) return;
@@ -179,7 +189,7 @@ function init() {
 
                 });
                 temp.shadowRoot?.querySelector(".delete")?.addEventListener('click', () => {
-                    currentComments = currentComments.slice(0,i).concat(currentComments.slice(i+1));
+                    currentComments = currentComments.slice(0, i).concat(currentComments.slice(i + 1));
                     saveCommentToStorage(currentComments);
                     renderToElement(renderElement, dropdown);
                     // ---check if deleted comment was last one from class---

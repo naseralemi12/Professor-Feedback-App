@@ -9,7 +9,7 @@ function init() {
     let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
-
+    let addProfessorClassBtn = document.getElementById('addNewClassBtn'); //button is used by professor to add a new class so that students can comment on.
     //when the newFeedbackButton is clicked, th dialog box should open
     newFeedbackButton.addEventListener('click', () => {
         if (typeof dialog.showModal === "function") { // check if the dialog is already open or not
