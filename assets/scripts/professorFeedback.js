@@ -16,31 +16,11 @@ function init() {
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let addProfessorClassBtn = document.getElementById('addNewClassBtn');
     //when the newFeedbackButton is clicked, th dialog box should open
-    newFeedbackButton.addEventListener('click', () => {
-        if (typeof dialog.showModal === "function") { // check if the dialog is already open or not
-            dialog.showModal(); // open the dialog box
-        }
-    });
-
-    // when the cancelButton inside the dialog box is clicked, the dialog box should close
-    cancelButton.addEventListener('click', () => {
-        dialog.close();
-    });
-
-    // when save button is clicked, the class name, date and feedback needs to be saved and ready to be shown
-    saveButton.addEventListener('click', () => {
-        let dialogObj = createFeedbackObject();
-        const curcomments = getCommentsFromStorage();
-        curcomments.push(dialogObj);
-        saveCommentToStorage(curcomments);
-        resetForm();
-        console.log("saved");
-        confirmationMessage.textContent = "Feedback saved!";
-    });
 
     //when addNewClass btn is clicked, add class to local storage for professor
     //Please review this, not sure why it doesnt work when clicked, checked console and it works but not when button is clicked.
     addProfessorClassBtn?.addEventListener('click', () => {
+        console.log("Sanity Check");
         if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
         let classList = JSON.parse(localStorage.getItem("classList"));
         let classValue = document.getElementById('newClass')?.value;
