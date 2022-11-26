@@ -38,7 +38,6 @@ export function getSpecificComments(classTitle) {
             filteredArray.push(jsoned[arrIdx]);
             }
         }
-        // console.log(filteredArray);
         return filteredArray;
     }
 }
@@ -98,15 +97,66 @@ export function createElems(jsonObjArray) {
     *
     * @author Christian
     */
-export function generateDropDown() {
-    dropdownList.hidden = false;
-    dropdownList.innerHTML = '<option value = "">See All</option>';
+export function generateDropDown(classList) {
+    let dropDownMenu = document.getElementById("classSelect");
+    dropDownMenu.hidden = false;
+    // necessary ?
+    dropDownMenu.innerHTML = '<option value = "">See All</option>';
     for (let i = 0; i < classList.length; i++) {
         const temp = document.createElement('option');
         temp.value = classList[i];
         temp.innerHTML = classList[i];
-        dropdownList?.append(temp);
+        dropDownMenu?.append(temp);
     }
+}
+
+ /**
+    * @Todo add doc 
+    *
+    * @author Christian
+    */
+export function updateCurrClass() {
+    let currClass = {
+        class : document.getElementById("classSelect").value,
+    }
+    localStorage.setItem('currClass', JSON.stringify(currClass));
+}
+ /**
+    * @Todo add doc 
+    *
+    * @author Christian
+    */
+  export function filterSubmissions(submissions) {
+    const filteredArray = [];
+    for (const arrIdx in submissions) {
+        if (submissions[arrIdx].className ==  JSON.parse(localStorage.getItem('currClass')).class) {
+        filteredArray.push(submissions[arrIdx]);
+        }
+    }
+    return filteredArray;
+}
+    /**
+    * function NewclassCategory(classname)
+    * 
+    * Operation: This function is used to assign default categories
+    * @author Chris
+    * @param className
+    */
+function NewclassCategory(className){
+    var category = ["Exam","Lecture","Discussion"];
+    localStorage.setItem(className,JSON.stringify(category));
+}
+
+export function appendClass() {
+    console.log("Sanity Check");
+    const classList = JSON.parse(localStorage.getItem("classList")) || []; // goated
+    let classValue = document.getElementById('newClass')?.value;
+    classList?.push(classValue);
+    localStorage.setItem("classList", JSON.stringify(classList));
+    NewclassCategory(classValue); // idk what this does // sets up checkboxes on student add comment
+    console.log('Succesfuly added new class');
+    // may break errthing :-)
+    location.reload();
 }
 /**
  * END Exports for Professor Feedback.js

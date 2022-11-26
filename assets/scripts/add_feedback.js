@@ -1,3 +1,10 @@
+/**
+ * add_feedback.js
+ * 
+ * Functionality for the student to add feedback
+ * Uses localstorage and arrays to store comments.
+ * @author Christian Velasquez, Kenny Fong
+ */
 // imports 
 
 //import { appendComment} from "./helpers.js"
