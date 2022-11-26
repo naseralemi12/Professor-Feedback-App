@@ -8,6 +8,7 @@ function init() {
     let commentBox = document.getElementById("")
     // generate the dropdown selection
     generateDropDown();
+    generateComments();
     let newFeedbackButton = document.getElementById('newFeedback'); // this button triggers the dialog box
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
     let dialog = document.querySelector('dialog'); // this element is the dialog box itself

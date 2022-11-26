@@ -310,4 +310,5 @@ function saveCommentToStorage(comment) {
     }
     const str = localStorage.getItem("comment");
     return JSON.parse(str);
-}
+    }
+});}
