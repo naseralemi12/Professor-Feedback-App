@@ -8,6 +8,7 @@ html {
   background: linear-gradient(120deg,#378ec9, #a754ca);
   height: 100vh;
   overflow: hidden;
+  font-family: Arial;
 }
   
 body {
@@ -20,6 +21,7 @@ form {
     border: none;
 }
 
+/* Center Block Styling */
 .center{
   position: absolute;
   top: 50%;
@@ -41,6 +43,7 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+/* Text Styling */
 h1{
   text-align: center;
   font-size: 38px;
@@ -55,18 +58,28 @@ h4{
   width: 50px;
 }
 
+#warningMessage {
+  padding-top: 30px;
+  padding-left: 20%;
+}
+
+/* Button Styling */
 #logInButton{
+  position: relative;
   top: 25px;
-  position: relative; 
+  bottom: 10px; 
+
   background: linear-gradient(120deg,#378ec9, #a754ca);
   border-radius: 25px;
-  border: 1px solid;
+  border: 1px white;
+  padding: 0px;
+  font-size: 16px;
   text-align: center;
   width: 80%;
   height: 40px;
   margin: auto;
   display: block;
-  bottom: 10px;
+  color: white;
 }
 
 #logInButton:hover{
@@ -75,16 +88,20 @@ h4{
 }
 
 #cancelbutton{
-  top: 40px;
   position: relative; 
+  top: 40px;
+  
   background: linear-gradient(120deg,#e46464, #dd1e1e);
   border-radius: 25px;
-  border: 1px solid;
+  border: 1px white;
+  padding: 0px;
+  font-size: 16px;
   text-align: center;
-  width: 40%;
-  height: 50px;
+  width: 80%;
+  height: 40px;
   margin: auto;
   display: block;
+  color: white;
 }
 
 #cancelbutton:hover{
@@ -92,6 +109,7 @@ h4{
   transition: .25s;
 }
 
+/* Label Styling */
 label[for=umail]{
   font-family: Arial;
   font-size: 12px;
@@ -134,10 +152,3 @@ input[type=text]{
   outline: none;
 }
 
-button {
-    border: none;
-    color: white;
-    padding: 0px;
-    font-size: 16px;
-    margin: 4px 2px;
-  }
