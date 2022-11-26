@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', init);
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
 function init() {
     const dropdownList = document.getElementById("classSelect");
+    if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
     const classList = JSON.parse(localStorage.classList);
     let commentBox = document.getElementById("")
     // generate the dropdown selection
@@ -27,6 +28,7 @@ function init() {
         let classValue = document.getElementById('newClass')?.value;
         classList?.push(classValue);
         localStorage.setItem("classList", JSON.stringify(classList));
+        NewclassCategory(classValue);
         console.log('Succesfuly added new class');
     });
 
@@ -120,7 +122,17 @@ function init() {
         }
     }
 
-
+    /**
+    * function NewclassCategory(classname)
+    * 
+    * Operation: This function is used to assign default categories
+    * @author Chris
+    * @param className
+    */
+    function NewclassCategory(className){
+        var category = ["Exam","Lecture","Discussion"];
+        localStorage.setItem(className,JSON.stringify(category));
+    }
     /**
     * Reads comments from localstorage and renders to the selected element.
     * Also supports rendering a specific class's comments
