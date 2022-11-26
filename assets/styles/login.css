@@ -65,9 +65,10 @@ h4{
 
 /* Button Styling */
 #logInButton{
+  position: relative;
   top: 25px;
-  bottom: 10px;
-  position: relative; 
+  bottom: 10px; 
+
   background: linear-gradient(120deg,#378ec9, #a754ca);
   border-radius: 25px;
   border: 1px white;
@@ -87,8 +88,9 @@ h4{
 }
 
 #cancelbutton{
-  top: 40px;
   position: relative; 
+  top: 40px;
+  
   background: linear-gradient(120deg,#e46464, #dd1e1e);
   border-radius: 25px;
   border: 1px white;

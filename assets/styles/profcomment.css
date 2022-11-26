@@ -6,7 +6,10 @@ html, body {
   
 html {
     font-size: 20px;
-    background-color: #d8d4dd;
+    background: linear-gradient(120deg,#378ec9, #a754ca);
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial;
 }
   
 body {
@@ -26,48 +29,58 @@ h2 {
     font-size: x-large;
 }
 
+/* Center Block Styling */
+.center{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 650px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  }
 
 /* Textbox styling */
-
-#profaddcomment{
-    width: 100%;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    font-size: 20px;
-    resize: none;
-}
-#aButtons {
-    margin-top: 1%;
-    display: flex;
-    width: 100%;
-}
-#submitLink {
-    margin-right: auto;
+#addNewCategory {
+    margin-left: auto;
     /* rounded corners w/ border */
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px 20px;
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 7px 20px;
+
+    position: relative; 
+    top: 12px;
+    width: 25%;
+}
+#addCategoryButton {
+    margin-left: auto;
+    /* rounded corners w/ border */
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 7px 20px;
     
-    background-color: rgb(207, 207, 207);
-    color:black;
+    background: linear-gradient(120deg,#378ec9, #a754ca);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+
+    position: relative; 
+    top: 40px;
 }
 #goback {
     margin-left: auto;
     /* rounded corners w/ border */
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px 20px;
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 7px 20px;
     
-    background-color: rgb(207, 207, 207);
-    color:black;
+    background: linear-gradient(120deg,#e46464, #dd1e1e);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+
+    position: relative; 
+    top: 40px;
 }
