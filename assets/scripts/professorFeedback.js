@@ -11,13 +11,30 @@ function init() {
     const dropdownList = document.getElementById("classSelect");
     if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
     const classList = JSON.parse(localStorage.classList);
-    let commentBox = document.getElementById("");
+    // let commentBox = document.getElementById("");
     // generate the dropdown selection
     generateDropDown();
     // Repurposed to load comments based on selected class 
     let viewFeedbackButton = document.getElementById('viewFeedback'); 
     // will append comments every time, need to load only once 
-    viewFeedbackButton?.addEventListener("click", () => generateSpecificComments(dropdownList.value) );
+    viewFeedbackButton?.addEventListener("click", () => {
+        let currClass = {
+            class : document.getElementById("classSelect").value,
+        }
+        localStorage.setItem('currClass', JSON.stringify(currClass));
+        // Case of empty local
+        const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
+        // iterate through array of json object linearly (very slow)
+        // only add objects that pertain to the selected class in dropdown
+        const filteredArray = [];
+        for (const arrIdx in submissions) {
+            if (submissions[arrIdx].className ==  JSON.parse(localStorage.getItem('currClass')).class) {
+            filteredArray.push(submissions[arrIdx]);
+            }
+        }
+        // console.log(filteredArray);
+        console.log(filteredArray);
+    });
     
     let newFeedbackButton = document.getElementById('newFeedback'); // this button triggers the dialog box
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
@@ -32,14 +49,14 @@ function init() {
     //Please review this, not sure why it doesnt work when clicked, checked console and it works but not when button is clicked.
     addProfessorClassBtn?.addEventListener('click', () => {
         console.log("Sanity Check");
-        if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
-        let classList = JSON.parse(localStorage.getItem("classList"));
+        const classList = JSON.parse(localStorage.getItem("classList")) || []; // goated
         let classValue = document.getElementById('newClass')?.value;
         classList?.push(classValue);
         localStorage.setItem("classList", JSON.stringify(classList));
-        NewclassCategory(classValue);
+        NewclassCategory(classValue); // idk what this does 
         console.log('Succesfuly added new class');
     });
+    
     GoToModifyPageBtn?.addEventListener('click', ()=>{
         var cname = document.getElementById('classSelect').value;
         localStorage.setItem("currentClass",cname);

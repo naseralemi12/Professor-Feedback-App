@@ -1,9 +1,8 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
-var currentClass = "CSE 110";
+//var currentClass = "CSE 110";
 function init() {
-
     /*
      *This part is for professor_modify_category
      */

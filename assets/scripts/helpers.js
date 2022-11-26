@@ -93,7 +93,40 @@ export function createElems(jsonObjArray) {
         return;
 }
 
-
+    /**
+    * @Todo add doc 
+    *
+    * @author Christian
+    */
+export function generateDropDown() {
+    dropdownList.hidden = false;
+    dropdownList.innerHTML = '<option value = "">See All</option>';
+    for (let i = 0; i < classList.length; i++) {
+        const temp = document.createElement('option');
+        temp.value = classList[i];
+        temp.innerHTML = classList[i];
+        dropdownList?.append(temp);
+    }
+}
 /**
  * END Exports for Professor Feedback.js
  */
+
+/**
+ * Exports for add_feedback.js
+ */
+
+export function appendComment() {  
+    const submits = localStorage.getItem('submissions');
+    let course = document.getElementsById('Classname').value;
+    let title = document.getElementById('FeedbackTitle').value;
+    let content = document.getElementById('stucommenttxt').value;
+    let newSubmit = {};
+    console.log("hello");
+    newSubmit.title = title;
+    newSubmit.className = course;
+    newSubmit.date = "today";
+    newSubmit.feedBack = content;
+    newSubmit.category = "TODO"
+    submits.parse().push(newSubmit);
+}
