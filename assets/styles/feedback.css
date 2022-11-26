@@ -169,7 +169,10 @@ h3 {
 }
 
 
-
+#viewFeedback {
+    display: inline;
+    
+}
 
 /* logOutButton */
 /* END <A> STYLING */
