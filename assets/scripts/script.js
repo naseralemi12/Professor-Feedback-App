@@ -1,14 +1,15 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
-// the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
-var currentClass = "CSE 110";
-function init() {
+document.getElementById('Classname').innerText = JSON.parse(localStorage.getItem('currClass')).class;
 
+// the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
+var currentClass = "";
+function init() {
     /*
      *This part is for professor_modify_category
      */
     const categoryTable = document.getElementById("categorylist");
-    currentClass=localStorage.getItem("currentClass");
+    currentClass=JSON.parse(localStorage.getItem('currClass')).class;
     var list = JSON.parse(localStorage.getItem(currentClass));
     //Build a category list with delete button.
     if(categoryTable){
@@ -28,7 +29,6 @@ function init() {
             };
             cell.appendChild(deleteButton);
         }
-        document.getElementById("CategoryClassName").innerHTML=currentClass;
         let addCategoryButton = document.getElementById("addCategoryButton");
         addCategoryButton?.addEventListener('click', () => {
         addCategory(currentClass,document.getElementById("addNewCategory").value);

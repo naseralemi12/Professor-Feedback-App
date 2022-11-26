@@ -77,11 +77,11 @@ h3 {
     margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 7px 20px;
 
-    background-color: rgb(207, 207, 207);
-    color:black;
+    background: linear-gradient(120deg,#000000, #000000);
+    color:rgb(255, 255, 255);
 
     text-align: center;
     text-decoration: none;
@@ -90,7 +90,23 @@ h3 {
 
 #addComment:hover, 
 #addComment:active{
-    background-color: rgb(187, 187, 187);
+    background: linear-gradient(120deg,#0f011a, #000000);
+}
+
+#view:link, 
+#view:visited{
+    margin-top: 10px;
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 7px 20px;
+
+    background: linear-gradient(120deg,#000000, #000000);
+    color:rgb(255, 255, 255);
+
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
 }
 
 #nextPageButton:link, 
@@ -117,24 +133,25 @@ h3 {
 
 #logOutButton:link, 
 #logOutButton:visited{
-    margin-top: 10%;
-    margin-left: 63%;
+    margin-left: auto;
     /* rounded corners w/ border */
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 7px 20px;
-
-    background-color: rgb(115, 115, 115);
-    color:black;
-
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: .5% 1%;
+    
+    background: linear-gradient(120deg,#e46464, #dd1e1e);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+
+    position: absolute;
+    top: 93%;
+    left: 90%;
 }
 
 #logOutButton:hover, 
 #logOutButton:active{
-    background-color: rgb(187, 187, 187);
+    background: linear-gradient(120deg,#dd2e2e, #720707);
 }
 
 .commentLinks {

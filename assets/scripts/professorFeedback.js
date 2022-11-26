@@ -1,18 +1,40 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
 
+/** 
+ * Import Statements 
+ */
+import { getSpecificComments, generateSpecificComments, createElems} from "./helpers.js";
+
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
 function init() {
     const dropdownList = document.getElementById("classSelect");
     if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
     const classList = JSON.parse(localStorage.classList);
-    let commentBox = document.getElementById("")
+    // let commentBox = document.getElementById("");
     // generate the dropdown selection
     generateDropDown();
     // Repurposed to load comments based on selected class 
     let viewFeedbackButton = document.getElementById('viewFeedback'); 
-    // will add comment every time, need to reload once
-    viewFeedbackButton?.addEventListener("click", () => generateSpecificComments(dropdownList.value) );
+    // will append comments every time, need to load only once 
+    viewFeedbackButton?.addEventListener("click", () => {
+        let currClass = {
+            class : document.getElementById("classSelect").value,
+        }
+        localStorage.setItem('currClass', JSON.stringify(currClass));
+        // Case of empty local
+        const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
+        // iterate through array of json object linearly (very slow)
+        // only add objects that pertain to the selected class in dropdown
+        const filteredArray = [];
+        for (const arrIdx in submissions) {
+            if (submissions[arrIdx].className ==  JSON.parse(localStorage.getItem('currClass')).class) {
+            filteredArray.push(submissions[arrIdx]);
+            }
+        }
+        // console.log(filteredArray);
+        console.log(filteredArray);
+    });
     
     let newFeedbackButton = document.getElementById('newFeedback'); // this button triggers the dialog box
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
@@ -27,14 +49,14 @@ function init() {
     //Please review this, not sure why it doesnt work when clicked, checked console and it works but not when button is clicked.
     addProfessorClassBtn?.addEventListener('click', () => {
         console.log("Sanity Check");
-        if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
-        let classList = JSON.parse(localStorage.getItem("classList"));
+        const classList = JSON.parse(localStorage.getItem("classList")) || []; // goated
         let classValue = document.getElementById('newClass')?.value;
         classList?.push(classValue);
         localStorage.setItem("classList", JSON.stringify(classList));
-        NewclassCategory(classValue);
+        NewclassCategory(classValue); // idk what this does 
         console.log('Succesfuly added new class');
     });
+    
     GoToModifyPageBtn?.addEventListener('click', ()=>{
         var cname = document.getElementById('classSelect').value;
         localStorage.setItem("currentClass",cname);
@@ -89,48 +111,6 @@ function init() {
         const str = localStorage.getItem("comment");
         return JSON.parse(str);
     }
-
-    /**
-    * Reads 'comments' from localStorage and returns an array of
-    * ONLY the class selected's comments found (parsed, not in string form). If
-    * nothing is found in localStorage for 'comments', an empty array
-    * is returned.
-    * @returns {Array<Object>} An array of comments found in localStorage
-    */
-     function getSpecificComments(classTitle) {
-        if (localStorage.getItem('comment') == null) {
-            const emptyArray = [];
-            return emptyArray;
-        }
-        const str = localStorage.getItem("comment");
-        const jsoned = JSON.parse(str);
-        // iterate through array of json object linearly (very slow)
-        // only add objects that pertain to the selected class in dropdown
-        const filteredArray = [];
-        for (const arrIdx in jsoned) {
-            if (jsoned[arrIdx].classname == classTitle) {
-                filteredArray.push(jsoned[arrIdx]);
-            }
-        }
-        // console.log(filteredArray);
-        return filteredArray;
-    }
-    /**
-    * Populates the page with comments on page reload
-    * 
-    */
-     function generateSpecificComments(classTitle) {
-        let currentComments = getSpecificComments(classTitle);
-        for (let i = 0; i < currentComments.length; i++) {
-            let responses = currentComments[i].feedBack;
-            let commBoxDiv = document.createElement('div');
-            let newComment = document.createTextNode(responses);
-            commBoxDiv.appendChild(newComment);
-            const dummyDiv = document.getElementById("div1"); //should be adding new comment boxes above this div(serves as a refrecne point everything will add ontop of it)
-            document.body.insertBefore(commBoxDiv, dummyDiv);
-        }
-    }
-
     /**
     * Saves an array of comments to 'comments' in localStorage.
     * 
