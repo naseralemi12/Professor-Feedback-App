@@ -6,6 +6,7 @@ html, body {
   
 html {
     font-size: 20px;
+    color:rgb(255, 255, 255);
     background: linear-gradient(120deg,#378ec9, #a754ca);
     height: 100vh;
     overflow: hidden;
@@ -20,41 +21,64 @@ body {
 h1 { 
     display: block;
     text-align: center;
-    font-size: xx-large;
+    font-size: xx-large;    
 }
-
-h2 { 
-    display: block;
-    text-align: center;
-    font-size: x-large;
+/* Text styling */
+#Classname{
+    color:black;
+    position: absolute;
+    top: 0%;
+    left: 45%;
 }
-
-
 /* Textbox styling */
+#FeedbackTitle{
+    position: absolute;
+    top: 10%;
+    left: 25%;
 
-#stucommenttxt{
-    width: 100%;
-    height: 150px;
+    width: 50%;
+    height: 6%;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #f8f8f8;
     font-size: 20px;
     resize: none;
 }
-#submitLink {
+#stucommenttxt{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+
+    width: 50%;
+    height: 25%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #f8f8f8;
+    font-size: 20px;
+    resize: none;
+}
+#submitB {
     margin-right: auto;
     /* rounded corners w/ border */
     border-radius: 8px;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     padding: 5px 20px;
-    
-    background-color: rgb(207, 207, 207);
-    color:black;
+
+    width: 40%;
+    height: 5%;
+    background: linear-gradient(120deg,#bf7bf3, #418dbc);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
     display:inline-block;
+
+    position: absolute;
+    top: 60%;
+    left: 30%;
 }
 #goback {
     margin-left: auto;
@@ -73,25 +97,8 @@ h2 {
     left: 90%;
 }
 
-.inline h3{
-    padding: 5px 20px;
-    background-color: rgb(140, 140, 155);
-    border: 1px solid black;
-    display: inline-block;
-}
-
-.containerNo {
-    display: inline;
-    padding-left: 25%;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 30px;
-  }
-
-.containerYes {
-    display: inline;
-    padding-left: 20%;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 30px;
+#ctgrlist {
+    position: absolute;
+    top: 50%;
+    left: 25%;
 }
