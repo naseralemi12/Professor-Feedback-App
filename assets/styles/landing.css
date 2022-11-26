@@ -39,20 +39,23 @@ h3 {
 
 /* Button Styling */
 .button {
-  top: 10px;
-  text-decoration: none;
+  /* position */ 
   position: relative; 
-  background: linear-gradient(120deg,#378ec9, #65f1da);
-  border-radius: 25px;
-  border: 1px solid;
-  text-align: center;
-  width: 80%;
-  height: 40px;
+  top: 10px;
   margin: auto;
   display: block;
   bottom: 10px;
+  /* border and color */ 
+  background: linear-gradient(120deg,#378ec9, #65f1da);
+  border-radius: 25px;
+  border: 1px solid;
+  width: 80%;
+  height: 40px;
   border: none;
-  color: white;
   padding: 0px;
+  /* text */ 
   font-size: 24px;
+  text-decoration: none;
+  text-align: center;
+  color: white;
 }
