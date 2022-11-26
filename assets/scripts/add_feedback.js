@@ -24,14 +24,16 @@ function init() {
         let course = document.getElementById('Classname').innerText;
         let title = document.getElementById('FeedbackTitle').value;
         let content = document.getElementById('stucommenttxt').value;
+        let category = document.querySelector('input[name="Categories_of_Class"]:checked').value;
+        let date = new Date().toDateString();
         
         // create new object to fill in 
         let newSubmit = {};
         newSubmit.title = title;
         newSubmit.className = course;
-        newSubmit.date = "today";
+        newSubmit.date = date;
         newSubmit.feedBack = content;
-        newSubmit.category = "TODO";
+        newSubmit.category = category;
         
         submissions.push(newSubmit);
 
@@ -49,6 +51,9 @@ function init() {
      for(let i=0;i<currentCategoryList.length;i++){
          var ctgr = document.createElement("INPUT");
          var ctgrname = document.createTextNode(currentCategoryList[i]);
+         if (i==0) {
+            ctgr.setAttribute("checked", "true");
+         }
          ctgr.setAttribute("type", "radio");
          ctgr.setAttribute("value",currentCategoryList[i]);
          ctgr.setAttribute("name","Categories_of_Class");
