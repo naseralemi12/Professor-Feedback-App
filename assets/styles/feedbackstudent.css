@@ -52,7 +52,18 @@ h3 {
     bottom: 25px;
 }
 
+.commentBox:active {  
+    display: block;
+    justify-content: center;
+    background-color: rgb(11, 89, 157);
+    color:black;
+    height: fit-content;
+    border: 2px solid black;
+    border-radius: 16px;
 
+    /* Center boxes inside div */
+    margin-top: 10px;   
+}
 .commentBox {  
     display: block;
     justify-content: center;
