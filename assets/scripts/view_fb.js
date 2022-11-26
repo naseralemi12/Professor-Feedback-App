@@ -5,11 +5,11 @@ function init() {
 
     // attach event listener to all comments
     let comments = document.querySelectorAll('.expandInfo');
-    for (let item in comments) {
-        comments[item].addEventListener('click', () => {
-            document.querySelector('#commentTitle').innerHTML= comments[item].innerText; // setting title
+    for (let i = 0; i < comments.length;i++) {
+        comments[i].addEventListener('click', () => {
+            document.querySelector('#commentTitle').innerHTML= comments[i].innerText; // setting title
             let submissionsArr = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
-            document.querySelector('.textbox').innerText = submissionsArr[item].feedBack;
+            document.querySelector('.textbox').innerText = submissionsArr[i].feedBack;
         });
     }
 }
