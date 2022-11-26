@@ -27,6 +27,19 @@ function init() {
         console.log(currClassSubmissions);
     });
 
+    GoToModifyPageBtn?.addEventListener("click", () => {
+        // changes currClass in local storage 
+        updateCurrClass();
+        // Case of empty local
+        const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
+        // iterate through array of json object linearly (very slow)
+        // only add objects that pertain to the selected class in dropdown
+
+        let currClassSubmissions = filterSubmissions(submissions);
+        console.log(currClassSubmissions);
+    });
+
+
     // will add new class based on textbox input
     addProfessorClassBtn?.addEventListener('click', () => appendClass());
 }
