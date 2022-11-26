@@ -56,10 +56,10 @@ function init() {
             warningMessage.innerHTML = "All fields are required. Please try again.";
             return false;
         }
-        /* else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= emailElement.value.length) {
-                    warningMessage.innerHTML = "Invalid Email. Please Enter a valid email.";
-                    return false;
-                }*/
+        /*else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= emailElement.value.length) {
+                   warningMessage.innerHTML = "Invalid Email. Please Enter a valid email.";
+                   return false;
+               } */
         else {
             attempt--; // Decrementing by one.
             warningMessage.innerHTML = "You have " + attempt + " attempt(s) left!";
