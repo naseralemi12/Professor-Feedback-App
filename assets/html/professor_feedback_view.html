@@ -13,6 +13,7 @@
 
 
   <link rel="stylesheet" href="../styles/feedback.css">
+  <link rel="stylesheet" href="../styles/feedbackprof.css">
 </head>
 
 <body>
@@ -21,8 +22,7 @@
     <h1>Professor Feedback View</h1>
   </header>
 
-  <h3> Click on a comment title to read the full feedback comment! You can
-    also click the button below to add a new comment
+  <h3> Select a class to view, then choose whether to view or modify categories.
   </h3>
 
   <!-- Dropdown-->
@@ -32,27 +32,29 @@
       <option>See All</option>
     </select>
     <a id="viewFeedback" href="#">View Feedback</a>
+    <a id="modifyCategories" href="../html/professor_modify_category.html">Modify Categories</a>
   </div>
   <!-- add a new class-->
   <div class="addNewClass">
     <footer>
-      <label>Don't see your class? Add a new one: </label>
+      <label>Don't see your class above? Add a new one: </label>
       <input type="text" id="newClass" placeholder="New Class">
       <button id="addNewClassBtn">Add New Class</button>
     </footer>
   </div>
+  <!--Comments will be added as individual <a>'s within this div -->
+  <!--
   <h3> Your Comments For This Class: </h3>
 
-  <!--Comments will be added as individual <a>'s within this div -->
+  
   <div class="commentLinks" >
     <a class="Alinks" href="#">
      Hello
     </a>
   </div>
-    <a id="modifyCategories" href="../html/professor_modify_category.html">Modify Categories</a>
     <hr>
   </div>
-  <br>
+  <br>-->
   <a id="logOutButton" href="../html/landing_page.html" style="margin:auto">Log Out</a>
 </body>
 <footer>

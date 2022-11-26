@@ -63,7 +63,7 @@ h3 {
 
 /* STYLING FOR <A> AS BUTTON */
 
-#addProfComment {
+#addProfComment, #viewFeedback, #modifyCategories {
     margin-top: 10px;
     margin-right: 86%;
     /* rounded corners w/ border */
