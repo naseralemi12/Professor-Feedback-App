@@ -10,6 +10,7 @@ function init() {
             document.querySelector('#commentTitle').innerHTML= comments[i].innerText; // setting title
             let submissionsArr = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
             document.querySelector('.textbox').innerText = submissionsArr[i].feedBack;
+            document.querySelector('#Categoryname').innerText = submissionsArr[i].category;
         });
     }
 }
