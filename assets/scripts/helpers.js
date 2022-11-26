@@ -27,20 +27,21 @@ export function getSpecificComments(classTitle) {
         const emptyArray = [];
         return emptyArray;
     }
-    const str = localStorage.getItem("comment");
-    const jsoned = JSON.parse(str);
-    // iterate through array of json object linearly (very slow)
-    // only add objects that pertain to the selected class in dropdown
-    const filteredArray = [];
-    for (const arrIdx in jsoned) {
-        if (jsoned[arrIdx].classname == classTitle) {
+    else {
+        const str = localStorage.getItem("comment");
+        const jsoned = JSON.parse(str);
+        // iterate through array of json object linearly (very slow)
+        // only add objects that pertain to the selected class in dropdown
+        const filteredArray = [];
+        for (const arrIdx in jsoned) {
+            if (jsoned[arrIdx].classname == classTitle) {
             filteredArray.push(jsoned[arrIdx]);
+            }
         }
+        // console.log(filteredArray);
+        return filteredArray;
     }
-    // console.log(filteredArray);
-    return filteredArray;
 }
-
 
     /**
     * function generateSpecificComments()
@@ -53,15 +54,17 @@ export function getSpecificComments(classTitle) {
  export function generateSpecificComments(classTitle) {
     let currentComments = getSpecificComments(classTitle);
     // fill local with specific comments 
-    if (localStorage.currentComments == undefined) {
+    if (localStorage.getItem('currentComments') == undefined) {
         // currentComments will change every time a new class is selected from
         // drop down menu  
         localStorage.setItem("currentComments", JSON.stringify(currentComments)); 
         createElems(currentComments);
+        return;
     }
     else {
-        clearElems();
-        createElems(localStorage.getItem('curretComments'));
+        document.getElementsByClassName('commentLinks');
+        createElems(localStorage.getItem("currentComments"));
+        return;
     }
 }
 
@@ -73,7 +76,7 @@ export function getSpecificComments(classTitle) {
     * @author Christian
     * @param jsonObjArray This key's (jsonObjArray's) local storage held value 
     */
-function createElems(jsonObjArray) {
+export function createElems(jsonObjArray) {
     // linear creation of elements (slow?)
     for (let i = 0; i < jsonObjArray.length; i++) {
         // may change to jsonObjArray[i].title
@@ -81,27 +84,49 @@ function createElems(jsonObjArray) {
         // create elements & insert all required data 
         let aElem = document.createElement('a');
         aElem.setAttribute('class','Alinks')
+        console.log(jsonObjArray);
         aElem.innerText = jsonObjArray[i].classname;
         parentDiv.appendChild(aElem);
         //const dummy = document.getElementById("1"); //should be adding new comment boxes above this (serves as a refrecne point everything will add ontop of it)
         //document.body.insertBefore(commBox, dummy);
         }
+        return;
 }
 
-/**
-    * function clearElems()
-    * 
-    * Deletes all elements under specified identifier
-    * 
+    /**
+    * @Todo add doc 
+    *
     * @author Christian
-    * @param element top level identifier (MUST BE ID)
-    * 
     */
- function clearElems(element) {
-    const parent = document.getElementById(element);
-    parent.delete
+export function generateDropDown() {
+    dropdownList.hidden = false;
+    dropdownList.innerHTML = '<option value = "">See All</option>';
+    for (let i = 0; i < classList.length; i++) {
+        const temp = document.createElement('option');
+        temp.value = classList[i];
+        temp.innerHTML = classList[i];
+        dropdownList?.append(temp);
+    }
 }
-
 /**
  * END Exports for Professor Feedback.js
  */
+
+/**
+ * Exports for add_feedback.js
+ */
+
+export function appendComment() {  
+    const submits = localStorage.getItem('submissions');
+    let course = document.getElementsById('Classname').value;
+    let title = document.getElementById('FeedbackTitle').value;
+    let content = document.getElementById('stucommenttxt').value;
+    let newSubmit = {};
+    console.log("hello");
+    newSubmit.title = title;
+    newSubmit.className = course;
+    newSubmit.date = "today";
+    newSubmit.feedBack = content;
+    newSubmit.category = "TODO"
+    submits.parse().push(newSubmit);
+}

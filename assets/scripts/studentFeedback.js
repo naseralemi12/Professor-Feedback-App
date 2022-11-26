@@ -8,7 +8,7 @@ function init() {
     let commentBox = document.getElementById("")
     // generate the dropdown selection
     generateDropDown();
-    //generateComments();
+    // generateComments();
     let newFeedbackButton = document.getElementById('newFeedback'); // this button triggers the dialog box
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
     let dialog = document.querySelector('dialog'); // this element is the dialog box itself
@@ -76,7 +76,7 @@ function init() {
         }
         return dialogInput;
     }
-
+    
     // after each save button click, the form needs to be cleared so for next new feedback it will be ready
     let resetForm = () => {
         document.getElementById("title").value = "";
@@ -99,6 +99,7 @@ function init() {
     function getCommentsFromStorage() {
         if (localStorage.getItem('comment') == null) {
             const emptyArray = [];
+            localStorage.setItem("comment", JSON.stringify(emptyArray));
             return emptyArray;
         }
         const str = localStorage.getItem("comment");
@@ -111,7 +112,7 @@ function init() {
     * @param {Array<Object>} comment An array of comments found in localStorage
     */
     function saveCommentToStorage(comment) {
-        localStorage.setItem("comment", JSON.stringify(comment));
+        localStorage.setItem("comment", JSON.stringify(comment));   
     }
 
     /**
