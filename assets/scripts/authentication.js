@@ -10,12 +10,11 @@ function init() {
     const radioProfessorElement = document.getElementById('professor');
     const warningMessage = document.getElementById('warningMessage');
     const loginButton = document.getElementById('logInButton');
-
     var attempt = 3;
     // Variable to count number of attempts.
     // Below function Executes on click of login button.
     loginButton.addEventListener('click', () => {
-
+        localStorage.setItem("currUser", JSON.stringify(emailElement.value));
         if (emailElement.value == "cse110@ucsd.edu" && passwordElement.value == "group31" && radioStudentElement.checked) {
 
             window.location = "student_feedback_view.html"; // Redirecting to other page.

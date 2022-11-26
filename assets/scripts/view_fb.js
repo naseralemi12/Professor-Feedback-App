@@ -7,10 +7,12 @@ function init() {
     let comments = document.querySelectorAll('.expandInfo');
     for (let i = 0; i < comments.length;i++) {
         comments[i].addEventListener('click', () => {
-            document.querySelector('#commentTitle').innerHTML= comments[i].innerText; // setting title
+            document.querySelector('#commentTitle').innerHTML= "Title: " + comments[i].innerText; // setting title
             let submissionsArr = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
             document.querySelector('.textbox').innerText = submissionsArr[i].feedBack;
-            document.querySelector('#Categoryname').innerText = submissionsArr[i].category;
+            document.querySelector('#Categoryname').innerText = "Category: " + submissionsArr[i].category;
+            document.querySelector('#Date').innerText = "Date: " + submissionsArr[i].date;
+            document.querySelector('#Name').innerText = "Name: " + submissionsArr[i].name;
         });
     }
 }

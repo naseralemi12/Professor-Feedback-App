@@ -26,7 +26,11 @@ function init() {
         let content = document.getElementById('stucommenttxt').value;
         let category = document.querySelector('input[name="Categories_of_Class"]:checked').value;
         let date = new Date().toDateString();
-        
+
+        // if annonymous don't save name
+        let isAnnonymous = document.getElementById('Annonymous').checked;
+        let name = isAnnonymous ? "Annonymous" : JSON.parse(localStorage.getItem('currUser'));
+        console.log(name);
         // create new object to fill in 
         let newSubmit = {};
         newSubmit.title = title;
@@ -34,6 +38,7 @@ function init() {
         newSubmit.date = date;
         newSubmit.feedBack = content;
         newSubmit.category = category;
+        newSubmit.name = name;
         
         submissions.push(newSubmit);
 
@@ -61,5 +66,4 @@ function init() {
          checkboxlist?.appendChild(ctgrname);
          checkboxlist?.appendChild(ctgr);
      }
-    
 }
