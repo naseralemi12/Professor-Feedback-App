@@ -47,7 +47,7 @@ h3 {
     height: 10em;
     background: linear-gradient(120deg,#ffffff, #def0fb);
     font-size: x-large;
-
+    
     position: relative;
     bottom: 25px;
 }
@@ -99,7 +99,8 @@ h3 {
     top: 25px;
 }
 
-#addStudentComment:hover, #addStudentComment:active{
+#addStudentComment:hover,
+#addStudentComment:active{
     margin-right: auto;
     /* rounded corners w/ border */
     border-radius: 8px;
