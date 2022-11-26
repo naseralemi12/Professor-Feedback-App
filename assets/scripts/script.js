@@ -8,6 +8,7 @@ function init() {
      *This part is for professor_modify_category
      */
     const categoryTable = document.getElementById("categorylist");
+    currentClass=localStorage.getItem("currentClass");
     var list = JSON.parse(localStorage.getItem(currentClass));
     //Build a category list with delete button.
     if(categoryTable){

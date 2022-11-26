@@ -17,6 +17,7 @@ function init() {
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let addProfessorClassBtn = document.getElementById('addNewClassBtn');
+    let GoToModifyPageBtn = document.getElementById('modifyCategories');
     //when the newFeedbackButton is clicked, th dialog box should open
     
     //when addNewClass btn is clicked, add class to local storage for professor
@@ -31,7 +32,10 @@ function init() {
         NewclassCategory(classValue);
         console.log('Succesfuly added new class');
     });
-
+    GoToModifyPageBtn?.addEventListener('click', ()=>{
+        var cname = document.getElementById('classSelect').value;
+        localStorage.setItem("currentClass",cname);
+    });
     /// creates a comment/feedback object
     let createFeedbackObject = () => {
         // get the input data from the dialog
@@ -121,7 +125,6 @@ function init() {
             document.body.insertBefore(commBoxDiv, dummyDiv);
         }
     }
-
     /**
     * function NewclassCategory(classname)
     * 
