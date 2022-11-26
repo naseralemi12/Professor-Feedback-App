@@ -127,6 +127,7 @@ h3 {
 .commentLinks a {
     justify-content: center;
     font-size: large;
+    cursor:pointer;
 }
 
 #goback {
