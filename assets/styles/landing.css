@@ -1,65 +1,58 @@
 /* || General setup */
 
 html, body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  html {
-    font-size: 10px;
-    background-color: #a9a9a9;
-  }
-  
-  body {
-    width: 70%;
-    margin: 0 auto;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  /* ~~ Rest of page styling */
-  img {
-    width: 50%;
-    /*Css is confusing*/
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+html {
+  font-size: 10px;
+  background: linear-gradient(120deg,#378ec9, #a754ca);
+  height: 100vh;
+  overflow: hidden;
+}
 
-  header {
-    display: inline;
-    text-align: center ;
-  }
+body {
+  width: 70%;
+  margin: 0 auto;
+}
 
-  h3 {
-    display: block;
-    text-align: center;
-    font-size: x-large;
-  }
-  /* Nav Styling */
-  nav {
-    background-color: white;
-    padding: 1%;
+/* ~~ Rest of page styling */
+img {
+  width: 50%;
+  /*Css is confusing*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-    height: 50px;
-    background-color: grey;
-    display: flex;
-    margin-bottom: 10px;
-  }
+header {
+  display: inline;
+  text-align: center ;
+}
 
-  nav ul {
-    padding: 0;
-    list-style-type: none;
-    flex: 2;
-    display: flex;
-  }
+h3 {
+  display: block;
+  text-align: center;
+  font-size: x-large;
+}
 
-  nav li {
-    display: inline;
-    text-align: center;
-    font-size: x-large;
-    flex: 1;
-  }
-
+/* Button Styling */
 .button {
+  top: 10px;
   text-decoration: none;
-  color: black;
+  position: relative; 
+  background: linear-gradient(120deg,#378ec9, #65f1da);
+  border-radius: 25px;
+  border: 1px solid;
+  text-align: center;
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  display: block;
+  bottom: 10px;
+  border: none;
+  color: white;
+  padding: 0px;
+  font-size: 24px;
 }
