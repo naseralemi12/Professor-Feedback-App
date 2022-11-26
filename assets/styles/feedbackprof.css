@@ -95,8 +95,8 @@ h3 {
     background: linear-gradient(120deg,#282829, #3b3a3a);
 }
 
-#modifyCategories:link, 
-#modifyCategories:visited{
+
+#addProfComment, #viewFeedback, #modifyCategories {
     margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;

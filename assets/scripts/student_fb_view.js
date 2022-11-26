@@ -1,3 +1,11 @@
+/**
+ * student_fb_view.js
+ * 
+ * Functionality for the student feedback view page
+ * Has a dropdown list and two buttons to view and add feedback.
+ * @author Christian Velasquez, Kenny Fong
+ */
+
 window.addEventListener('DOMContentLoaded', init);
 var selectedClass;
 function init() {
@@ -21,7 +29,7 @@ function init() {
     // generate the dropdown selection
     generateDropDown();
     let fbButton = document.getElementById('addComment');
-
+    let viewFb = document.getElementById('view');
     // take whatever dropdownList.value is set to at the time of click & set local currClass to it
     fbButton.addEventListener('click' , () => {
         // replace held value if different
@@ -30,10 +38,11 @@ function init() {
         }
         localStorage.setItem('currClass', JSON.stringify(currClass));
     });
-    
-    
-    
-    
-
-    
+    viewFb.addEventListener('click' , () => {
+        // replace held value if different
+        let currClass = {
+            class : document.getElementById("classSelect").value,
+        }
+        localStorage.setItem('currClass', JSON.stringify(currClass));
+    });
 }
