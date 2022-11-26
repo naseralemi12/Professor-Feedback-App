@@ -49,7 +49,7 @@ function init() {
      for(let i=0;i<currentCategoryList.length;i++){
          var ctgr = document.createElement("INPUT");
          var ctgrname = document.createTextNode(currentCategoryList[i]);
-         ctgr.setAttribute("type", "checkbox");
+         ctgr.setAttribute("type", "radio");
          ctgr.setAttribute("value",currentCategoryList[i]);
          ctgr.setAttribute("name","Categories_of_Class");
          ctgr.innerHTML=currentCategoryList[i];
