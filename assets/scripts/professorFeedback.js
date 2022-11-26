@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', init);
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
 function init() {
     const dropdownList = document.getElementById("classSelect");
+    if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
     const classList = JSON.parse(localStorage.classList);
     let commentBox = document.getElementById("")
     // generate the dropdown selection
@@ -16,6 +17,7 @@ function init() {
     let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let addProfessorClassBtn = document.getElementById('addNewClassBtn');
+    let GoToModifyPageBtn = document.getElementById('modifyCategories');
     //when the newFeedbackButton is clicked, th dialog box should open
     
     //when addNewClass btn is clicked, add class to local storage for professor
@@ -27,9 +29,13 @@ function init() {
         let classValue = document.getElementById('newClass')?.value;
         classList?.push(classValue);
         localStorage.setItem("classList", JSON.stringify(classList));
+        NewclassCategory(classValue);
         console.log('Succesfuly added new class');
     });
-
+    GoToModifyPageBtn?.addEventListener('click', ()=>{
+        var cname = document.getElementById('classSelect').value;
+        localStorage.setItem("currentClass",cname);
+    });
     /// creates a comment/feedback object
     let createFeedbackObject = () => {
         // get the input data from the dialog
@@ -119,8 +125,17 @@ function init() {
             document.body.insertBefore(commBoxDiv, dummyDiv);
         }
     }
-
-
+    /**
+    * function NewclassCategory(classname)
+    * 
+    * Operation: This function is used to assign default categories
+    * @author Chris
+    * @param className
+    */
+    function NewclassCategory(className){
+        var category = ["Exam","Lecture","Discussion"];
+        localStorage.setItem(className,JSON.stringify(category));
+    }
     /**
     * Reads comments from localstorage and renders to the selected element.
     * Also supports rendering a specific class's comments
