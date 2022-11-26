@@ -30,7 +30,8 @@ h3 {
     font-size: x-large;
 }
 /* Base styling for divs*/
-#div_select, .addNewClass {
+#div_select, 
+.addNewClass {
     font-size: x-large;
     padding-bottom: 8px;
 }
@@ -71,7 +72,8 @@ h3 {
 
 /* STYLING FOR <A> AS BUTTON */
 
-#addComment:link, #addComment:visited{
+#addComment:link, 
+#addComment:visited{
     margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;
@@ -86,11 +88,13 @@ h3 {
     display:inline-block;
 }
 
-#addComment:hover, #addComment:active{
+#addComment:hover, 
+#addComment:active{
     background-color: rgb(187, 187, 187);
 }
 
-#nextPageButton:link, #nextPageButton:visited{
+#nextPageButton:link, 
+#nextPageButton:visited{
     margin-top: 7px;
     margin-left: 62%;
     /* rounded corners w/ border */
@@ -106,11 +110,13 @@ h3 {
     display:inline-block;
 }
 
-#nextPageButton:hover, #nextPageButton:active{
+#nextPageButton:hover, 
+#nextPageButton:active{
     background-color: rgb(187, 187, 187);
 }
 
-#logOutButton:link, #logOutButton:visited{
+#logOutButton:link, 
+#logOutButton:visited{
     margin-top: 10%;
     margin-left: 63%;
     /* rounded corners w/ border */
@@ -126,7 +132,8 @@ h3 {
     display:inline-block;
 }
 
-#logOutButton:hover, #logOutButton:active{
+#logOutButton:hover, 
+#logOutButton:active{
     background-color: rgb(187, 187, 187);
 }
 
@@ -135,7 +142,8 @@ h3 {
 }
 
 
-.ALinks:link, .ALinks:visited{
+.ALinks:link, 
+.ALinks:visited{
     display: flex;
     justify-content: center;
     background-color: aliceblue;
@@ -155,7 +163,8 @@ h3 {
     text-decoration: none;
 }
 
-.Alinks:hover, .Alinks:active{
+.Alinks:hover, 
+.Alinks:active{
     background-color: rgb(250, 118, 118);
 }
 
