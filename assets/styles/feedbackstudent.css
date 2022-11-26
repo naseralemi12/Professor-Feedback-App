@@ -6,7 +6,10 @@ html, body {
   
 html {
     font-size: 20px;
-    background-color: #d8d4dd;
+    background: linear-gradient(120deg,#378ec9, #a754ca);
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial;
 }
   
 body {
@@ -15,21 +18,38 @@ body {
     text-align: center;
 }
 
-h1 { 
+h2 {
+    text-align: left;
+}
+
+h3 { 
     display: block;
     text-align: left;
     font-size: medium;
+    margin-left: auto;
+    width: 80%;
+    height: 10%;
+    background: white;
+    /* rounded corners w/ border */
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+
+    position: relative;
+    right: 10%;
 }
 
 .textbox {  
-    border-radius: 8px;
+    border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid rgb(78, 94, 119);
-    width: 70%;
-    height: 200px;
-    background-color: rgb(233, 233, 233);
+    width: 80%;
+    height: 10em;
+    background: linear-gradient(120deg,#ffffff, #def0fb);
     font-size: x-large;
+
+    position: relative;
+    bottom: 25px;
 }
 
 
@@ -40,9 +60,10 @@ h1 {
     color:black;
     height: fit-content;
     border: 2px solid black;
+    border-radius: 16px;
 
     /* Center boxes inside div */
-    margin-top: 10px;  
+    margin-top: 10px;
 }
 
 .commentBox p{  
@@ -60,33 +81,40 @@ h3 {
 /* STYLING FOR <A> AS BUTTON */
 
 #addStudentComment {
-    margin-top: 10px;
-    margin-right: 86%;
+    display: inline-block;
+    margin-right: auto;
     /* rounded corners w/ border */
     border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px 20px;
-    
-    background-color: rgb(207, 207, 207);
-    color:black;
+    border: 1px solid rgb(255, 255, 255);
+
+    width: 40%;
+    height: 8%;
+    background: linear-gradient(120deg,#bf7bf3, #418dbc);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+    font-size: 25px;
+
+    position: relative;
+    top: 25px;
 }
 
 #addStudentComment:hover, #addStudentComment:active{
-    margin-top: 10px;
-    margin-right: 86%;
+    margin-right: auto;
     /* rounded corners w/ border */
     border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px 20px;
-    
-    color:black;
+    border: 1px solid rgb(255, 255, 255);
+
+    width: 40%;
+    height: 8%;
+    background: linear-gradient(120deg,#bf7bf3, #65f6de);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
-    background-color: rgb(187, 187, 187);
+    font-size: 25px;
+
+    position: relative;
+    top: 25px;
 }
 
 /* END <A> STYLING */
@@ -102,16 +130,18 @@ h3 {
 }
 
 #goback {
-    margin-top: 5%;
-    margin-left: 91%;
+    margin-left: auto;
     /* rounded corners w/ border */
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px 20px;
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: .5% 1%;
     
-    background-color: rgb(207, 207, 207);
-    color:black;
+    background: linear-gradient(120deg,#e46464, #dd1e1e);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+
+    position: absolute;
+    top: 93%;
+    left: 90%;
 }
