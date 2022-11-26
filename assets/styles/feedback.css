@@ -80,7 +80,7 @@ h3 {
     border: 1px solid white;
     padding: 7px 20px;
 
-    background: linear-gradient(120deg,#bf7bf3, #418dbc);
+    background: linear-gradient(120deg,#000000, #000000);
     color:rgb(255, 255, 255);
 
     text-align: center;
@@ -90,7 +90,7 @@ h3 {
 
 #addComment:hover, 
 #addComment:active{
-    background: linear-gradient(120deg,#bf7bf3, #4ff1cb);
+    background: linear-gradient(120deg,#0f011a, #000000);
 }
 
 #nextPageButton:link, 
