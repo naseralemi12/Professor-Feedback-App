@@ -17,7 +17,7 @@ function init() {
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let addProfessorClassBtn = document.getElementById('addNewClassBtn');
     //when the newFeedbackButton is clicked, th dialog box should open
-
+    
     //when addNewClass btn is clicked, add class to local storage for professor
     //Please review this, not sure why it doesnt work when clicked, checked console and it works but not when button is clicked.
     addProfessorClassBtn?.addEventListener('click', () => {
@@ -110,7 +110,7 @@ function init() {
     */
     function generateComments() {
         let currentComments = getCommentsFromStorage();
-        for (let i = 0; i < classList.length; i++) {
+        for (let i = 0; i < currentComments.length; i++) {
             let responses = currentComments[i].feedBack;
             let commBoxDiv = document.createElement('div');
             let newComment = document.createTextNode(responses);
@@ -119,32 +119,6 @@ function init() {
             document.body.insertBefore(commBoxDiv, dummyDiv);
         }
     }
-
-    // this will trigger the dialog box that has all the feedbacks so the user can see them
-    viewFeedbackButton.addEventListener('click', () => {
-        const dropdownList = document.getElementById("classSelect");
-        const classList = JSON.parse(localStorage.classList);
-
-        // generate the dropdown selection
-        dropdownList.hidden = false;
-        dropdownList.innerHTML = '<option value = "">See All</option>';
-        for (let i = 0; i < classList.length; i++) {
-            const temp = document.createElement('option');
-            temp.value = classList[i];
-            temp.innerHTML = classList[i];
-            dropdownList?.append(temp);
-        }
-
-        // add listener for when selected class changes
-        dropdownList?.addEventListener('change', () => {
-            let mainElement = document.querySelector("main");
-            renderToElement(mainElement, dropdownList);
-        });
-
-        // initial render
-        let mainElement = document.querySelector("main");
-        renderToElement(mainElement, dropdownList);
-    });
 
 
     /**

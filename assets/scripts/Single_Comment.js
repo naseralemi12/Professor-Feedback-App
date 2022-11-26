@@ -100,3 +100,5 @@ class SingleComment extends HTMLElement {
   
 
   customElements.get('the-element')||customElements.define("the-element",SingleComment);
+}
+}
