@@ -50,8 +50,9 @@ h2 {
     border: 1px solid rgb(255, 255, 255);
     padding: 7px 20px;
 
-    position: relative; 
-    top: 12px;
+    position: absolute; 
+    left: 2%;
+    top: 1%;
     width: 25%;
 }
 #addCategoryButton {
@@ -66,21 +67,23 @@ h2 {
     text-align: center;
     text-decoration: none;
 
-    position: relative; 
-    top: 40px;
+    position: absolute; 
+    top: 6%;
+    left: 2%;
 }
 #goback {
     margin-left: auto;
     /* rounded corners w/ border */
     border-radius: 15px;
     border: 1px solid rgb(255, 255, 255);
-    padding: 7px 20px;
+    padding: 5px 20px;
     
     background: linear-gradient(120deg,#e46464, #dd1e1e);
     color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
 
-    position: relative; 
-    top: 40px;
+    position: absolute;
+    top: 93%;
+    left: 90%;
 }
