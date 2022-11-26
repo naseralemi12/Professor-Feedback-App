@@ -10,6 +10,7 @@ html {
   background: linear-gradient(120deg,#378ec9, #a754ca);
   height: 100vh;
   overflow: hidden;
+  font-family: Arial;
 }
 
 body {
@@ -41,17 +42,16 @@ h3 {
 .button {
   /* position */ 
   position: relative; 
-  top: 10px;
+  top: 20px;
   margin: auto;
   display: block;
-  bottom: 10px;
   /* border and color */ 
-  background: linear-gradient(120deg,#378ec9, #65f1da);
+  background: linear-gradient(120deg,#618ed6, #78ece8);
   border-radius: 25px;
-  border: 1px solid;
-  width: 80%;
+  border: 3px solid;
+  border-color:#eda240;
+  width: 50%;
   height: 40px;
-  border: none;
   padding: 0px;
   /* text */ 
   font-size: 24px;
