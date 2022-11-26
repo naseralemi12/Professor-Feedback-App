@@ -4,14 +4,14 @@ window.addEventListener('DOMContentLoaded', init);
 /** 
  * Import Statements 
  */
-import { getSpecificComments, generateSpecificComments} from "./helpers.js";
+import { getSpecificComments, generateSpecificComments, createElems} from "./helpers.js";
 
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
 function init() {
     const dropdownList = document.getElementById("classSelect");
     if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
     const classList = JSON.parse(localStorage.classList);
-    let commentBox = document.getElementById("")
+    let commentBox = document.getElementById("");
     // generate the dropdown selection
     generateDropDown();
     // Repurposed to load comments based on selected class 
