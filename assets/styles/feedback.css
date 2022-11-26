@@ -93,6 +93,22 @@ h3 {
     background: linear-gradient(120deg,#0f011a, #000000);
 }
 
+#view:link, 
+#view:visited{
+    margin-top: 10px;
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 7px 20px;
+
+    background: linear-gradient(120deg,#000000, #000000);
+    color:rgb(255, 255, 255);
+
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+}
+
 #nextPageButton:link, 
 #nextPageButton:visited{
     margin-top: 7px;
