@@ -72,8 +72,8 @@ h3 {
 
 /* STYLING FOR <A> AS BUTTON */
 
-#addComment:link, 
-#addComment:visited{
+#viewFeedback:link, 
+#viewFeedback:visited{
     margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;
