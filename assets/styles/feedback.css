@@ -2,11 +2,14 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family:Arial;
   }
   
 html {
     font-size: 20px;
-    background-color: #d8d4dd;
+    background: linear-gradient(120deg,#378ec9, #a754ca);
+    height: 100vh;
+    overflow: hidden;
 }
   
 body {
@@ -26,6 +29,45 @@ h3 {
     text-align: center;
     font-size: x-large;
 }
+/* Base styling for divs*/
+#div_select, .addNewClass {
+    font-size: x-large;
+    padding-bottom: 8px;
+}
+
+/* Div internal element styling ID = DIV_SELECT*/
+#classSelect{
+    padding: 5px;
+    display: inline;
+  border-radius: 25px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+/* End Div internal element styling ID = DIV_SELECT*/
+
+/* Div internal element styling CLASS = ADDNEWCLASS*/
+.addNewClass input[type=text] {
+    display: inline-flex;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid black;
+    outline:none;
+  }
+
+#addNewClassBtn {
+  display: inline;
+  border-radius: 25px;
+  border: 1px solid;
+  text-align: center;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* End Div internal element styling CLASS = ADDNEWCLASS*/
 
 /* STYLING FOR <A> AS BUTTON */
 
@@ -34,7 +76,7 @@ h3 {
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
-    padding: 5px 20px;
+    padding: 7px 20px;
 
     background-color: rgb(207, 207, 207);
     color:black;
@@ -54,7 +96,7 @@ h3 {
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
-    padding: 5px 20px;
+    padding: 7px 20px;
 
     background-color: rgb(115, 115, 115);
     color:black;
@@ -74,7 +116,7 @@ h3 {
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
-    padding: 5px 20px;
+    padding: 7px 20px;
 
     background-color: rgb(115, 115, 115);
     color:black;
@@ -98,15 +140,15 @@ h3 {
     justify-content: center;
     background-color: aliceblue;
     color:black;
-
-    border: 2px solid black;
+    border-radius: 25px;
+    border: 1px solid black;
 
     /* Center boxes inside div */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;  
+    margin-top: 12px;  
 
-    padding: 5px;
+    padding: 7px;
     width: 70%;
 
     text-align: center;
