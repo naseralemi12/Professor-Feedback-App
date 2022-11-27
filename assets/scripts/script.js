@@ -1,8 +1,9 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
+//Use localStorage to get what class we want to deal with in this page.
 document.getElementById('Classname').innerText = JSON.parse(localStorage.getItem('currClass')).class;
 
-// the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
+//This variable is used to store current class
 var currentClass = "";
 function init() {
     /*
@@ -10,6 +11,7 @@ function init() {
      */
     const categoryTable = document.getElementById("categorylist");
     currentClass=JSON.parse(localStorage.getItem('currClass')).class;
+    //Build a list with the categories of this class.
     var list = JSON.parse(localStorage.getItem(currentClass));
     //Build a category list with delete button.
     if(categoryTable){
@@ -20,6 +22,7 @@ function init() {
             newCell.appendChild(newCategory);
             //category list for given class
             let cell = newRow.insertCell(1);
+            //create delete button for each category
             let deleteButton = document.createElement("button");
             deleteButton.innerHTML = "Delete Category";
             //when the deleteButton is clicked, the row should be deleted
@@ -29,6 +32,7 @@ function init() {
             };
             cell.appendChild(deleteButton);
         }
+        //Use addCategory to update new category both on this page and in localStorage
         let addCategoryButton = document.getElementById("addCategoryButton");
         addCategoryButton?.addEventListener('click', () => {
         addCategory(currentClass,document.getElementById("addNewCategory").value);
@@ -45,10 +49,12 @@ function init() {
     for(let i=0;i<currentCategoryList.length;i++){
         var ctgr = document.createElement("INPUT");
         var ctgrname = document.createTextNode(currentCategoryList[i]);
+        //Set attributes for each category
         ctgr.setAttribute("type", "checkbox");
         ctgr.setAttribute("value",currentCategoryList[i]);
         ctgr.setAttribute("name","Categories_of_Class");
         ctgr.innerHTML=currentCategoryList[i];
+        //Add category name and checkbox to page
         checkboxlist?.appendChild(ctgrname);
         checkboxlist?.appendChild(ctgr);
     }
@@ -58,6 +64,7 @@ function init() {
     submitButton?.addEventListener('click', () => {
         //create a new single comment object.
         const commentObject=new Object();
+        //Set attribute to this new object
         commentObject["title"] = document.getElementById("FeedbackTitle").value;
         commentObject["classname"] = currentClass;
         var categoryArray=[];
@@ -82,7 +89,7 @@ function init() {
  * 
  * Operation: This function is used to assign default categories
  * @author Chris
- * @param className
+ * @param className name of the class you want to set default categories.
  */
 function NewclassCategory(className){
     var category = ["Exam","Lecture","Discussion"];
@@ -94,7 +101,8 @@ function NewclassCategory(className){
  * 
  * Operation: This function is used to delete category from localStorage
  * @author Chris
- * @param classname, category
+ * @param classname
+ * @param category
  */
 function deleteCategory(classname,category){
     var currcategory = JSON.parse(localStorage.getItem(classname));
@@ -108,7 +116,8 @@ function deleteCategory(classname,category){
  * 
  * Operation: This function is used to add a category in localStorage
  * @author Chris
- * @param classname, category
+ * @param classname
+ * @param category
  */
 function addCategory(classname, category){
     var currcategory = JSON.parse(localStorage.getItem(classname));
@@ -116,6 +125,13 @@ function addCategory(classname, category){
     localStorage.setItem(classname,JSON.stringify(currcategory));
 }
 
+/**
+ * function saveCommentToStorage(comment)
+ * 
+ * Operation: This function is used to set comment to localStorage
+ * @author Chris
+ * @param comment 
+ */
 function saveCommentToStorage(comment) {
         
     localStorage.setItem("comment",JSON.stringify(comment));
