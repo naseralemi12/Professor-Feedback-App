@@ -1,4 +1,4 @@
-# Phase 1 Report - Check Point 1
+# Phase 1 Report - Checkpoint 1
 The functioning of our CI/CD pipeline is based on GitHub Action. When developers create a pull request, the GitHub Action will be triggered and a list of actions will be run on the code to determine if the push meets our requirements.
 
 ## What we currently have
