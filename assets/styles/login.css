@@ -151,3 +151,8 @@ button {
     margin-top: 35px;
     color: red;
 }
+
+input::placeholder {
+    opacity: .5;
+    font-size: 80%;
+}
