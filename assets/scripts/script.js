@@ -4,38 +4,38 @@ window.addEventListener('DOMContentLoaded', init);
 document.getElementById('Classname').innerText = JSON.parse(localStorage.getItem('currClass')).class;
 
 //This variable is used to store current class
-var currentClass = "";
+var current_class = "";
 function init() {
     /*
      *This part is for professor_modify_category
      */
-    const categoryTable = document.getElementById("categorylist");
-    currentClass=JSON.parse(localStorage.getItem('currClass')).class;
+    const category_table = document.getElementById("categorylist");
+    current_class=JSON.parse(localStorage.getItem('currClass')).class;
     //Build a list with the categories of this class.
-    var list = JSON.parse(localStorage.getItem(currentClass));
+    var list = JSON.parse(localStorage.getItem(current_class));
     //Build a category list with delete button.
-    if(categoryTable){
+    if(category_table){
         for(let i=0;i<list.length;i++){
-            var newRow = categoryTable.insertRow();
-            var newCell = newRow.insertCell();
-            var newCategory =document.createTextNode(list[i]);
-            newCell.appendChild(newCategory);
+            var new_row = category_table.insertRow();
+            var new_cell = new_row.insertCell();
+            var new_category =document.createTextNode(list[i]);
+            new_cell.appendChild(new_category);
             //category list for given class
-            let cell = newRow.insertCell(1);
+            let cell = new_row.insertCell(1);
             //create delete button for each category
-            let deleteButton = document.createElement("button");
-            deleteButton.innerHTML = "Delete Category";
+            let delete_button = document.createElement("button");
+            delete_button.innerHTML = "Delete Category";
             //when the deleteButton is clicked, the row should be deleted
-            deleteButton.onclick = function(){
-                deleteButton.parentNode.parentNode.remove();
-                deleteCategory(currentClass,list[i]);
+            delete_button.onclick = function(){
+                delete_button.parentNode.parentNode.remove();
+                deleteCategory(current_class,list[i]);
             };
-            cell.appendChild(deleteButton);
+            cell.appendChild(delete_button);
         }
         //Use addCategory to update new category both on this page and in localStorage
-        let addCategoryButton = document.getElementById("addCategoryButton");
-        addCategoryButton?.addEventListener('click', () => {
-        addCategory(currentClass,document.getElementById("addNewCategory").value);
+        let add_category_button = document.getElementById("addCategoryButton");
+        add_category_button?.addEventListener('click', () => {
+        addCategory(current_class,document.getElementById("addNewCategory").value);
     });
     } 
     
@@ -45,41 +45,41 @@ function init() {
      */
     const checkboxlist = document.getElementById("ctgrlist");
     //Add checkboxes based on the categories of class
-    const currentCategoryList = JSON.parse(localStorage.getItem(currentClass));
+    const currentCategoryList = JSON.parse(localStorage.getItem(current_class));
     for(let i=0;i<currentCategoryList.length;i++){
-        var ctgr = document.createElement("INPUT");
-        var ctgrname = document.createTextNode(currentCategoryList[i]);
+        var category = document.createElement("INPUT");
+        var category_name = document.createTextNode(currentCategoryList[i]);
         //Set attributes for each category
-        ctgr.setAttribute("type", "checkbox");
-        ctgr.setAttribute("value",currentCategoryList[i]);
-        ctgr.setAttribute("name","Categories_of_Class");
-        ctgr.innerHTML=currentCategoryList[i];
+        category.setAttribute("type", "checkbox");
+        category.setAttribute("value",currentCategoryList[i]);
+        category.setAttribute("name","Categories_of_Class");
+        category.innerHTML=currentCategoryList[i];
         //Add category name and checkbox to page
-        checkboxlist?.appendChild(ctgrname);
-        checkboxlist?.appendChild(ctgr);
+        checkboxlist?.appendChild(category_name);
+        checkboxlist?.appendChild(category);
     }
     //set the title of page 
-    document.getElementById("Classname").innerHTML=currentClass;
-    const submitButton = document.getElementById("submitB");
-    submitButton?.addEventListener('click', () => {
+    document.getElementById("Classname").innerHTML=current_class;
+    const submit_button = document.getElementById("submitB");
+    submit_button?.addEventListener('click', () => {
         //create a new single comment object.
-        const commentObject=new Object();
+        const comment_object=new Object();
         //Set attribute to this new object
-        commentObject["title"] = document.getElementById("FeedbackTitle").value;
-        commentObject["classname"] = currentClass;
-        var categoryArray=[];
+        comment_object["title"] = document.getElementById("FeedbackTitle").value;
+        comment_object["classname"] = current_class;
+        var category_array=[];
         var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
         for (var i = 0; i < checkboxes.length; i++) {
-            categoryArray.push(checkboxes[i].value);
+            category_array.push(checkboxes[i].value);
         }
-        commentObject["category"]=JSON.stringify(categoryArray);
-        commentObject["feedBack"] = document.querySelector("textarea").value;
-        commentObject["Anon"] = document.getElementById("yes").checked;
+        comment_object["category"]=JSON.stringify(category_array);
+        comment_object["feedBack"] = document.querySelector("textarea").value;
+        comment_object["Anon"] = document.getElementById("yes").checked;
         const temp = document.createElement('the-element');
-        temp.data = commentObject;
-        const curcomments = getCommentsFromStorage();
-        curcomments.push(commentObject);
-        saveCommentToStorage(curcomments);
+        temp.data = comment_object;
+        const cur_comments = getCommentsFromStorage();
+        cur_comments.push(comment_object);
+        saveCommentToStorage(cur_comments);
         alert("Feedback submited");
     });
 }
@@ -105,11 +105,11 @@ function NewclassCategory(className){
  * @param category
  */
 function deleteCategory(classname,category){
-    var currcategory = JSON.parse(localStorage.getItem(classname));
-    currcategory = currcategory.filter(function(item) {
+    var curr_category = JSON.parse(localStorage.getItem(classname));
+    curr_category = curr_category.filter(function(item) {
         return item !== category
     })
-    localStorage.setItem(classname,JSON.stringify(currcategory));
+    localStorage.setItem(classname,JSON.stringify(curr_category));
 }
 /**
  * function addCategory(classname,category)
@@ -120,9 +120,9 @@ function deleteCategory(classname,category){
  * @param category
  */
 function addCategory(classname, category){
-    var currcategory = JSON.parse(localStorage.getItem(classname));
-    currcategory.push(category);
-    localStorage.setItem(classname,JSON.stringify(currcategory));
+    var curr_category = JSON.parse(localStorage.getItem(classname));
+    curr_category.push(category);
+    localStorage.setItem(classname,JSON.stringify(curr_category));
 }
 
 /**
@@ -146,8 +146,8 @@ function saveCommentToStorage(comment) {
   */
  function getCommentsFromStorage() {
     if (localStorage.getItem('comment') == null) {
-        const emptyArray = [];
-        return emptyArray;
+        const empty_array = [];
+        return empty_array;
     }
     const str = localStorage.getItem("comment");
     return JSON.parse(str);
