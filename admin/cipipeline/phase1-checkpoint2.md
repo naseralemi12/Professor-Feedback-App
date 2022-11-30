@@ -1,4 +1,4 @@
-# Phase 1 Report - Check Point 1
+# Phase 1 Report - Check Point 2
 The functioning of our CI/CD pipeline is based on GitHub Action. When developers create a pull request, the GitHub Action will be triggered and a list of actions will be run on the code to determine if the push meets our requirements. In addtion to Github Action and automated tests we created, we also rely on manual supervision on our code as we have two code reviewers who make the final decision on whether or not a branch should be merged with main.
 
 ## What we currently have
