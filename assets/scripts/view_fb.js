@@ -1,35 +1,48 @@
 window.addEventListener('DOMContentLoaded', init);
+
+/** 
+ * Import Statements 
+ */
 import { filterSubmissions } from "./helpers.js"
+
+/**
+ * function init()
+ * 
+ * Allows the page to load all comments stored in submissions
+ * @author Christian Velasquez, Kenny Fong
+ */
 function init() {
     loadComments();
 
-    // attach event listener to all comments
+    // attach event listener to all loaded comments
     let comments = document.querySelectorAll('.expandInfo');
     for (let i = 0; i < comments.length;i++) {
         comments[i].addEventListener('click', () => {
-            document.querySelector('#commentTitle').innerHTML= "Title: " + comments[i].innerText; // setting title
-            let submissionsArr = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
-            document.querySelector('.textbox').innerText = submissionsArr[i].feedBack;
-            document.querySelector('#Categoryname').innerText = "Category: " + submissionsArr[i].category;
-            document.querySelector('#Date').innerText = "Date: " + submissionsArr[i].date;
-            document.querySelector('#Name').innerText = "Name: " + submissionsArr[i].name;
+            document.querySelector('#commentTitle').innerHTML= "Title: " + comments[i].innerText;
+            let submissions_array = filterSubmissions(
+                JSON.parse(localStorage.getItem("submissions")));
+            document.querySelector('.textbox').innerText = submissions_array[i].feedBack;
+            document.querySelector('#Categoryname').innerText = "Category: " +
+            submissions_array[i].category;
+            document.querySelector('#Date').innerText = "Date: " + submissions_array[i].date;
+            document.querySelector('#Name').innerText = "Name: " + submissions_array[i].name;
         });
     }
 }
 
 /**
-* Populates the page with comments
+* Load the page with comments
 *
 * @authors Kenny 
 */
 function loadComments() {
-    let submissionsArr = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
-    for (let i = 0; i < submissionsArr.length; i++) {
+    let submissions_array = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
+    for (let i = 0; i < submissions_array.length; i++) {
         const div = document.createElement('div');
-        let contentText = submissionsArr[i].title;
+        let content_text = submissions_array[i].title;
         div.className = 'commentBox';
         div.innerHTML = `
-            <a class="expandInfo">${contentText}</a>
+            <a class="expandInfo">${content_text}</a>
         `;
         document.querySelector('.commentLinks').appendChild(div);
     }
