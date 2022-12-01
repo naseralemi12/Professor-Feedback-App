@@ -7,42 +7,42 @@
  */
 
 window.addEventListener('DOMContentLoaded', init);
+
+/** 
+ * Import Statements 
+ */
+import { generateDropDown, updateCurrClass} from "./helpers.js";
+
+
 var selectedClass;
 function init() {
     const dropdownList = document.getElementById("classSelect");
-    // necessary function definition ? 
-    function generateDropDown() {
-        dropdownList.hidden = false;
-        dropdownList.innerHTML = '<option value = "">See All</option>';
-        for (let i = 0; i < classList.length; i++) {
-            const temp = document.createElement('option');
-            temp.value = classList[i];
-            temp.innerHTML = classList[i];
-            dropdownList?.append(temp);
-        }
-    }
     // Creates classList if it doesn't already exist
     if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
     const classList = JSON.parse(localStorage.classList);
 
-
     // generate the dropdown selection
-    generateDropDown();
+    generateDropDown(classList);
     let fbButton = document.getElementById('addComment');
     let viewFb = document.getElementById('view');
-    // take whatever dropdownList.value is set to at the time of click & set local currClass to it
+
+    let classSelectedBtns = document.getElementById('classSelectedBtns');
+    let classSelection = document.getElementById('classSelect');
+
+    // when a class is selected from the dropdown the current class should be changed and the
+    // view feedback and modify categories buttons should be unhidden
+    classSelection?.addEventListener("change", () => {
+        // changes currClass in local storage 
+        updateCurrClass();
+        // unhide
+        classSelectedBtns.hidden = false;
+    });
+
+
     fbButton.addEventListener('click' , () => {
-        // replace held value if different
-        let currClass = {
-            class : document.getElementById("classSelect").value,
-        }
-        localStorage.setItem('currClass', JSON.stringify(currClass));
+        updateCurrClass();
     });
     viewFb.addEventListener('click' , () => {
-        // replace held value if different
-        let currClass = {
-            class : document.getElementById("classSelect").value,
-        }
-        localStorage.setItem('currClass', JSON.stringify(currClass));
+        updateCurrClass();
     });
 }

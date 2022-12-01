@@ -29,6 +29,7 @@ function init() {
 
 
     viewFeedbackButton?.addEventListener("click", () => {
+        updateCurrClass();
         // Case of empty local
         const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
         // iterate through array of json object linearly (very slow)
@@ -39,6 +40,7 @@ function init() {
     });
 
     GoToModifyPageBtn?.addEventListener("click", () => {
+        updateCurrClass();
         // Case of empty local
         const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
         // iterate through array of json object linearly (very slow)
