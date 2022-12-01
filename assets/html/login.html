@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
 
-    <!--<script src="myJS.js"></script>-->
 
     <link rel="stylesheet" href="../styles/login.css">
     <script src="../scripts/authentication.js" type="module"></script>
@@ -17,30 +16,27 @@
 <body>
     <div class="center">
         <header>
-            <!-- Edit welcome message with Professor or Student-->
-
             <h1>Login</h1>
         </header>
 
-    <!-- FORM ELEMENT HERE-->
-    <form action="VERIFYLOGINFILE" target="_self">
-        <!-- Username -->
-        <label for="umail"><b>UCSD Email</b></label>
-        <input type="text" id="emailInput" placeholder="Please Enter UCSD Email" name="umail" required>
-        <!-- Password -->
-        <label for="pwd"><b>Password</b></label>
-        <input type="password" id="passwordInput" placeholder="Please Enter Password" name="pwd" required>
-        <!-- Identification of student or professor -->
-        <h4>Tell Us More About Yourself </h4>
-        <input type="radio" id="student" name="usertype" value="student">
-        <label for="student">I am a Student</label><br>
-        <input type="radio" id="professor" name="usertype" value="professor">
-        <label for="professor">I am a Professor</label><br>
-        <button id="logInButton" type="button" class="logIN">Log In</button>
-        <button id="cancelbutton" type="submit" onclick="history.back()">Cancel</button>
-    </form>
-    <p id="warningMessage" style="color: red"></p>
-    </div>
+        <!-- FORM ELEMENT HERE-->
+        <form id="form">
+            <!-- Username -->
+            <label for="umail" id="emailLabel"><b>UCSD Email</b></label>
+            <input type="text" id="emailInput" placeholder="Please Enter UCSD Email" name="umail" required>
+            <!-- Password -->
+            <label for="pwd"><b>Password</b></label>
+            <input type="password" id="passwordInput" placeholder="Please Enter Password" name="pwd" required>
+            <!-- Password -->
+            <h4>Tell Us More About Yourself </h4>
+            <input type="radio" id="student" name="usertype" value="student">
+            <label for="student" style="font-size: 80%;">I am a Student</label><br>
+            <input type="radio" id="professor" name="usertype" value="professor">
+            <label for="professor" style="font-size: 80%;">I am a Professor</label><br>
+            <button id="logInButton" type="button" class="logIN">Log In</button>
+            <button id="cancelButton" onclick="history.back()">Cancel</button>
+        </form>
+        <p id="warningMessage"></p>
 </body>
 <footer>
 

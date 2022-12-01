@@ -7,52 +7,60 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family:Arial;
-  }
-  
+    font-family: Arial;
+}
+
 html {
     font-size: 20px;
-    background: linear-gradient(120deg,#378ec9, #a754ca);
+    background: linear-gradient(120deg, #378ec9, #a754ca);
     height: 100vh;
     overflow: hidden;
 }
-  
+
 body {
     width: 70%;
     margin: 0 auto;
     text-align: center;
 }
 
-
 header {
     display: inline;
-    text-align: center ;
+    text-align: center;
 }
 
-h3 { 
+h3 {
     display: block;
     text-align: center;
     font-size: x-large;
 }
+
+
 /* Base styling for divs*/
-#div_select, 
+
+#div_select,
 .addNewClass {
     font-size: x-large;
     padding-bottom: 8px;
 }
 
+
 /* Div internal element styling ID = DIV_SELECT*/
-#classSelect{
+
+#classSelect {
     padding: 5px;
     display: inline;
-  border-radius: 25px;
-  text-align: center;
-  outline: none;
-  cursor: pointer;
+    border-radius: 25px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
 }
+
+
 /* End Div internal element styling ID = DIV_SELECT*/
 
+
 /* Div internal element styling CLASS = ADDNEWCLASS*/
+
 .addNewClass input[type=text] {
     display: inline-flex;
     padding: 12px 20px;
@@ -61,140 +69,131 @@ h3 {
     border: 1px solid #ccc;
     box-sizing: border-box;
     border: 1px solid black;
-    outline:none;
-  }
+    outline: none;
+}
 
 #addNewClassBtn {
-  display: inline;
-  border-radius: 25px;
-  border: 1px solid;
-  text-align: center;
-  height: 30px;
-  cursor: pointer;
+    display: inline;
+    border-radius: 25px;
+    border: 1px solid;
+    text-align: center;
+    height: 30px;
+    cursor: pointer;
 }
+
 
 /* End Div internal element styling CLASS = ADDNEWCLASS*/
 
+
 /* STYLING FOR <A> AS BUTTON */
 
-#addComment:link, 
-#addComment:visited{
+#addComment:link,
+#addComment:visited {
     margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid white;
     padding: 7px 20px;
-
-    background: linear-gradient(120deg,#000000, #000000);
-    color:rgb(255, 255, 255);
-
+    background: linear-gradient(120deg, #000000, #000000);
+    color: rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+    display: inline-block;
 }
 
-#addComment:hover, 
-#addComment:active{
-    background: linear-gradient(120deg,#0f011a, #000000);
+#addComment:hover,
+#addComment:active {
+    background: linear-gradient(120deg, #0f011a, #000000);
 }
 
-#view:link, 
-#view:visited{
+#view:link,
+#view:visited {
     margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid white;
     padding: 7px 20px;
-
-    background: linear-gradient(120deg,#000000, #000000);
-    color:rgb(255, 255, 255);
-
+    background: linear-gradient(120deg, #000000, #000000);
+    color: rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+    display: inline-block;
 }
 
-#nextPageButton:link, 
-#nextPageButton:visited{
+#nextPageButton:link,
+#nextPageButton:visited {
     margin-top: 7px;
     margin-left: 62%;
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
     padding: 7px 20px;
-
     background-color: rgb(115, 115, 115);
-    color:black;
-    
+    color: black;
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+    display: inline-block;
 }
 
-#nextPageButton:hover, 
-#nextPageButton:active{
+#nextPageButton:hover,
+#nextPageButton:active {
     background-color: rgb(187, 187, 187);
 }
 
-#logOutButton:link, 
-#logOutButton:visited{
+#logOutButton:link,
+#logOutButton:visited {
     margin-left: auto;
     /* rounded corners w/ border */
     border-radius: 15px;
     border: 1px solid rgb(255, 255, 255);
     padding: .5% 1%;
-    
-    background: linear-gradient(120deg,#e46464, #dd1e1e);
-    color:rgb(255, 255, 255);
+    background: linear-gradient(120deg, #e46464, #dd1e1e);
+    color: rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-
     position: absolute;
     top: 93%;
     left: 90%;
 }
 
-#logOutButton:hover, 
-#logOutButton:active{
-    background: linear-gradient(120deg,#dd2e2e, #720707);
+#logOutButton:hover,
+#logOutButton:active {
+    background: linear-gradient(120deg, #dd2e2e, #720707);
 }
 
 .commentLinks {
     display: block;
 }
 
-
-.ALinks:link, 
-.ALinks:visited{
+.ALinks:link,
+.ALinks:visited {
     display: flex;
     justify-content: center;
     background-color: aliceblue;
-    color:black;
+    color: black;
     border-radius: 25px;
     border: 1px solid black;
-
     /* Center boxes inside div */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 12px;  
-
+    margin-top: 12px;
     padding: 7px;
     width: 70%;
-
     text-align: center;
     text-decoration: none;
 }
 
-.Alinks:hover, 
-.Alinks:active{
+.Alinks:hover,
+.Alinks:active {
     background-color: rgb(250, 118, 118);
 }
 
-
 #viewFeedback {
     display: inline;
-    
 }
 
+
 /* logOutButton */
+
+
 /* END <A> STYLING */
