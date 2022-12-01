@@ -15,9 +15,20 @@ function init() {
     let viewFeedbackButton = document.getElementById('viewFeedback'); 
     let GoToModifyPageBtn = document.getElementById('modifyCategories');
     
-    viewFeedbackButton?.addEventListener("click", () => {
+    let classSelectedBtns = document.getElementById('classSelectedBtns');
+    let classSelection = document.getElementById('classSelect');
+
+    // when a class is selected from the dropdown the current class should be changed and the
+    // view feedback and modify categories buttons should be unhidden
+    classSelection?.addEventListener("change", () => {
         // changes currClass in local storage 
         updateCurrClass();
+        // unhide
+        classSelectedBtns.hidden = false;
+    });
+
+
+    viewFeedbackButton?.addEventListener("click", () => {
         // Case of empty local
         const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
         // iterate through array of json object linearly (very slow)
@@ -28,8 +39,6 @@ function init() {
     });
 
     GoToModifyPageBtn?.addEventListener("click", () => {
-        // changes currClass in local storage 
-        updateCurrClass();
         // Case of empty local
         const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
         // iterate through array of json object linearly (very slow)
