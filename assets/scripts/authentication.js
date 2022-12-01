@@ -45,7 +45,7 @@ function init() {
             document.getElementById('form').reset();
         } else {
             warningMessage.innerHTML = "Wrong Email or Password. Please try again.";
-            document.getElementById('form').reset();
+            // document.getElementById('form').reset();
         }
     });
 
