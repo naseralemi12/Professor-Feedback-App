@@ -1,0 +1,14 @@
+[{
+        "email": "abc@ucsd.edu",
+        "password": "abc12"
+    },
+    {
+        "email": "def@ucsd.edu",
+        "password": "1234"
+
+    },
+    {
+        "email": "cse110@ucsd.edu",
+        "password": "group31"
+    }
+]
