@@ -1,7 +1,10 @@
-/* General setup*/
+/**
+ * feedback.css
+ *
+ * Styles the student feedback page.
+ */
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: Arial;
