@@ -61,11 +61,22 @@ function init() {
         let comments = document.querySelectorAll('.commentBox'); // changed from expandinfo to commentbox
         for (let i = 0; i < comments.length; i++) {
             comments[i].addEventListener('click', () => {
+                // gets the hidden section that displays comments/feedback and makes it visible 
                 let display = document.getElementById("feedbackDisplay");
                 display.hidden = false;
+                let submissionsArr = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
+                // filterSubmissions doesnt filter for category so we need to do that to get the right comment for index
+                if (categorySelection.value != ""){ // magic value should be changed at some point
+                    let temp = []
+                    for (const arrIdx in submissionsArr) {
+                        if (submissionsArr[arrIdx].category == categorySelection.value) {
+                        temp.push(submissionsArr[arrIdx]);
+                        }
+                    }
+                    submissionsArr = temp;
+                }
 
                 document.querySelector('#commentTitle').innerHTML = "Title: " + comments[i].innerText; // setting title
-                let submissionsArr = filterSubmissions(JSON.parse(localStorage.getItem("submissions")));
                 document.querySelector('.textbox').innerText = submissionsArr[i].feedBack;
                 document.querySelector('#Categoryname').innerText = "Category: " + submissionsArr[i].category;
                 document.querySelector('#Date').innerText = "Date: " + submissionsArr[i].date;
