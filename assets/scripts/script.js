@@ -25,6 +25,7 @@ function init() {
             //create delete button for each category
             let delete_button = document.createElement("button");
             delete_button.innerHTML = "Delete Category";
+            delete_button.setAttribute("id","deletebutton")
             //when the deleteButton is clicked, the row should be deleted
             delete_button.onclick = function(){
                 delete_button.parentNode.parentNode.remove();
