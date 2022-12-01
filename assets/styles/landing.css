@@ -1,60 +1,70 @@
-/* || General setup */
+/**
+ * landing.css
+ *
+ * Styles the slanding page. 
+ * Have a simple interface with school logo and login button.
+ */
 
-html, body {
-  margin: 0;
-  padding: 0;
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  font-size: 10px;
-  background: linear-gradient(120deg,#378ec9, #a754ca);
-  height: 100vh;
-  overflow: hidden;
-  font-family: Arial;
+    font-size: 10px;
+    background: linear-gradient(120deg, #378ec9, #a754ca);
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial;
 }
 
 body {
-  width: 70%;
-  margin: 0 auto;
+    width: 70%;
+    margin: 0 auto;
 }
 
+
 /* ~~ Rest of page styling */
+
 img {
-  width: 50%;
-  /*Css is confusing*/
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    width: 50%;
+    /*Css is confusing*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header {
-  display: inline;
-  text-align: center ;
+    display: inline;
+    text-align: center;
 }
 
 h3 {
-  display: block;
-  text-align: center;
-  font-size: x-large;
+    display: block;
+    text-align: center;
+    font-size: x-large;
 }
 
+
 /* Button Styling */
+
 .button {
-  /* position */ 
-  position: relative; 
-  top: 20px;
-  margin: auto;
-  display: block;
-  /* border and color */ 
-  background: linear-gradient(120deg,#032760, #000505);
-  border-radius: 25px;
-  border: 3px solid;
-  border-color:#eda240;
-  width: 50%;
-  height: 40px;
-  /* text */ 
-  font-size: 24px;
-  text-decoration: none;
-  text-align: center;
-  color: white;
+    /* position */
+    position: relative;
+    top: 20px;
+    margin: auto;
+    display: block;
+    /* border and color */
+    background: linear-gradient(120deg, #032760, #000505);
+    border-radius: 25px;
+    border: 3px solid;
+    border-color: #eda240;
+    width: 50%;
+    height: 40px;
+    /* text */
+    font-size: 24px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
 }

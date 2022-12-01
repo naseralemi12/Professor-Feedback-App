@@ -1,4 +1,10 @@
-/* General setup*/
+/**
+ * feedbackstudent.css
+ *
+ * Styles the page where we view comments.
+ * Have a user friendly way to view comments.
+ */
+
 html, body {
     margin: 0;
     padding: 0;

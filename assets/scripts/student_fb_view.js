@@ -1,5 +1,7 @@
+window.addEventListener('DOMContentLoaded', init);
+
 /**
- * student_fb_view.js
+ * function init()
  * 
  * Functionality for the student feedback view page
  * Has a dropdown list and two buttons to view and add feedback.
@@ -17,9 +19,13 @@ import { generateDropDown, updateCurrClass} from "./helpers.js";
 var selectedClass;
 function init() {
     const dropdownList = document.getElementById("classSelect");
+    
     // Creates classList if it doesn't already exist
-    if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
-    const classList = JSON.parse(localStorage.classList);
+    if (localStorage.classList == undefined) {
+        localStorage.setItem("classList", JSON.stringify([]));
+    }
+    const class_list = JSON.parse(localStorage.classList);
+
 
     // generate the dropdown selection
     generateDropDown(classList);

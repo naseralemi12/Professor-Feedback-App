@@ -1,7 +1,5 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
-//var csv = require('jquery-csv');
-//const csv = require("../../node_modules/jquery-csv/src/jquery.csv");
 
 function init() {
     const emailElement = document.getElementById('emailInput');
@@ -10,58 +8,46 @@ function init() {
     const radioProfessorElement = document.getElementById('professor');
     const warningMessage = document.getElementById('warningMessage');
     const loginButton = document.getElementById('logInButton');
-    var attempt = 3;
-    // Variable to count number of attempts.
-    // Below function Executes on click of login button.
-    loginButton.addEventListener('click', () => {
-        localStorage.setItem("currUser", JSON.stringify(emailElement.value));
-        if (emailElement.value == "cse110@ucsd.edu" && passwordElement.value == "group31" && radioStudentElement.checked) {
+    const url = '../scripts/loginData.json';
+    let match = false;
 
-            window.location = "student_feedback_view.html"; // Redirecting to other page.
-            return false;
-        } else if (emailElement.value == "powell@ucsd.edu" && passwordElement.value == "cse110" && radioProfessorElement.checked) {
-            window.location = "professor_feedback_view.html"; // Redirecting to other page.
-            return false;
-        } else {
-            attempt--; // Decrementing by one.
-            warningMessage.innerHTML = "You have left " + attempt + " attempt left!";
-            //alert("You have left " + attempt + " attempt;");
-            // Disabling fields after 3 attempts.
-            if (attempt == 0) {
-                document.getElementById("emailElement").disabled = true;
-                document.getElementById("passwordElement").disabled = true;
-                document.getElementById("logInButton").disabled = true;
-                return false;
+
+
+
+    loginButton.addEventListener('click', () => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                adder(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+
+        async function adder(data) {
+            for (const i of data) {
+                if (JSON.stringify(i.email) === JSON.stringify(emailElement.value) && JSON.stringify(i.password) === JSON.stringify(passwordElement.value)) {
+                    match = true;
+                }
             }
         }
-    });
-    /* let loginButton = document.querySelector('.logIN');
-     let studentCheck = document.getElementById('student');
-     let profCheck = document.getElementById('professor');
-     let ifStudent = null;
-     
-     var arrayed = $.csv.toArray("STUDENT,PROFESSOR,StuPwd,ProfPwds1@ucsd.edu,p1@ucsd.edu,student123,prof123");
-     //console.log(arrayed);
-     // Check if student is logging in
-     studentCheck.addEventListener('click', () => {
-         ifStudent = true;
-     });
-     
-     // Check if professor is logging in
-     profCheck.addEventListener('click', () => {
-         ifStudent = false;
-     });
 
-     loginButton.addEventListener('click', () => {
-         // If student
-             // Check if email and pw in stu csv
-                 // if in csv, then login
-                 // else, add to csv
-         // else 
-             // check if email and pw is in prof csv
-                 // if in csv, then login
-                 // else, add to csv
-     });*/
+        if (match && radioStudentElement.checked) {
+            match = false;
+            window.location = "student_feedback_view.html"; // Redirecting to other page.
+        } else if (match && radioProfessorElement.checked) {
+            match = false;
+            window.location = "professor_feedback_view.html"; // Redirecting to other page.
+        } else if (emailElement.value == "" || passwordElement.value == "" || !(radioStudentElement.checked || radioProfessorElement.checked)) {
+            warningMessage.innerHTML = "All fields are required. Please try again.";
+        } else if (!((JSON.stringify(emailElement.value).includes('@')) || (JSON.stringify(emailElement.value).includes('.')))) {
+            warningMessage.innerHTML = "Invalid Email. Please Enter a valid email.";
+            document.getElementById('form').reset();
+        } else {
+            warningMessage.innerHTML = "Wrong Email or Password. Please try again.";
+            // document.getElementById('form').reset();
+        }
+    });
 
 
 }

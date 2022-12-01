@@ -1,5 +1,16 @@
 window.addEventListener('DOMContentLoaded', init);
+
+/** 
+ * Import Statements 
+ */
 import { filterSubmissions } from "./helpers.js"
+
+/**
+ * function init()
+ * 
+ * Allows the page to load all comments stored in submissions
+ * @author Christian Velasquez, Kenny Fong
+ */
 function init() {
     let categorySelection = document.getElementById("categorySelect");
     
