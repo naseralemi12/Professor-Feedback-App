@@ -3,66 +3,57 @@
 <!-- 3A ON MIRO-->
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professor's Feedback</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor's Feedback</title>
+    <!-- may break everything 
   <script src="../scripts/Single_Comment.js" type="module"></script>
-  <script src="../scripts/professorFeedback.js" type="module"></script>
+  <script src="../scripts/professorFeedback.js" type="module"></script>-->
+    <script src="../scripts/p_fb.js" type="module"></script>
 
-
-  <link rel="stylesheet" href="/assets/styles/feedback.css">
+    <link rel="stylesheet" href="../styles/feedbackprof.css">
 </head>
 
 <body>
-  <header>
-    <!-- Edit welcome message with Professor or Student-->
-    <h1>Professor Feedback View</h1>
-  </header>
+    <header>
+        <!-- Edit welcome message with Professor or Student-->
+        <h1>Professor Feedback View</h1>
+    </header>
 
-  <h3> Click on a comment title to read the full feedback comment! You can
-    also click the button below to add a new comment
-  </h3>
+    <h3> Select a class to view, then choose whether to view or modify categories.
+    </h3>
 
-  <!-- Dropdown-->
-  <div id="div_select">
-    <span>Please select a class:</span>
-    <select id="classSelect">
+    <!-- Dropdown-->
+    <div id="div_select">
+        <span>Please select a class:</span>
+        <select id="classSelect">
       <option>See All</option>
     </select>
-  </div>
-  <!-- add a new class-->
-  <div class="addNewClass">
-    <footer>
-      <label>Don't see your class? Add a new one: </label>
-      <input type="text" id="newClass" placeholder="New Class">
-      <button id="addNewClassBtn">Add New Class</button>
-    </footer>
-  </div>
-
+        <a id="viewFeedback" href="../html/view_feedback.html">View Feedback</a>
+        <a id="modifyCategories" href="../html/professor_modify_category.html">Modify Categories</a>
+    </div>
+    <!-- add a new class-->
+    <div class="addNewClass">
+        <footer>
+            <label>Don't see your class above? Add a new one: </label>
+            <input type="text" id="newClass" placeholder="New Class">
+            <button id="addNewClassBtn">Add New Class</button>
+        </footer>
+    </div>
+    <!--Comments will be added as individual <a>'s within this div -->
+    <!--
   <h3> Your Comments For This Class: </h3>
 
-  <div class="commentLinks" id = "div1">
-    <a class="ALinks" href="#" id = "comnentsInClass">
-      Comment 1
+  
+  <div class="commentLinks" >
+    <a class="Alinks" href="#">
+     Hello
     </a>
   </div>
-
-  <!-- Will use script to add class buttons from storage-->
-  <div class="commentLinks">
-    <a class="ALinks" href="#">
-      Comment 3
-    </a>
-
-    <a class="ALinks" href="#">
-      Comment 4
-    </a>
-
-    <a id="addComment" href="../html/professor_add_comment.html">Add New Comment</a>
     <hr>
-    <a id="nextPageButton" href="#">Next Page</a>
   </div>
-  <br>
-  <a id="logOutButton" href="../html/landing_page.html" style="margin:auto">Log Out</a>
+  <br>-->
+    <a id="logOutButton" href="../html/landing_page.html" style="margin:auto">Log Out</a>
 </body>
 <footer>
 

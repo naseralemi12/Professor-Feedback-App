@@ -9,6 +9,7 @@ html {
     background: linear-gradient(120deg, #378ec9, #a754ca);
     height: 100vh;
     overflow: hidden;
+    font-family: Arial;
 }
 
 body {

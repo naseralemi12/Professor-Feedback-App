@@ -1,35 +1,66 @@
 //@ts-check
 window.addEventListener('DOMContentLoaded', init);
 
+/** 
+ * Import Statements 
+ */
+import { getSpecificComments, generateSpecificComments, createElems} from "./helpers.js";
+
 // the init function will wait for all the dom content to load before running any javascript, so we include all our javascript inside the function
 function init() {
     const dropdownList = document.getElementById("classSelect");
+    if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
     const classList = JSON.parse(localStorage.classList);
-    let commentBox = document.getElementById("")
+    // let commentBox = document.getElementById("");
     // generate the dropdown selection
     generateDropDown();
-    generateComments();
+    // Repurposed to load comments based on selected class 
+    let viewFeedbackButton = document.getElementById('viewFeedback'); 
+    // will append comments every time, need to load only once 
+    viewFeedbackButton?.addEventListener("click", () => {
+        let currClass = {
+            class : document.getElementById("classSelect").value,
+        }
+        localStorage.setItem('currClass', JSON.stringify(currClass));
+        // Case of empty local
+        const submissions = JSON.parse(localStorage.getItem("submissions")) || []; // goated
+        // iterate through array of json object linearly (very slow)
+        // only add objects that pertain to the selected class in dropdown
+        const filteredArray = [];
+        for (const arrIdx in submissions) {
+            if (submissions[arrIdx].className ==  JSON.parse(localStorage.getItem('currClass')).class) {
+            filteredArray.push(submissions[arrIdx]);
+            }
+        }
+        // console.log(filteredArray);
+        console.log(filteredArray);
+    });
+    
     let newFeedbackButton = document.getElementById('newFeedback'); // this button triggers the dialog box
     let saveButton = document.getElementById('saveButton'); // this button is used inside the dialog box
     let dialog = document.querySelector('dialog'); // this element is the dialog box itself
     let cancelButton = document.getElementById('cancelButton'); // this button is used inside the dialog box
-    let viewFeedbackButton = document.getElementById('viewFeedback'); // element for view feedback button show trigger the feedbacks dialog box to open
     let confirmationMessage = document.getElementById('confirmationMessage'); // just a confirmation meessage to assure the user that the input has been saved. the feedback can be seen by clicking view feedback button
     let addProfessorClassBtn = document.getElementById('addNewClassBtn');
+    let GoToModifyPageBtn = document.getElementById('modifyCategories');
     //when the newFeedbackButton is clicked, th dialog box should open
     
     //when addNewClass btn is clicked, add class to local storage for professor
     //Please review this, not sure why it doesnt work when clicked, checked console and it works but not when button is clicked.
     addProfessorClassBtn?.addEventListener('click', () => {
         console.log("Sanity Check");
-        if (localStorage.classList == undefined) { localStorage.setItem("classList", JSON.stringify([])); }
-        let classList = JSON.parse(localStorage.getItem("classList"));
+        const classList = JSON.parse(localStorage.getItem("classList")) || []; // goated
         let classValue = document.getElementById('newClass')?.value;
         classList?.push(classValue);
         localStorage.setItem("classList", JSON.stringify(classList));
+        NewclassCategory(classValue); // idk what this does 
         console.log('Succesfuly added new class');
     });
-
+    
+    GoToModifyPageBtn?.addEventListener('click', ()=>{
+        var cname = document.getElementById('classSelect').value;
+        localStorage.setItem("currentClass",cname);
+    });
     /// creates a comment/feedback object
     let createFeedbackObject = () => {
         // get the input data from the dialog
@@ -80,7 +111,6 @@ function init() {
         const str = localStorage.getItem("comment");
         return JSON.parse(str);
     }
-
     /**
     * Saves an array of comments to 'comments' in localStorage.
     * 
@@ -105,11 +135,11 @@ function init() {
         }
     }
     /**
-    * Populates the page with comments
-    *
+    * Populates the page with comments on page reload
+    * 
     */
-    function generateComments() {
-        let currentComments = getCommentsFromStorage();
+    function generateComments(classTitle) {
+        let currentComments = getCommentsFromStorage("110");
         for (let i = 0; i < currentComments.length; i++) {
             let responses = currentComments[i].feedBack;
             let commBoxDiv = document.createElement('div');
@@ -119,8 +149,17 @@ function init() {
             document.body.insertBefore(commBoxDiv, dummyDiv);
         }
     }
-
-
+    /**
+    * function NewclassCategory(classname)
+    * 
+    * Operation: This function is used to assign default categories
+    * @author Chris
+    * @param className
+    */
+    function NewclassCategory(className){
+        var category = ["Exam","Lecture","Discussion"];
+        localStorage.setItem(className,JSON.stringify(category));
+    }
     /**
     * Reads comments from localstorage and renders to the selected element.
     * Also supports rendering a specific class's comments

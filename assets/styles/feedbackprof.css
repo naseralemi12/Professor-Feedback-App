@@ -1,16 +1,15 @@
-/*Essentially the same setup as feedbackstudent.css
-Leaving this file here simply for making it easier to connect files
-Will be better to condense all the stylesheets later
-*/
 /* General setup*/
 html, body {
     margin: 0;
     padding: 0;
+    font-family:Arial;
   }
   
 html {
     font-size: 20px;
-    background-color: #d8d4dd;
+    background: linear-gradient(120deg,#378ec9, #a754ca);
+    height: 100vh;
+    overflow: hidden;
 }
   
 body {
@@ -19,103 +18,179 @@ body {
     text-align: center;
 }
 
-h1 { 
-    display: block;
-    text-align: left;
-    font-size: medium;
-}
 
-.textbox {  
-    border-radius: 8px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid rgb(78, 94, 119);
-    width: 70%;
-    height: 200px;
-    background-color: rgb(233, 233, 233);
-    font-size: x-large;
-}
-
-
-.commentBox {  
-    display: block;
-    justify-content: center;
-    background-color: aliceblue;
-    color:black;
-    height: fit-content;
-    border: 2px solid black;
-
-    /* Center boxes inside div */
-    margin-top: 10px;  
-}
-
-.commentBox p{  
-    text-align: left;
-    padding-left: 1%;
-    font-size: medium;
+header {
+    display: inline;
+    text-align: center ;
 }
 
 h3 { 
     display: block;
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
 }
+/* Base styling for divs*/
+#div_select, 
+.addNewClass {
+    font-size: x-large;
+    padding-bottom: 8px;
+}
+
+/* Div internal element styling ID = DIV_SELECT*/
+#classSelect{
+    padding: 5px;
+    display: inline;
+    border-radius: 25px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+}
+/* End Div internal element styling ID = DIV_SELECT*/
+
+/* Div internal element styling CLASS = ADDNEWCLASS*/
+.addNewClass input[type=text] {
+    display: inline-flex;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid black;
+    outline:none;
+  }
+
+#addNewClassBtn {
+  display: inline;
+  background: linear-gradient(120deg,#000000, #000000);
+  color: white;
+  border-radius: 25px;
+  border: 1px solid;
+  text-align: center;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* End Div internal element styling CLASS = ADDNEWCLASS*/
 
 /* STYLING FOR <A> AS BUTTON */
 
-#addProfComment {
+#viewFeedback:link, 
+#viewFeedback:visited{
     margin-top: 10px;
-    margin-right: 86%;
     /* rounded corners w/ border */
     border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px 20px;
-    
-    background-color: rgb(207, 207, 207);
-    color:black;
+    border: 1px solid white;
+    padding: 5px 12px;
+
+    background: linear-gradient(120deg,#000000, #000000);
+    color:rgb(255, 255, 255);
+
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+}
+#viewFeedback:hover, 
+#viewFeedback:active{
+    background: linear-gradient(120deg,#282829, #3b3a3a);
+}
+
+
+#addProfComment, #viewFeedback, #modifyCategories {
+    margin-top: 10px;
+    /* rounded corners w/ border */
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 7px 20px;
+
+    background: linear-gradient(120deg,#000000, #000000);
+    color:rgb(255, 255, 255);
+
     text-align: center;
     text-decoration: none;
     display:inline-block;
 }
 
-#addProfComment:hover, #addProfComment:active{
-    margin-top: 10px;
-    margin-right: 86%;
+#nextPageButton:link, 
+#nextPageButton:visited{
+    margin-top: 7px;
+    margin-left: 62%;
     /* rounded corners w/ border */
     border-radius: 8px;
     border: 1px solid black;
-    padding: 5px 20px;
-    
+    padding: 7px 20px;
+
+    background-color: rgb(115, 115, 115);
     color:black;
+    
     text-align: center;
     text-decoration: none;
     display:inline-block;
+}
+
+#nextPageButton:hover, 
+#nextPageButton:active{
     background-color: rgb(187, 187, 187);
 }
 
-/* END <A> STYLING */
-
-.commentLinks {
-    display: inline-block;
-    width: 100%;
-}
-
-.commentLinks a {
-    justify-content: center;
-    font-size: large;
-}
-
-#goback {
-    margin-top: 5%;
-    margin-left: 91%;
+#logOutButton:link, 
+#logOutButton:visited{
+    margin-left: auto;
     /* rounded corners w/ border */
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px 20px;
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: .5% 1%;
     
-    background-color: rgb(207, 207, 207);
-    color:black;
+    background: linear-gradient(120deg,#e46464, #dd1e1e);
+    color:rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
-    display:inline-block;
+
+    position: absolute;
+    top: 93%;
+    left: 90%;
 }
+
+#logOutButton:hover, 
+#logOutButton:active{
+    background: linear-gradient(120deg,#dd2e2e, #720707);
+}
+
+.commentLinks {
+    display: block;
+}
+
+
+.ALinks:link, 
+.ALinks:visited{
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    color:black;
+    border-radius: 25px;
+    border: 1px solid black;
+
+    /* Center boxes inside div */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;  
+
+    padding: 7px;
+    width: 70%;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+.Alinks:hover, 
+.Alinks:active{
+    background-color: rgb(250, 118, 118);
+}
+
+
+#viewFeedback {
+    display: inline;
+    
+}
+
+/* logOutButton */
+/* END <A> STYLING */
