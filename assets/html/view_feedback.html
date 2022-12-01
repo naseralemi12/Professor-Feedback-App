@@ -13,20 +13,22 @@
 
 
 <body>
-  <h3 id="commentTitle"> No Feedback Selected </h3>
-  <h3 id="Categoryname"> Category: {Category Name} </h3>
-  <h3 id="Date"> Date: {Date} </h3>
-  <h3 id="Name"> Name: {Name} </h3>
-
-  <!-- Content of msg & container-->
-  <div class="textbox">
-    <p>Feedback Displayed Here</p>
+  <div id="feedbackDisplay" hidden="true">
+    <h3 id="commentTitle"> No Feedback Selected </h3>
+    <h3 id="Categoryname"> Category: {Category Name} </h3>
+    <h3 id="Date"> Date: {Date} </h3>
+    <h3 id="Name"> Name: {Name} </h3>
+  
+    <!-- Content of msg & container-->
+    <div class="textbox">
+      <p>Feedback Displayed Here</p>
+    </div>
   </div>
 
   <h2> Select Comment to View: </h2>
   <span>Please chose a category:</span>
   <select id="categorySelect">
-    <option>See All</option>
+    <option value="">See All</option>
   </select>
   <!-- Comments -->
   <div class="commentLinks">
