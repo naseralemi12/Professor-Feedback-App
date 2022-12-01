@@ -1,4 +1,11 @@
-/* General setup*/
+/**
+ * feedback.css
+ *
+ * Styles the page where students add comments.
+ * Has a title and content box to store info, 
+ * where the student can submit to their specific class.
+ */
+
 html, body {
     margin: 0;
     padding: 0;

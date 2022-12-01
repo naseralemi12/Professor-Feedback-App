@@ -1,3 +1,10 @@
+/**
+ * login.css
+ *
+ * Styles the login page.
+ * Login page should have a way to login as a student or professor.
+ */
+
 html, body {
     margin: 0;
     padding: 0;

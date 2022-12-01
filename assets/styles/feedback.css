@@ -1,4 +1,9 @@
-/* General setup*/
+/**
+ * feedback.css
+ *
+ * Styles the student feedback page.
+ */
+
 html, body {
     margin: 0;
     padding: 0;

@@ -1,4 +1,10 @@
-/* General setup*/
+/**
+ * profcomment.css
+ *
+ * Styles the page where the professor modifies categories.
+ * Have a clean way to add and delete categories.
+ */
+
 html, body {
     margin: 0;
     padding: 0;
