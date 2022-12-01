@@ -7,25 +7,19 @@ window.addEventListener('DOMContentLoaded', init);
  * Has a dropdown list and two buttons to view and add feedback.
  * @author Christian Velasquez, Kenny Fong
  */
+
+window.addEventListener('DOMContentLoaded', init);
+
+/** 
+ * Import Statements 
+ */
+import { generateDropDown, updateCurrClass} from "./helpers.js";
+
+
+var selectedClass;
 function init() {
-    const drop_down_list = document.getElementById("classSelect");
-    /**
-    * function generateDropDown()
-    * 
-    * Functionality for creating the dropdown list
-    * @author Christian Velasquez, Kenny Fong
-    */
-    function generateDropDown() {
-        drop_down_list.hidden = false;
-        drop_down_list.innerHTML = '<option value = "">See All</option>';
-        // create dropdown list
-        for (let i = 0; i < class_list.length; i++) {
-            const temp = document.createElement('option');
-            temp.value = class_list[i];
-            temp.innerHTML = class_list[i];
-            drop_down_list?.append(temp);
-        }
-    }
+    const dropdownList = document.getElementById("classSelect");
+    
     // Creates classList if it doesn't already exist
     if (localStorage.classList == undefined) {
         localStorage.setItem("classList", JSON.stringify([]));
@@ -34,22 +28,27 @@ function init() {
 
 
     // generate the dropdown selection
-    generateDropDown();
-    let fb_button = document.getElementById('addComment');
-    let view_fb = document.getElementById('view');
-    // take whatever drop_down_list.value is set to at the time of click & set local curr_class to it
-    fb_button.addEventListener('click' , () => {
-        // replace held value if different
-        let curr_class = {
-            class : document.getElementById("classSelect").value,
-        }
-        localStorage.setItem('currClass', JSON.stringify(curr_class));
+    generateDropDown(classList);
+    let fbButton = document.getElementById('addComment');
+    let viewFb = document.getElementById('view');
+
+    let classSelectedBtns = document.getElementById('classSelectedBtns');
+    let classSelection = document.getElementById('classSelect');
+
+    // when a class is selected from the dropdown the current class should be changed and the
+    // view feedback and modify categories buttons should be unhidden
+    classSelection?.addEventListener("change", () => {
+        // changes currClass in local storage 
+        updateCurrClass();
+        // unhide
+        classSelectedBtns.hidden = false;
     });
-    view_fb.addEventListener('click' , () => {
-        // replace held value if different
-        let curr_class = {
-            class : document.getElementById("classSelect").value,
-        }
-        localStorage.setItem('currClass', JSON.stringify(curr_class));
+
+
+    fbButton.addEventListener('click' , () => {
+        updateCurrClass();
+    });
+    viewFb.addEventListener('click' , () => {
+        updateCurrClass();
     });
 }
