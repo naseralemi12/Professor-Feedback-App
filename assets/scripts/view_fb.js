@@ -5,6 +5,18 @@ window.addEventListener('DOMContentLoaded', init);
  */
 import { filterSubmissions } from "./helpers.js"
 
+
+// sets goBack's destination based on whether we are 
+// a professor or student
+// Must run before init 
+let goBack = document.getElementById('goback');
+if (JSON.parse(localStorage.getItem('permission'))) {
+    goBack.href = "../html/professor_feedback_view.html";
+}
+else{
+    goBack.href = "../html/student_feedback_view.html";
+}
+
 /**
  * function init()
  * 
