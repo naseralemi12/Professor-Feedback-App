@@ -21,14 +21,13 @@ function init() {
     const dropdownList = document.getElementById("classSelect");
     
     // Creates classList if it doesn't already exist
-    if (localStorage.classList == undefined) {
+    if (!localStorage.getItem('classList')) {
         localStorage.setItem("classList", JSON.stringify([]));
     }
-    const class_list = JSON.parse(localStorage.classList);
-
+    const class_list = JSON.parse(localStorage.getItem('classList'));
 
     // generate the dropdown selection
-    generateDropDown(classList);
+    generateDropDown(class_list);
     let fbButton = document.getElementById('addComment');
     let viewFb = document.getElementById('view');
 
