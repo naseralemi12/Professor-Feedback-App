@@ -30,27 +30,28 @@ function init() {
                     match = true;
                 }
             }
+
+            if (match && radioStudentElement.checked) {
+                match = false;
+                location.assign("student_feedback_view.html");
+                // set permission to FALSE for student privileges 
+                localStorage.setItem('permission','false')
+            } else if (match && radioProfessorElement.checked) {
+                match = false;
+                window.location = "professor_feedback_view.html"; 
+                // set permission to TRUE for professor privileges 
+                localStorage.setItem('permission','true');
+            } else if (emailElement.value == "" || passwordElement.value == "" || !(radioStudentElement.checked || radioProfessorElement.checked)) {
+                warningMessage.innerHTML = "All fields are required. Please try again.";
+            } else if (!((JSON.stringify(emailElement.value).includes('@')) || (JSON.stringify(emailElement.value).includes('.')))) {
+                warningMessage.innerHTML = "Invalid Email. Please Enter a valid email.";
+                document.getElementById('form').reset();
+            } else {
+                warningMessage.innerHTML = "Wrong Email or Password. Please try again.";
+                // document.getElementById('form').reset();
+            }
         }
 
-        if (match && radioStudentElement.checked) {
-            match = false;
-            window.location = "student_feedback_view.html"; // Redirecting to other page.
-            // set permission to FALSE for student privileges 
-            localStorage.setItem('permission','false')
-        } else if (match && radioProfessorElement.checked) {
-            match = false;
-            window.location = "professor_feedback_view.html"; // Redirecting to other page.
-            // set permission to TRUE for professor privileges 
-            localStorage.setItem('permission','true');
-        } else if (emailElement.value == "" || passwordElement.value == "" || !(radioStudentElement.checked || radioProfessorElement.checked)) {
-            warningMessage.innerHTML = "All fields are required. Please try again.";
-        } else if (!((JSON.stringify(emailElement.value).includes('@')) || (JSON.stringify(emailElement.value).includes('.')))) {
-            warningMessage.innerHTML = "Invalid Email. Please Enter a valid email.";
-            document.getElementById('form').reset();
-        } else {
-            warningMessage.innerHTML = "Wrong Email or Password. Please try again.";
-            // document.getElementById('form').reset();
-        }
     });
 
 
