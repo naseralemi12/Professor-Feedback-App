@@ -99,11 +99,15 @@ function init() {
                     submissionsArr = temp;
                 }
 
-                document.querySelector('#commentTitle').innerHTML = "Title: " + comments[i].innerText; // setting title
+                document.querySelector('#commentTitle').innerHTML = "" + comments[i].innerText; // setting title
                 document.querySelector('.textbox').innerText = submissionsArr[i].feedBack;
                 document.querySelector('#Categoryname').innerText = "Category: " + submissionsArr[i].category;
-                document.querySelector('#Date').innerText = "Date: " + submissionsArr[i].date;
-                document.querySelector('#Name').innerText = "Name: " + submissionsArr[i].name;
+                document.querySelector('#Date').innerText = "Posted at " + submissionsArr[i].date + " by ";
+                document.querySelector('#Name').innerText = "" + submissionsArr[i].name;
+
+                if (submissionsArr[i].name === null) {
+                    document.querySelector('#Name').innerText = "Anonymous";
+                }
             });
         } 
     }

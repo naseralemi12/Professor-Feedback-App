@@ -98,3 +98,8 @@ h2 {
     margin: auto;
     display: block;
 }
+
+.button:hover, 
+.button:active{
+    background: linear-gradient(120deg, #1a5a85, #8232a5);
+}
