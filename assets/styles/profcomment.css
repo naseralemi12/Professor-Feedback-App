@@ -27,12 +27,36 @@ h1 {
     display: block;
     text-align: center;
     font-size: xx-large;
+    /* Bubble Frame */
+    border-radius: 5px 0px 80px 5px;
+    background: #ffffff;
+    opacity: 0.8;   
+    padding: 2%;
+    width: 100%;
+    height: 2.5%;
+    text-align: center;
+    /* position */
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    margin: auto;
+    display: block;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
 }
 
 h2 { 
     display: block;
     text-align: center;
     font-size: x-large;
+}
+
+hr {
+    /* position */
+    position: fixed;
+    top: 8%;
+    right: 15%;
+    margin: auto;
+    display: block;
 }
 
 /* Center Block Styling */
@@ -45,39 +69,60 @@ h2 {
     height: 80%;
     background: white;
     border-radius: 10px;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.5);
     object-fit: cover;
   }
 
 /* Textbox styling */
 #addNewCategory {
     margin-left: auto;
-    /* rounded corners w/ border */
-    border-radius: 15px;
-    border: 1px solid rgb(255, 255, 255);
-    padding: .5% 1%;
+    display: inline-flex;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    outline:none;
 
-    position: absolute; 
-    left: 2%;
-    top: 1.2%;
-    width: 25%;
+    /* rounded corners w/ border */
+    border-radius: 25px;
+    border: 1px solid #ccc;
+
+    /* size */
+    width: 10%;
+    height: 4%;
+
+    /* position */
+    position: fixed;
+    top: 3%;
+    right: 87%;
+    margin: auto;
+    display: block;
 }
 #addCategoryButton {
-    margin-left: auto;
-    /* rounded corners w/ border */
-    border-radius: 15px;
-    border: 1px solid rgb(255, 255, 255);
-    padding: .5% 1%;
-    
-    background: linear-gradient(120deg,#000000, #100118);
-    color:rgb(255, 255, 255);
-    text-align: center;
-    text-decoration: none;
+    /* size */
+    width: 2%;
+    height: 4%;
 
-    position: absolute; 
-    top: 6%;
-    left: 2%;
+    /* position */
+    position: fixed;
+    top: 3%;
+    left: 13.25%;
+
+    display: inline;
+    background: linear-gradient(120deg, #378ec9, #a754ca);
+    color: white;
+    border-radius: 25px;
+    border: 1px solid;
+    text-align: center;
+    cursor: pointer;
 }
+
+#addCategoryButton:hover, 
+#addCategoryButton:active{
+    background: linear-gradient(120deg, #174d72, #8224aa);
+}
+
 #goback {
     margin-left: auto;
     /* rounded corners w/ border */
@@ -94,14 +139,26 @@ h2 {
     top: 93%;
     left: 90%;
 }
+
+#goback:hover, 
+#goback:active{
+    background: linear-gradient(120deg,#dd2e2e, #720707);
+}
+
 #categorylist{
     padding-left: 25px;
     padding-right: 25px;
     border-spacing: 25px;
+    
 }
 #deletebutton {
+    /* rounded corners w/ border */
+    border-radius: 25px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: .5% 1%;
+
     transform: scale(1.3);
-    background: rgb(199, 45, 28);
+    background: linear-gradient(120deg,#e46464, #dd1e1e);
     color:rgb(255, 255, 255);
 }
 

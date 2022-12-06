@@ -11,13 +11,22 @@
   <script src="../scripts/view_fb.js" type="module"></script>
 </head>
 
+<header>
+  <!-- Header Message -->
+  <h1>View Comments</h1>
+</header>
 
 <body>
+  <div class="commentSelectBox"> 
+
+  </div>
+  <hr style="width:20%;text-align:left;margin-left:0">
+  <hr style="width:20%;text-align:left;margin-left:0" id="hrtwo">
   <div id="feedbackDisplay" hidden="true">
     <h3 id="commentTitle"> No Feedback Selected </h3>
     <h3 id="Categoryname"> Category: {Category Name} </h3>
-    <h3 id="Date"> Date: {Date} </h3>
-    <h3 id="Name"> Name: {Name} </h3>
+    <h3 id="Date"> {Date} </h3>
+    <h3 id="Name"> {Name} </h3>
   
     <!-- Content of msg & container-->
     <div class="textbox">
@@ -25,7 +34,10 @@
     </div>
   </div>
 
-  <h2> Select Comment to View: </h2>
+  <div class="viewCommentBox"> 
+
+  </div>
+  <h2> Select Comment to View </h2>
   <span>Please chose a category:</span>
   <select id="categorySelect">
     <option value="">See All</option>
