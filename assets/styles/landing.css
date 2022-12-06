@@ -13,7 +13,7 @@ body {
 
 html {
     font-size: 10px;
-    background: linear-gradient(120deg, #378ec9, #a754ca);
+    background-image: url(../media/images/landing.jpg);
     height: 100vh;
     overflow: hidden;
     font-family: Arial;
@@ -28,43 +28,73 @@ body {
 /* ~~ Rest of page styling */
 
 img {
-    width: 50%;
-    /*Css is confusing*/
+    width: 5.5%;
+    height: 9%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    /* position */
+    position: fixed;
+    right: 60%;
+    bottom: 90%;
+    margin: auto;
+    display: block;
 }
 
 header {
-    display: inline;
     text-align: center;
 }
 
-h3 {
+h1 {
     display: block;
+    font-size: xx-large;
+    /* Bubble Frame */
+    border-radius: 25px 5px 50px 5px;
+    background: #ffffff;
+    opacity: 0.75;   
+    padding: 2%;
+    width: 100%;
+    height: 2.5%;
     text-align: center;
-    font-size: x-large;
+    /* position */
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    margin: auto;
+    display: block;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    display: block;
+    font-size: 55px;
+    background: -webkit-linear-gradient(120deg, #378ec9, #a754ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* position */
+    position: fixed;
+    top: 40%;
+    right: 37%;
 }
 
 
 /* Button Styling */
 
 .button {
-    /* position */
-    position: relative;
-    top: 20px;
-    margin: auto;
-    display: block;
     /* border and color */
-    background: linear-gradient(120deg, #032760, #000505);
-    border-radius: 25px;
-    border: 3px solid;
-    border-color: #eda240;
-    width: 50%;
-    height: 40px;
+    background: linear-gradient(120deg, #378ec9, #a754ca);
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: #798cf7;
+    width: 15%;
+    padding: 5px;
     /* text */
     font-size: 24px;
     text-decoration: none;
     text-align: center;
     color: white;
+    /* position */
+    position: fixed;
+    top: 60%;
+    right: 45%;
+    margin: auto;
+    display: block;
 }

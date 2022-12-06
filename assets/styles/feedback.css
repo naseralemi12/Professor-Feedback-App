@@ -24,29 +24,79 @@ body {
 }
 
 header {
-    display: inline;
     text-align: center;
 }
 
-h3 {
+h1 {
+    display: block;
+    font-size: xx-large;
+    /* Bubble Frame */
+    border-radius: 25px 5px 50px 5px;
+    background: #ffffff;
+    opacity: 0.8;   
+    padding: 2%;
+    width: 100%;
+    height: 2.5%;
+    text-align: center;
+    /* position */
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    margin: auto;
+    display: block;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+h3 { 
     display: block;
     text-align: center;
     font-size: x-large;
+    /* position */
+    position: fixed;
+    top: 22%;
+    right: 51.5%;
+    margin: auto;
+    display: block;
 }
 
-
-/* Base styling for divs*/
-
-#div_select,
-.addNewClass {
-    font-size: x-large;
-    padding-bottom: 8px;
+hr {
+    /* position */
+    position: fixed;
+    top: 25%;
+    right: 41%;
+    margin: auto;
+    display: block;
 }
 
+/* Inside Center Frame */
+.center {
+    /* position */
+    position: fixed;
+    top: 50%;
+    left: 50%;
 
-/* Div internal element styling ID = DIV_SELECT*/
+    /* size */
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 60%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+span {
+    /* position */
+    position: fixed;
+    top: 26%;
+    left: 39%;
+}
 
 #classSelect {
+    position: fixed;
+    top: 26%;
+    left: 49.5%;
+
+    /* internal element style */
     padding: 5px;
     display: inline;
     border-radius: 25px;
@@ -55,89 +105,63 @@ h3 {
     cursor: pointer;
 }
 
+/* Button Segment */
+#view {
+    /* size */
+    width: 8%;
+    height: 6%;
 
-/* End Div internal element styling ID = DIV_SELECT*/
+    /* position */
+    position: fixed;
+    top: 30%;
+    left: 39%;
 
-
-/* Div internal element styling CLASS = ADDNEWCLASS*/
-
-.addNewClass input[type=text] {
-    display: inline-flex;
-    padding: 12px 20px;
-    margin: 8px 0;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border: 1px solid black;
-    outline: none;
-}
-
-#addNewClassBtn {
-    display: inline;
-    border-radius: 25px;
-    border: 1px solid;
-    text-align: center;
-    height: 30px;
-    cursor: pointer;
-}
-
-
-/* End Div internal element styling CLASS = ADDNEWCLASS*/
-
-
-/* STYLING FOR <A> AS BUTTON */
-
-#addComment:link,
-#addComment:visited {
-    margin-top: 10px;
     /* rounded corners w/ border */
     border-radius: 8px;
-    border: 1px solid white;
-    padding: 7px 20px;
-    background: linear-gradient(120deg, #000000, #000000);
-    color: rgb(255, 255, 255);
+    padding: 0px;
+
+    background: linear-gradient(120deg, #378ec9, #a754ca);
+    color:rgb(255, 255, 255);
+
     text-align: center;
+    font-size: 25px;
     text-decoration: none;
-    display: inline-block;
+    display: block;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
-#addComment:hover,
-#addComment:active {
-    background: linear-gradient(120deg, #0f011a, #000000);
-}
+#addComment {
+    /* size */
+    width: 8%;
+    height: 6%;
 
-#view:link,
-#view:visited {
-    margin-top: 10px;
+    /* position */
+    position: fixed;
+    top: 30%;
+    left: 49%;
+ 
     /* rounded corners w/ border */
     border-radius: 8px;
-    border: 1px solid white;
-    padding: 7px 20px;
-    background: linear-gradient(120deg, #000000, #000000);
-    color: rgb(255, 255, 255);
+    padding: 0px;
+
+    background: linear-gradient(120deg, #378ec9, #a754ca);
+    color:rgb(255, 255, 255);
+
     text-align: center;
+    font-size: 25px;
     text-decoration: none;
-    display: inline-block;
+    display: block;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
-#nextPageButton:link,
-#nextPageButton:visited {
-    margin-top: 7px;
-    margin-left: 62%;
-    /* rounded corners w/ border */
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 7px 20px;
-    background-color: rgb(115, 115, 115);
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+#view:hover, 
+#view:active{
+    background: linear-gradient(120deg, #174d72, #8224aa);
 }
 
-#nextPageButton:hover,
-#nextPageButton:active {
-    background-color: rgb(187, 187, 187);
+#addComment:hover, 
+#addComment:active{
+    background: linear-gradient(120deg, #174d72, #8224aa);
 }
 
 #logOutButton:link,
@@ -187,13 +211,6 @@ h3 {
 .Alinks:active {
     background-color: rgb(250, 118, 118);
 }
-
-#viewFeedback {
-    display: inline;
-}
-
-
-/* logOutButton */
 
 
 /* END <A> STYLING */
