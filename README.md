@@ -2,7 +2,17 @@
 ![Logo](admin/branding/logo.png) <!-- logo -->
 # Professor Feedback App
 
-This is a web application designed to collect and manage feedback from students about their professors. It allows students to rate their professors on various criteria and leave comments about their experiences.
+This is a web application designed to collect and manage feedback from students about their professors. It allows students to rate their professors on various criteria and leave comments about their experiences. Home page: This is the landing page of the application, which includes a brief description of the purpose and features of the application.
+
+Login and registration pages: These pages allow users to create new accounts or log in to existing accounts.
+
+Professor directory page: This page displays a list of all the professors in the system, along with their ratings and comments.
+
+Professor details page: This page shows detailed information about a specific professor, including their name, department, ratings, and comments.
+
+Feedback submission page: This page allows students to submit feedback on a particular professor.
+
+Admin dashboard: This page is accessible only to administrators and provides them with a way to manage feedback and professors. It includes functionality such as editing or deleting feedback and adding or removing professors.
 
 ## Features
 
