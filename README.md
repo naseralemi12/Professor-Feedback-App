@@ -1,5 +1,28 @@
 <!--# This is a readme file for cse 110 fall 2022 group 31 github.  _-->
 ![Logo](admin/branding/logo.png) <!-- logo -->
+# Professor Feedback App
+
+This is a web application designed to collect and manage feedback from students about their professors. It allows students to rate their professors on various criteria and leave comments about their experiences.
+
+## Features
+
+- Student login and registration
+- Professor directory with ratings and comments
+- Ability for students to submit feedback on a professor
+- Admin dashboard for managing feedback and professors
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB
+- Bootstrap
+
+## Installation
+
+1. Clone the repository:
+
+
 # Link: [Team Page](https://github.com/cse110-fa22-group31/cse110-fa22-group31/blob/main/admin/team.md)
 <details>   <!--drop down description  menu for info about team members -->
 <summary><h2>About Us:</h2></summary>
