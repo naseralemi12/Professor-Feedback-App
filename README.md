@@ -22,7 +22,8 @@ This is a web application designed to collect and manage feedback from students 
 
 1. Clone the repository:git clone https://github.com/naseralemi12/Professor-Feedback-App.git
 
-## Languages Used: HTML, CSS, JavaScript, Python, SQL
+## Languages Used
+- HTML, CSS, JavaScript, Python, SQL
 
 
 # Link: [Team Page](https://github.com/cse110-fa22-group31/cse110-fa22-group31/blob/main/admin/team.md)
