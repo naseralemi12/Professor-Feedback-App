@@ -72,7 +72,7 @@ Admin dashboard: This page is accessible only to administrators and provides the
 </tbody></table>
 
 ## Demo Video
-<>
+![demo vdeo](./admin/videos/publicfinalprojectvideo.mp4)
 
 ## Sample Output
 ![output1](./f1.png)
