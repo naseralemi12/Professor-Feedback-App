@@ -71,3 +71,14 @@ Admin dashboard: This page is accessible only to administrators and provides the
 <tr><th>Kenny Fong</th><td><a href="https://github.com/KenKunoo">Github Page</a></td></tr>
 </tbody></table>
 
+## Demo Video
+<>
+
+## Sample Output
+![output1](./f1.png)
+![output2](./f2.png)
+![output3](./f3.png)
+![output4](./f4.png)
+![output5](./f5.png)
+![output6](./f6.png)
+
